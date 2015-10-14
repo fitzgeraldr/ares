@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:49" />
+  <title>Outer Join Escape Sequences</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp17386"> </a><h1 class="pNewHTMLPageNoNum">
+Outer Join Escape Sequences
+</h1>
+<hr /><a name="wp75432"> </a><p class="pBody">
+JDBC supports the SQL92 left, right, and full outer join syntax. The escape sequence for outer joins is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{oj <code><em>outer-join</em></code>}<a name="wp17388"> </a>
+</pre></div>
+<a name="wp17389"> </a><p class="pBody">
+where <code><em>outer-join</em></code> is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<em class="cEmphasis">table-reference</em> {LEFT | RIGHT | FULL} OUTER JOIN 
+{<code><em>table-reference</em></code> | outer-join} ON <code><em>search-condition</em></code><a name="wp17390"> </a>
+</pre></div>
+<a name="wp17391"> </a><p class="pBody">
+where<em class="cEmphasis"> </em><code><em>table-reference</em></code> is a table name, and <code><em>search-condition</em></code> is the join condition you want to use for the tables.
+</p>
+<a name="wp17392"> </a><p class="pBodyBold">
+Example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT Customers.CustID, Customers.Name, Orders.OrderID, 
+Orders.Status<a name="wp17393"> </a>
+  FROM {oj Customers LEFT OUTER JOIN 
+        Orders ON Customers.CustID=Orders.CustID}<a name="wp17394"> </a>
+  WHERE Orders.Status=&#39;OPEN&#39;<a name="wp17395"> </a>
+</pre></div>
+<a name="wp17399"> </a><p class="pBody">
+<a  href="scalarfn5.html#wp39597">Table&#160;B-10</a> lists the outer join escape sequences supported by SequeLink for each data store.
+</p>
+<a name="wp39638"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp39597"> </a><div class="pTableTitleBold">
+Table B-10.  Outer Join Escape Sequences Supported
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp39607"> </a><div class="pCellHeading">
+Data Store
+</div>
+</th>
+    <th><a name="wp39609"> </a><div class="pCellHeading">
+Outer Join Escape Sequences
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp39611"> </a><div class="pCellBody">
+DB2 on z/OS
+</div>
+</td>
+    <td><a name="wp39613"> </a><div class="pCellBody">
+Left outer joins<br />Right outer joins<br />Full outer joins<br />Nested outer joins<br />Inner outer joins
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp39615"> </a><div class="pCellBody">
+DB2 on Windows and UNIX
+</div>
+</td>
+    <td><a name="wp39617"> </a><div class="pCellBody">
+Left outer joins<br />Right outer joins<br />Full outer joins<br />Nested outer joins<br />Unordered outer joins<br />Inner outer joins
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp39619"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp39621"> </a><div class="pCellBody">
+Left outer joins<br />Unordered outer joins
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp39623"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp39625"> </a><div class="pCellBody">
+Left outer joins<br />Right outer joins<br />Full outer joins<br />Nested outer joins
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

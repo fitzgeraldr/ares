@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Configuring JDBC Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041551"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring JDBC Data Sources
+</h1>
+<hr /><a name="wp1041552"> </a><p class="pBody">
+Using JDBC data sources provides flexibility to make environment changes and reduces the time it takes to reconfigure your infrastructure when a change is made. For example, if a SequeLink service is reconfigured (for example, moved to another machine, port, and so on), the SequeLink administrator can change and run the configuration source file described in <a  href="usejdbc5.html#wp1041567">&quot;Creating and Managing JDBC Data Sources&quot;</a>, reassigning the logical name of the JDBC data source to the changed data source configuration. As a result, the client application code does not have to change, because it only refers to the logical name of the JDBC data source. 
+</p>
+<a name="wp1041556"> </a><p class="pBody">
+SequeLink supports the following JDBC data source implementations defined by the JDBC 2.0 Optional Package:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041560"> </a><div class="pSmartList1"><li>JNDI for Naming Databases</li></div><a name="wp1041561"> </a><div class="pSmartList1"><li>Connection pooling</li></div><a name="wp1041562"> </a><div class="pSmartList1"><li>Distributed Transaction Management Support</li></div></ul></div>
+<a name="wp1041563"> </a><p class="pBody">
+NOTES: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041564"> </a><div class="pSmartList1"><li>You must include the javax.sql.* and javax.naming.* classes to create and use JDBC data sources. The JDBC Client provides all the necessary JAR files that contain the required classes and interfaces.</li></div><a name="wp1041565"> </a><div class="pSmartList1"><li>In addition, you must include the javax.transaction.xa.* class to use and implement distributed transactions.</li></div></ul></div>
+<a name="wp1041567"> </a><h3 class="pHeading2">
+Creating and Managing JDBC Data Sources
+</h3>
+<a name="wp1041574"> </a><p class="pBody">
+JDBC data sources are implemented using a SequeLink class com.ddtek.sequelink.jdbcx.datasource.SequeLinkDataSource. This single data source implementation implements the following interfaces defined in the JDBC 2.0 Optional Package:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041578"> </a><div class="pSmartList1"><li>javax.sql.DataSource</li></div><a name="wp1041579"> </a><div class="pSmartList1"><li>javax.sql.ConnectionPoolDataSource</li></div><a name="wp1041580"> </a><div class="pSmartList1"><li>javax.sql.XADataSource</li></div></ul></div>
+<a name="wp1041581"> </a><p class="pBody">
+The SequeLink Data Source implementation implements both the java.io.Serializable and javax.naming.Referenceable interfaces. The interface that is used depends on the service provider you are using and how the SequeLinkDataSource object is saved in your JNDI environment.
+</p>
+<a name="wp1041585"> </a><p class="pBody">
+Your JDBC Client installation contains the following examples that show how to create and use JDBC data sources:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041586"> </a><div class="pSmartList1"><li>JNDI_LDAP_Example.java. Use this example to create a JDBC data source and save it in your LDAP directory, using the JNDI Provider for LDAP.</li></div><a name="wp1041587"> </a><div class="pSmartList1"><li>JNDI_FILESYSTEM_Example.java. Use this example to create a JDBC data source and save it in your local file system, using the File System JNDI Provider.</li></div></ul></div>
+<a name="wp1041592"> </a><h3 class="pHeading2">
+Using JNDI for Naming Databases
+</h3>
+<a name="wp1041593"> </a><p class="pBody">
+Instead of using connection URLs, client applications can access a JNDI-named data source using a logical name to retrieve the javax.sql.DataSource object. This object loads the JDBC driver and establishes the connection to the SequeLink service. 
+</p>
+<a name="wp1041594"> </a><p class="pBody">
+Once a JDBC data source has been registered with JNDI, it can be used by your JDBC application as shown in the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Context ctx = new InitialContext();<a name="wp1041595"> </a>
+DataSource ds = (DataSource)ctx.lookup(&#8220;jdbc/EmployeeDB&#8221;);<a name="wp1041596"> </a>
+Connection con = ds.getConnection(&#8220;scott&#8221;, &#8220;tiger&#8221;);<a name="wp1041597"> </a>
+</pre></div>
+<a name="wp1041598"> </a><p class="pBody">
+In this example, the JNDI environment is first initialized. Next, the initial naming context is used to find the logical name of the JDBC data source. The Context.lookup() method returns a reference to a Java object, which is narrowed to a javax.sql.DataSource object. Finally, the DataSource.getConnection() method is called to establish a connection with the SequeLink service.
+</p>
+<a name="wp1041602"> </a><p class="pBody">
+See <a  href="usejdbc5.html#wp1041567">&quot;Creating and Managing JDBC Data Sources&quot;</a> for instructions on creating JDBC data sources.
+</p>
+<a name="wp1041608"> </a><h3 class="pHeading2">
+Using Connection Pooling
+</h3>
+<a name="wp1041609"> </a><p class="pBody">
+Connection pooling allows you to reuse connections rather than create a new one every time the SequeLink Client needs to establish a data access connection. Connection pooling manages connection sharing across different user requests to maintain performance and reduce the number of new connections that must be created. For example, compare the transaction sequences shown in <a  href="usejdbc5.html#wp1041617">&quot;Example&#160;A: Without Connection Pooling&quot;</a> and <a  href="usejdbc5.html#wp1041624">&quot;Example B: With Connection Pooling&quot;</a>.
+</p>
+<a name="wp1041617"> </a><p class="pBodyBold">
+Example&#160;A: Without Connection Pooling
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp1041618"> </a><div class="pSmartList1"><li>The client application creates a connection.</li></div><a name="wp1041619"> </a><div class="pSmartList1"><li>The client application sends a data access query.</li></div><a name="wp1041620"> </a><div class="pSmartList1"><li>The client application obtains the result set of the query.</li></div><a name="wp1041621"> </a><div class="pSmartList1"><li>The client application displays the result set to the end user.</li></div><a name="wp1041622"> </a><div class="pSmartList1"><li>The client application ends the connection.</li></div></ol></div>
+<a name="wp1041624"> </a><p class="pBodyBold">
+Example B: With Connection Pooling
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp1041625"> </a><div class="pSmartList1"><li>The client checks the connection pool for an unused connection.</li></div><a name="wp1041626"> </a><div class="pSmartList1"><li>If an unused connection exists, it is returned by the pool implementation; otherwise, it creates a new connection.</li></div><a name="wp1041627"> </a><div class="pSmartList1"><li>The client application sends a data access query.</li></div><a name="wp1041628"> </a><div class="pSmartList1"><li>The client application obtains the result set of the query.</li></div><a name="wp1041629"> </a><div class="pSmartList1"><li>The client application displays the result set to the end user.</li></div><a name="wp1041630"> </a><div class="pSmartList1"><li>The client application returns the connection to the pool.</li></div></ol></div>
+<a name="wp1041631"> </a><p class="pBody">
+NOTE: The client application still calls close(), but the connection remains open and the pool is notified of the close request.
+</p>
+<a name="wp1041632"> </a><p class="pBody">
+The pool implementation creates real database connections using the getPooledConnection() method of ConnectionPoolDataSource. Then, the pool implementation registers itself as a listener to the PooledConnection. When a client application requests a connection, the pool implementation is notified by the ConnectionEventListener interface that the connection is free and available for reuse. The pool implementation is also notified by the ConnectionEventListener interface when the client somehow corrupts the database connection, so that the pool implementation can remove that connection from the pool.
+</p>
+<a name="wp1041633"> </a><p class="pBody">
+Once a JDBC data source has been registered with JNDI, it can be used by your JDBC application as shown in the following example, typically through a third-party connection pool tool:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Context ctx = new InitialContext();<a name="wp1041634"> </a>
+ConnectionPoolDataSource ds = (ConnectionPoolDataSource)
+ctx.lookup(&quot;jdbc/EmployeeDB&quot;);<a name="wp1041635"> </a>
+pooledConnection pcon = ds.getPooledConnection(&quot;scott&quot;, 
+&quot;tiger&quot;);<a name="wp1041636"> </a>
+</pre></div>
+<a name="wp1041637"> </a><p class="pBody">
+In this example, the JNDI environment is first initialized. Next, the initial naming context is used to find the logical name of the JDBC data source. The Context.lookup() method returns a reference to a Java object, which is narrowed to a javax.sql.ConnectionPoolDataSource object. Finally, the ConnectionPoolDataSource.getPooledConnection() method is called to establish a connection with the SequeLink service.
+</p>
+<a name="wp1041641"> </a><p class="pBody">
+See <a  href="usejdbc5.html#wp1041567">&quot;Creating and Managing JDBC Data Sources&quot;</a> for instructions on creating JDBC data sources. See <a  href="pool.html#wp68486">&quot;JDBC Connection Pool Manager&quot;</a> for more information on the DataDirect Connection Pool Manager.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>About the JDBC Client</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041131"> </a><h1 class="pNewHTMLPageNoNum">
+About the JDBC Client
+</h1>
+<hr /><a name="wp1041132"> </a><p class="pBody">
+The JDBC Client provides JDBC access through any Java-enabled applet, application, or application server. It delivers high-performance point-to-point and <em class="cEmphasis">n</em>-tier access to industry-leading data stores across the Internet and intranets. The JDBC Client is optimized for the Java environment, allowing you to incorporate Java technology and extend the functionality and performance of your existing system. The following components are shipped with the JDBC Client:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041133"> </a><div class="pSmartList1"><li>SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> Driver</li></div><a name="wp1041134"> </a><div class="pSmartList1"><li>SequeLink Proxy Server</li></div><a name="wp1041135"> </a><div class="pSmartList1"><li>DataDirect Spy</li></div><a name="wp1041136"> </a><div class="pSmartList1"><li>DataDirect Test</li></div><a name="wp1041137"> </a><div class="pSmartList1"><li>DataDirect Connection Pool Manager</li></div><a name="wp1041138"> </a><div class="pSmartList1"><li>J2EE Connector Architecture (JCA) resource adapters</li></div></ul></div>
+<a name="wp1041142"> </a><h3 class="pHeading2">
+JDBC Driver
+</h3>
+<a name="wp1041143"> </a><p class="pBody">
+The JDBC driver is compliant with the JDBC 3.0 specification. The JDBC driver also supports the JDBC 2.0 Optional Package, which provides the following functionality:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041147"> </a><div class="pSmartList1"><li>Java Naming Directory Interface (JNDI) for naming databases</li></div><a name="wp1041148"> </a><div class="pSmartList1"><li>Connection Pooling</li></div><a name="wp1041149"> </a><div class="pSmartList1"><li>Distributed Transactions Management support</li></div></ul></div>
+<a name="wp1041151"> </a><h3 class="pHeading2">
+SequeLink® Proxy Server
+</h3>
+<a name="wp1051783"> </a><p class="pBody">
+Installing the SequeLink Proxy Server on the Web server from which your JDBC applets are downloaded allows untrusted applets to connect to SequeLink Servers on hosts other than the Web server,  
+</p>
+<a name="wp1051842"> </a><p class="pBody">
+In addition, you can use Secure Socket Layer (SSL) encryption with the proxy server to encrypt data between the SequeLink Proxy Server and the JDBC Client. You can also use SSL with a Java application running on your Intranet to secure data over your entire network by installing the SequeLink Proxy Server on the same machine as the SequeLink Server. For example, you may want to use SSL to encrypt the data sent between an application server and the data store serviced by a SequeLink Server on another machine. For more information about SSL, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</p>
+<a name="wp1041224"> </a><p class="pBody">
+ 
+</p>
+<a name="wp1041228"> </a><h3 class="pHeading2">
+DataDirect Spy
+</h3>
+<a name="wp1054285"> </a><p class="pBody">
+DataDirect Spy passes calls issued by a running application to an underlying JDBC driver and logs detailed information about those calls, information you can use for troubleshooting problems. DataDirect Spy provides the following advantages:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054286"> </a><div class="pSmartList1"><li>Logging is JDBC 1.22-, JDBC 2.0-, and JDBC 3.0-compliant, including support for the JDBC 2.0 Optional Package.</li></div><a name="wp1054287"> </a><div class="pSmartList1"><li>Logging is consistent, regardless of the JDBC driver used.</li></div><a name="wp1054288"> </a><div class="pSmartList1"><li>All parameters and function results for JDBC calls can be logged.</li></div><a name="wp1054289"> </a><div class="pSmartList1"><li>Logging can be enabled, without changing the application, using the SequeLinkDataSource object.</li></div><a name="wp1054290"> </a><div class="pSmartList1"><li>Spy can only be used with the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> Driver and the DataDirect Technologies Connect <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver.</li></div></ul></div>
+<a name="wp1054294"> </a><p class="pBody">
+When you enable DataDirect Spy for a connection, you can customize DataDirect Spy logging for your needs by setting one or multiple options for DataDirect Spy. For example, you may want to direct logging to a local file on your machine.
+</p>
+<a name="wp1054296"> </a><p class="pBody">
+Once DataDirect Spy logging is enabled for a connection, you can turn on and off the logging at runtime using the setEnableLogging method in the com.ddtek.jdbc.extensions.ExtLogControl interface. See <a  href="diagnostics2.html#wp616142"><a  href="diagnostics2.html#wp616142">&quot;Generating a DataDirect Spy Log&quot;</a></a> for information about using a DataDirect Spy log for troubleshooting.
+</p>
+<a name="wp1041242"> </a><p class="pBody">
+ 
+</p>
+<a name="wp1041243"> </a><h3 class="pHeading2">
+DataDirect Test
+</h3>
+<a name="wp1050278"> </a><p class="pBody">
+DataDirect Test contains menu selections that correspond to specific JDBC functions&#8212;for example, connecting to a database or passing a SQL statement. It allows you to:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1050279"> </a><div class="pSmartList1"><li>Execute a single JDBC method or execute multiple JDBC methods simultaneously, so that you can easily perform some common tasks, such as returning result sets</li></div><a name="wp1050280"> </a><div class="pSmartList1"><li>Display the results of all JDBC function calls in one window, while displaying fully commented, Java JDBC code in an alternate window</li></div></ul></div>
+<a name="wp1041252"> </a><p class="pBody">
+ 
+</p>
+<a name="wp1041254"> </a><h3 class="pHeading2">
+DataDirect Connection Pool Manager
+</h3>
+<a name="wp1041255"> </a><p class="pBody">
+Database access performance can be improved significantly when connection pooling is used. Connection pooling means that connections are reused rather than created each time a connection is requested. Your application can use connection pooling through the DataDirect Connection Pool Manager.
+</p>
+<a name="wp1041259"> </a><p class="pBody">
+See <a  href="pool.html#wp68486">&quot;JDBC Connection Pool Manager&quot;</a> for more information about the DataDirect Connection Pool Manager.
+</p>
+<a name="wp1041262"> </a><h3 class="pHeading2">
+J2EE Connector Architecture (JCA) Resource Adapter
+</h3>
+<a name="wp1041263"> </a><p class="pBody">
+The J2EE Connector architecture (JCA) defines a standard structure for connecting the J2EE platform to Enterprise Information Systems (EISs). JCA enables the integration of EISs with application servers and enterprise applications.
+</p>
+<a name="wp1041264"> </a><p class="pBody">
+The JDBC Driver supports appropriate JDBC functionality through the JCA SPI by providing a resource adapter. The DataDirect resource adapter is provided in a resource archive (RAR) file, and is named like the JDBC driver files, for example, sljc.rar. See the Installed File list in the SequeLink readme file for the names and locations of the RAR files. See the <em class="cEmphasis">SequeLink Installation Guide</em> for information about creating the resource adapters. See <a  href="usejdbc7.html#wp1041720">&quot;J2EE Connector Architecture (JCA) Resource Adapter&quot;</a> for more information about using resource adapters with SequeLink.
+</p>
+<a name="wp1041276"> </a><h3 class="pHeading2">
+JDBC Client Directory Structure
+</h3>
+<a name="wp1056102"> </a><p class="pBody">
+<a  href="usejdbc2.html#wp1056109">Table&#160;1-1</a> shows the JDBC Client directory after installation and provides a description of the files.
+</p>
+<a name="wp1056263"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp1056109"> </a><div class="pTableTitleBold">
+Table 1-1.  JDBC Client Directory and Files&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1056114"> </a><div class="pCellHeading">
+Directories and Files
+</div>
+</th>
+    <th><a name="wp1056116"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1056118"> </a><div class="pCellBody">
+books/*.*
+</div>
+</td>
+    <td><a name="wp1056120"> </a><div class="pCellBody">
+Files for the SequeLink online books, which are in PDF format.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056122"> </a><div class="pCellBody">
+driver/examples/CheckAgainstCertificateFromFile.java<br />driver/examples/CheckAgainstCertificateFromJar.java<br />driver/examples/KeyStoreCertificateChecker.java
+</div>
+</td>
+    <td><a name="wp1056124"> </a><div class="pCellBody">
+Contain Java source files that provide examples of certificate checkers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056126"> </a><div class="pCellBody">
+driver/examples/JNDI_FILESYSTEM_Example.java<br />driver/examples/JNDI_LDAP_Example.java
+</div>
+</td>
+    <td><a name="wp1056128"> </a><div class="pCellBody">
+Contain Java source files that allow you to create JDBC data sources. These source files must be adapted for your environment, and subsequently compiled and run.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056131"> </a><div class="pCellBody">
+driver/lib/sljc.jar
+</div>
+</td>
+    <td><a name="wp1056133"> </a><div class="pCellBody">
+JAR file containing all classes of the JDBC driver implementing the JDBC&#160;3.0 API. To load the driver, add this path to your CLASSPATH variable. This JAR file also contains all classes of the JDBC driver implementing the JDBC 2.0 Optional Package. To use the JDBC 2.0 Optional Package, add this path to your CLASSPATH variable.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056143"> </a><div class="pCellBody">
+driver/lib/slssl.jar
+</div>
+</td>
+    <td><a name="wp1056145"> </a><div class="pCellBody">
+JAR file required for pre-JDK 1.4 JVMs. The files contain all classes of the JDBC driver that implement Secure Socket Layer (SSL) encryption.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056148"> </a><div class="pCellBody">
+driver/lib/slssl14.jar<br />driver/lib/iaik_jce_full.jar
+</div>
+</td>
+    <td><a name="wp1056150"> </a><div class="pCellBody">
+JAR files required for JDK 1.4 or higher JVMs. The files contain all classes of the JDBC driver that implement Secure Socket Layer (SSL) encryption.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056153"> </a><div class="pCellBody">
+driver/lib/sljc.rar
+</div>
+</td>
+    <td><a name="wp1056156"> </a><div class="pCellBody">
+Resource Archive for use with J2EE Connector Architecture.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056158"> </a><div class="pCellBody">
+help/*.*
+</div>
+</td>
+    <td><a name="wp1056160"> </a><div class="pCellBody">
+Files for the HTML-based online help for the JDBC driver.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056162"> </a><div class="pCellBody">
+testforjdbc/lib/testforjdbc.jar
+</div>
+</td>
+    <td><a name="wp1056164"> </a><div class="pCellBody">
+JAR file containing all the DataDirect Test classes. To use DataDirect Test, add this path to your CLASSPATH variable.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056167"> </a><div class="pCellBody">
+testforjdbc/testforjdbc.bat
+</div>
+</td>
+    <td><a name="wp1056169"> </a><div class="pCellBody">
+Batch file that starts DataDirect Test.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056171"> </a><div class="pCellBody">
+testforjdbc/testforjdbc14.bat
+</div>
+</td>
+    <td><a name="wp1056173"> </a><div class="pCellBody">
+Batch file that starts DataDirect Test (for use with JVM 1.4 or higher).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056175"> </a><div class="pCellBody">
+testforjdbc/testforjdbc.sh
+</div>
+</td>
+    <td><a name="wp1056177"> </a><div class="pCellBody">
+UNIX shell script that starts DataDirect Test.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056179"> </a><div class="pCellBody">
+testforjdbc/testforjdbc14.sh
+</div>
+</td>
+    <td><a name="wp1056181"> </a><div class="pCellBody">
+UNIX shell script that starts DataDirect Test (for use with JVM&#160;1.4 or higher).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056183"> </a><div class="pCellBody">
+pool/lib/pool.jar
+</div>
+</td>
+    <td><a name="wp1056185"> </a><div class="pCellBody">
+JAR file containing all the classes for the DataDirect Connection Pool Manager.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056188"> </a><div class="pCellBody">
+proxy/cmdsrvc.exe
+</div>
+</td>
+    <td><a name="wp1056190"> </a><div class="pCellBody">
+Executable that registers the SequeLink Proxy Server as a Windows service.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056193"> </a><div class="pCellBody">
+proxy/decrypt.bat<br />proxy/decrypt14.bat<br />proxy/encrypt.bat<br />proxy/encrypt14.bat
+</div>
+</td>
+    <td><a name="wp1056195"> </a><div class="pCellBody">
+Batch files that decrypt and encrypt the private key of the SequeLink Proxy Server certificate.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056197"> </a><div class="pCellBody">
+proxy/decrypt.sh<br />proxy/encrypt.sh
+</div>
+</td>
+    <td><a name="wp1056199"> </a><div class="pCellBody">
+UNIX shell scripts that decrypt and encrypt the private key of the SequeLink Proxy Server certificate.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056201"> </a><div class="pCellBody">
+proxy/proxyserver.bat<br />proxy/proxyserver14.bat
+</div>
+</td>
+    <td><a name="wp1056203"> </a><div class="pCellBody">
+Batch file that starts the SequeLink Proxy Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056205"> </a><div class="pCellBody">
+proxy/proxyserver.sh
+</div>
+</td>
+    <td><a name="wp1056207"> </a><div class="pCellBody">
+UNIX shell script that starts the SequeLink Proxy Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056210"> </a><div class="pCellBody">
+proxy/cert/
+</div>
+</td>
+    <td><a name="wp1056212"> </a><div class="pCellBody">
+Directory containing demo certificates.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056214"> </a><div class="pCellBody">
+proxy/demos/com/ddtek/sequelink/demo/<br />demo.properties<br />proxy/demos/com/ddtek/sequelink/demo/<br />GenerateDemoCertificates$DN.class<br />proxy/demos/com/ddtek/sequelink/demo/<br />GenerateDemoCertificates.class
+</div>
+</td>
+    <td><a name="wp1056216"> </a><div class="pCellBody">
+Contain Java files you can use to generate certificates.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056218"> </a><div class="pCellBody">
+proxy/demos/com/ddtek/sequelink/demo/<br />KeyTool.class
+</div>
+</td>
+    <td><a name="wp1056220"> </a><div class="pCellBody">
+Contains a Java class file that extracts certificates from a Java2 KeyStore and converts certificates to different formats.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056222"> </a><div class="pCellBody">
+proxy/lib/slproxy.jar
+</div>
+</td>
+    <td><a name="wp1056224"> </a><div class="pCellBody">
+JAR file containing all classes for the SequeLink Proxy Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056226"> </a><div class="pCellBody">
+proxy/log
+</div>
+</td>
+    <td><a name="wp1056228"> </a><div class="pCellBody">
+The directory that contains all messages logged by the SequeLink Proxy Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056231"> </a><div class="pCellBody">
+spy/lib/spy.jar
+</div>
+</td>
+    <td><a name="wp1056234"> </a><div class="pCellBody">
+JAR file containing all Spy classes. To use DataDirect Spy, add this path to your CLASSPATH variable.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056236"> </a><div class="pCellBody">
+sun/lib/jdbc2_0-stdext.jar<br />
+</div>
+</td>
+    <td><a name="wp1056238"> </a><div class="pCellBody">
+JAR file containing redistributable Sun Microsystems components for the JDBC 2.0 Optional Package.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056244"> </a><div class="pCellBody">
+sun/lib/jndi.jar<br />
+</div>
+</td>
+    <td><a name="wp1056246"> </a><div class="pCellBody">
+JAR file containing redistributable Sun Microsystems components for JNDI 1.2.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056249"> </a><div class="pCellBody">
+sun/lib/jta-spec1_0_1.jar<br />
+</div>
+</td>
+    <td><a name="wp1056251"> </a><div class="pCellBody">
+JAR file containing redistributable Sun Microsystems components for JTA 1.0.1.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056254"> </a><div class="pCellBody">
+sun/lib/fs/fscontext.jar<br />sun/lib/fs/providerutil.jar
+</div>
+</td>
+    <td><a name="wp1056256"> </a><div class="pCellBody">
+JAR files containing redistributable Sun Microsystems components for the File System JNDI Provider.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1056259"> </a><div class="pCellBody">
+sun/lib/ldap/jaas.jar<br />sun/lib/ldap/ldap.jar<br />sun/lib/ldap/ldapbp.jar<br />sun/lib/ldap/providerutil.jar
+</div>
+</td>
+    <td><a name="wp1056261"> </a><div class="pCellBody">
+JAR files containing redistributable Sun Microsystems components for the LDAP JNDI Provider.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp1041450"> </a><p class="pBody">
+ 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

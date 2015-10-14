@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:49" />
+  <title>SQL Escape Sequences</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp24852"> </a><h1 class="pNewHTMLPageNoNum">
+SQL Escape Sequences
+</h1>
+<hr /><a name="wp75266"> </a><p class="pBody">
+Language features, such as outer joins and scalar function calls, are commonly implemented by database systems. The syntax for these features is often database-specific, even when a standard syntax has been defined. ODBC and JDBC define escape sequences that contain standard syntaxes for the following language features: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp75267"> </a><div class="pSmartList1"><li>Date, time, timestamp, and datetime literals</li></div><a name="wp75268"> </a><div class="pSmartList1"><li>Scalar functions such as numeric, string, and data type conversion functions</li></div><a name="wp75270"> </a><div class="pSmartList1"><li>Outer joins</li></div></ul></div>
+<a name="wp77056"> </a><p class="pBody">
+The escape sequence used by JDBC is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{extension}<a name="wp77057"> </a>
+</pre></div>
+<a name="wp75382"> </a><p class="pBody">
+The escape sequence is recognized and parsed by the driver, which replaces the escape sequences with data store-specific grammar. 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

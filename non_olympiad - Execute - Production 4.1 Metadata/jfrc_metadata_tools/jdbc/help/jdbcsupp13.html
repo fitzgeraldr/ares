@@ -1,0 +1,1365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:53" />
+  <title>jdbcsupp13.html</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp544788"> </a><h2 class="pNewHTMLPage">
+
+</h2>
+<hr />
+<a name="wp597555"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp569864"> </a><div class="pCellHeadingDuplicate">
+<font size="+1">PreparedStatement Object &#160;</font>
+</div>
+<a name="wp569868"> </a><div class="pCellHeading">
+Methods
+</div>
+</th>
+    <th><a name="wp569870"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp569871"> </a><div class="pCellHeading">
+Version
+</div>
+<a name="wp569872"> </a><div class="pCellHeading">
+Introduced
+</div>
+</th>
+    <th><a name="wp569874"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp569875"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp569876"> </a><div class="pCellHeading">
+Supported
+</div>
+</th>
+    <th><a name="wp569878"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp569879"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp569880"> </a><div class="pCellHeading">
+Comments
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp569882"> </a><div class="pCellBody">
+void addBatch () 
+</div>
+</td>
+    <td><a name="wp569884"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp569886"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569888"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569890"> </a><div class="pCellBody">
+void addBatch (String) 
+</div>
+</td>
+    <td><a name="wp569892"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp569894"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp569896"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569898"> </a><div class="pCellBody">
+void cancel () 
+</div>
+</td>
+    <td><a name="wp569900"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569903"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp574530"> </a><div class="pCellBody">
+Cancel can be used to cancel a function running synchronously on a statement, using a different thread. Whether Cancel will actually cancel the running function depends on the data store.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569907"> </a><div class="pCellBody">
+void clearBatch () 
+</div>
+</td>
+    <td><a name="wp569909"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp569911"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569913"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569915"> </a><div class="pCellBody">
+void clearParameters () 
+</div>
+</td>
+    <td><a name="wp569917"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569919"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569921"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569923"> </a><div class="pCellBody">
+void clearWarnings () 
+</div>
+</td>
+    <td><a name="wp569925"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569927"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569929"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569931"> </a><div class="pCellBody">
+void close () 
+</div>
+</td>
+    <td><a name="wp569933"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569935"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569937"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569939"> </a><div class="pCellBody">
+boolean execute () 
+</div>
+</td>
+    <td><a name="wp569941"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569943"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569945"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569947"> </a><div class="pCellBody">
+boolean execute (String) 
+</div>
+</td>
+    <td><a name="wp569949"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569952"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp569954"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584067"> </a><div class="pCellBody">
+boolean execute (String, int) 
+</div>
+</td>
+    <td><a name="wp584069"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584071"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp584073"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584081"> </a><div class="pCellBody">
+boolean execute (String, int []) 
+</div>
+</td>
+    <td><a name="wp584083"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584085"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp584087"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584106"> </a><div class="pCellBody">
+boolean execute (String, String []) 
+</div>
+</td>
+    <td><a name="wp584108"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584110"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp584112"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569956"> </a><div class="pCellBody">
+int [] executeBatch () 
+</div>
+</td>
+    <td><a name="wp569958"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp569960"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569962"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569964"> </a><div class="pCellBody">
+ResultSet executeQuery () 
+</div>
+</td>
+    <td><a name="wp569966"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569968"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569970"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569972"> </a><div class="pCellBody">
+ResultSet executeQuery (String) 
+</div>
+</td>
+    <td><a name="wp569974"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569977"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp569979"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569981"> </a><div class="pCellBody">
+int executeUpdate () 
+</div>
+</td>
+    <td><a name="wp569983"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569985"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569987"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569989"> </a><div class="pCellBody">
+int executeUpdate (String) 
+</div>
+</td>
+    <td><a name="wp569991"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp569994"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp569996"> </a><div class="pCellBody">
+Throws &#8220;invalid method call&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584122"> </a><div class="pCellBody">
+int executeUpdate (String, int) 
+</div>
+</td>
+    <td><a name="wp584124"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584126"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp584128"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584134"> </a><div class="pCellBody">
+int executeUpdate (String, int []) 
+</div>
+</td>
+    <td><a name="wp584136"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584138"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp584140"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584157"> </a><div class="pCellBody">
+int executeUpdate (String, String []) 
+</div>
+</td>
+    <td><a name="wp584159"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584161"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp584163"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp569998"> </a><div class="pCellBody">
+Connection getConnection () 
+</div>
+</td>
+    <td><a name="wp570000"> </a><div class="pCellBody">
+2.0 Core
+</div>
+</td>
+    <td><a name="wp570002"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570004"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570006"> </a><div class="pCellBody">
+int getFetchDirection () 
+</div>
+</td>
+    <td><a name="wp570008"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570010"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570012"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570014"> </a><div class="pCellBody">
+int getFetchSize () 
+</div>
+</td>
+    <td><a name="wp570016"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570018"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570020"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp595118"> </a><div class="pCellBody">
+ParameterMetaData getParameterMetaData()
+</div>
+</td>
+    <td><a name="wp595120"> </a><div class="pCellBody">
+3.0
+</div>
+</td>
+    <td><a name="wp595122"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp595124"> </a><div class="pCellBody">
+Not supported on Oracle or Informix Servers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584171"> </a><div class="pCellBody">
+ResultSet getGeneratedKeys () 
+</div>
+</td>
+    <td><a name="wp584173"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584175"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp584177"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570022"> </a><div class="pCellBody">
+int getMaxFieldSize () 
+</div>
+</td>
+    <td><a name="wp570024"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570026"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570028"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570030"> </a><div class="pCellBody">
+int getMaxRows () 
+</div>
+</td>
+    <td><a name="wp570032"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570034"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570036"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570038"> </a><div class="pCellBody">
+ResultSetMetaData getMetaData () 
+</div>
+</td>
+    <td><a name="wp570040"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570042"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570044"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570046"> </a><div class="pCellBody">
+boolean getMoreResults () 
+</div>
+</td>
+    <td><a name="wp570048"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570050"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570052"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584183"> </a><div class="pCellBody">
+boolean getMoreResults (int) 
+</div>
+</td>
+    <td><a name="wp584185"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584187"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp584189"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570054"> </a><div class="pCellBody">
+int getQueryTimeout () 
+</div>
+</td>
+    <td><a name="wp570056"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570058"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570060"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570062"> </a><div class="pCellBody">
+ResultSet getResultSet () 
+</div>
+</td>
+    <td><a name="wp570064"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570066"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570068"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570070"> </a><div class="pCellBody">
+int getResultSetConcurrency () 
+</div>
+</td>
+    <td><a name="wp570072"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570074"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570076"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584213"> </a><div class="pCellBody">
+int getResultSetHoldability () 
+</div>
+</td>
+    <td><a name="wp584215"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp584217"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp584219"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570078"> </a><div class="pCellBody">
+int getResultSetType () 
+</div>
+</td>
+    <td><a name="wp570080"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570082"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570084"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570086"> </a><div class="pCellBody">
+int getUpdateCount () 
+</div>
+</td>
+    <td><a name="wp570088"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570090"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570092"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570094"> </a><div class="pCellBody">
+SQLWarning getWarnings () 
+</div>
+</td>
+    <td><a name="wp570096"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570098"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570100"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570102"> </a><div class="pCellBody">
+void setArray (int, Array) 
+</div>
+</td>
+    <td><a name="wp570104"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570106"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp570108"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570110"> </a><div class="pCellBody">
+void setAsciiStream (int, InputStream, int) 
+</div>
+</td>
+    <td><a name="wp570112"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570114"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570116"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570118"> </a><div class="pCellBody">
+void setBigDecimal (int, BigDecimal) 
+</div>
+</td>
+    <td><a name="wp570120"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570122"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570124"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570126"> </a><div class="pCellBody">
+void setBinaryStream (int, InputStream, int) 
+</div>
+</td>
+    <td><a name="wp570128"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570130"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570132"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570134"> </a><div class="pCellBody">
+void setBlob (int, Blob) 
+</div>
+</td>
+    <td><a name="wp570136"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570138"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570140"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570142"> </a><div class="pCellBody">
+void setBoolean (int, boolean) 
+</div>
+</td>
+    <td><a name="wp570144"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570146"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570148"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570150"> </a><div class="pCellBody">
+void setByte (int, byte) 
+</div>
+</td>
+    <td><a name="wp570152"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570154"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570156"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570158"> </a><div class="pCellBody">
+void setBytes (int, byte []) 
+</div>
+</td>
+    <td><a name="wp570160"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570162"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570164"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570166"> </a><div class="pCellBody">
+void setCharacterStream (int, Reader, int) 
+</div>
+</td>
+    <td><a name="wp570168"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570170"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570172"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570174"> </a><div class="pCellBody">
+void setClob (int, Clob) 
+</div>
+</td>
+    <td><a name="wp570176"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570178"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570180"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570182"> </a><div class="pCellBody">
+void setCursorName (String) 
+</div>
+</td>
+    <td><a name="wp570184"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570186"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp570188"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570190"> </a><div class="pCellBody">
+void setDate (int, Date) 
+</div>
+</td>
+    <td><a name="wp570192"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570194"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570196"> </a><div class="pCellBody">
+SQL Server throws &quot;optional feature not implemented&quot; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570198"> </a><div class="pCellBody">
+void setDate (int, Date, Calendar) 
+</div>
+</td>
+    <td><a name="wp570200"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570202"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570204"> </a><div class="pCellBody">
+SQL Server throws &quot;optional feature not implemented&quot; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570206"> </a><div class="pCellBody">
+void setDouble (int, double) 
+</div>
+</td>
+    <td><a name="wp570208"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570210"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570212"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570214"> </a><div class="pCellBody">
+void setEscapeProcessing (boolean) 
+</div>
+</td>
+    <td><a name="wp570216"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570219"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570221"> </a><div class="pCellBody">
+Ignored.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570223"> </a><div class="pCellBody">
+void setFetchDirection (int) 
+</div>
+</td>
+    <td><a name="wp570225"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570227"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570229"> </a><div class="pCellBody">
+SequeLink supports this method, but will ignore this hint provided by the application.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570231"> </a><div class="pCellBody">
+void setFetchSize (int) 
+</div>
+</td>
+    <td><a name="wp570233"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570235"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570237"> </a><div class="pCellBody">
+SequeLink supports this method, but will ignore this hint provided by the application.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570239"> </a><div class="pCellBody">
+void setFloat (int, float) 
+</div>
+</td>
+    <td><a name="wp570241"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570243"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570245"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570247"> </a><div class="pCellBody">
+void setInt (int, int) 
+</div>
+</td>
+    <td><a name="wp570249"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570251"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570253"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570255"> </a><div class="pCellBody">
+void setLong (int, long) 
+</div>
+</td>
+    <td><a name="wp570257"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570259"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570261"> </a><div class="pCellBody">
+SQL Server 7 throws &quot;optional feature not implemented&quot; exception. However, you can us the workaround MSSMapLongToDecimal to map setLong to DECIMAL instead of BIGINT.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570263"> </a><div class="pCellBody">
+void setMaxFieldSize (int) 
+</div>
+</td>
+    <td><a name="wp570265"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570267"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570269"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570271"> </a><div class="pCellBody">
+void setMaxRows (int) 
+</div>
+</td>
+    <td><a name="wp570273"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570275"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570277"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570279"> </a><div class="pCellBody">
+void setNull (int, int) 
+</div>
+</td>
+    <td><a name="wp570281"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570283"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570285"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570287"> </a><div class="pCellBody">
+void setNull (int, int, String) 
+</div>
+</td>
+    <td><a name="wp570289"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570291"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570293"> </a><div class="pCellBody">
+SequeLink does not support the Advanced Data Type functionality. This method is always mapped to setNull (i, sqlType).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570295"> </a><div class="pCellBody">
+void setObject (int, Object) 
+</div>
+</td>
+    <td><a name="wp570297"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570299"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570301"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570303"> </a><div class="pCellBody">
+void setObject (int, Object, int) 
+</div>
+</td>
+    <td><a name="wp570305"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570307"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570309"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570311"> </a><div class="pCellBody">
+void setObject (int, Object, int, int) 
+</div>
+</td>
+    <td><a name="wp570313"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570315"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570317"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570319"> </a><div class="pCellBody">
+void setQueryTimeout (int) 
+</div>
+</td>
+    <td><a name="wp570321"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570323"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp574575"> </a><div class="pCellBody">
+Not supported on DB2 UDB on z/OS servers. Support for the JDBC and ODBC Socket Servers is dependent on the driver it loads.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570327"> </a><div class="pCellBody">
+void setRef (int, Ref) 
+</div>
+</td>
+    <td><a name="wp570329"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570331"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp570333"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570335"> </a><div class="pCellBody">
+void setShort (int, short) 
+</div>
+</td>
+    <td><a name="wp570337"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570339"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570341"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570343"> </a><div class="pCellBody">
+void setString (int, String) 
+</div>
+</td>
+    <td><a name="wp570345"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570347"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570349"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570351"> </a><div class="pCellBody">
+void setTime (int, Time) 
+</div>
+</td>
+    <td><a name="wp570353"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570355"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570357"> </a><div class="pCellBody">
+SQL Server throws &quot;optional feature not implemented&quot; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570359"> </a><div class="pCellBody">
+void setTime (int, Time, Calendar) 
+</div>
+</td>
+    <td><a name="wp570361"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570363"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570365"> </a><div class="pCellBody">
+SQL Server throws &quot;optional feature not implemented&quot; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570367"> </a><div class="pCellBody">
+void setTimestamp (int, Timestamp) 
+</div>
+</td>
+    <td><a name="wp570369"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570371"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570373"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570375"> </a><div class="pCellBody">
+void setTimestamp (int, Timestamp, Calendar) 
+</div>
+</td>
+    <td><a name="wp570377"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp570379"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570381"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp570383"> </a><div class="pCellBody">
+void setUnicodeStream (int, InputStream, int) 
+</div>
+</td>
+    <td><a name="wp570385"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp570387"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp570389"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception. This method was deprecated in the JDBC 2.0 specification.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579439"> </a><div class="pCellBody">
+void setURL (int, URL) 
+</div>
+</td>
+    <td><a name="wp579441"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579443"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579445"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp584281"> </a><div class="pCellBody">
+boolean wasNull () 
+</div>
+</td>
+    <td><a name="wp584283"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp584285"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp584287"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

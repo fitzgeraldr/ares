@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:14:07" />
+  <title>Creating a Data Source</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp72987"> </a><h1 class="pNewHTMLPageNoNum">
+Creating a Data Source
+</h1>
+<hr /><a name="wp73466"> </a><p class="pBody">
+This section contains sample code that is provided as an example of using the DataDirect Connection Pool Manager to allow your applications to handle connection pooling.
+</p>
+<a name="wp73468"> </a><h3 class="pHeading2">
+Creating a DataDirect SequeLink Data Source Object
+</h3>
+<a name="wp73001"> </a><p class="pBody">
+The following example shows how to create a SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> DataSource object and register it to a JNDI naming service. The DataSource class is provided by your SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver and is database-independent. In the following example we use Oracle, so the DataSource class is SequeLinkDataSource. See <a  href="devjdbc.html#wp524304">&quot;Developing JDBC Applications&quot;</a> for the name of the DataSource class.
+</p>
+<a name="wp74477"> </a><p class="pBody">
+If you want the client application to use <em class="cEmphasis">non-pooled</em> connections (see <a  href="pool3.html#wp73233">&quot;Connecting to a Data Source&quot;</a>), you must modify this example so that the JNDI entry is registered using the name jdbc/SparkyOracle.
+</p>
+<a name="wp74481"> </a><p class="pBody">
+If you want the client application to use <em class="cEmphasis">pooled</em> connections, the JNDI entry must map to the DataSource of the DataDirect Connection Pool Manager. Therefore, you must register two data sources:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp74431"> </a><div class="pSmartList1"><li>The Connection Pool Manager&#39;s Data Source using the example in <a  href="pool2.html#wp73583">&quot;Creating a Data Source Using the DataDirect Connection Pool Manager&quot;</a>. This process registers the data source using the JNDI entry jdbc/SparkyOracle. The Connection Pool Manager will create physical connections using the JNDI Entry jdbc/SequeLinkSparkyOracle.</li></div><a name="wp73003"> </a><div class="pSmartList1"><li>A SequeLink DataSource, using the following example to register the DataSource using the JNDI entry jdbc/SequeLinkSparkyOracle. </li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+//************************************************************************<a name="wp73005"> </a>
+//<a name="wp73006"> </a>
+// This code creates a SequeLink for JDBC data source and registers it to a 
+// JNDI naming service. This SequeLink for JDBC data source uses the 
+// DataSource implementation provided by the SequeLink for JDBC Driver.<a name="wp73007"> </a>
+//<a name="wp73010"> </a>
+// If you want users to use non-pooled connections, you must modify this<a name="wp73011"> </a>
+// example so that it registers the SequeLink Data Source using the JNDI<a name="wp74301"> </a>
+// entry &lt;jdbc/SparkyOracle&gt;.<a name="wp74302"> </a>
+//<a name="wp73014"> </a>
+// If you want users to use pooled connections, use this example as is <a name="wp73015"> </a>
+// to register the SequeLink Data Source using the JNDI entry<a name="wp74309"> </a>
+// &lt;jdbc/SequeLinkSparkyOracle&gt;. Also, use the example in the next section<a name="wp74310"> </a>
+// to register the Connection Pool Manager&#39;s Data Source using the JNDI entry<a name="wp74317"> </a>
+// &lt;jdbc/SparkyOracle&gt;<a name="wp74322"> </a>
+//<a name="wp73018"> </a>
+//************************************************************************<a name="wp73019"> </a>
+<a name="wp73020"> </a>
+// From SequeLink for JDBC:<a name="wp73021"> </a>
+import com.ddtek.jdbcx.sequelink.SequeLinkDataSource;<a name="wp73022"> </a>
+<a name="wp73023"> </a>
+import javax.sql.*;<a name="wp73024"> </a>
+import java.sql.*;<a name="wp73025"> </a>
+import javax.naming.*;<a name="wp73026"> </a>
+import javax.naming.directory.*;<a name="wp73027"> </a>
+import java.util.Hashtable;<a name="wp73028"> </a>
+<a name="wp73029"> </a>
+public class SequeLinkDataSourceRegisterJNDI<a name="wp73030"> </a>
+{<a name="wp73031"> </a>
+	public static void main(String argv[])<a name="wp73032"> </a>
+	{<a name="wp73033"> </a>
+		try {<a name="wp73034"> </a>
+			// Set up data source reference data for naming context:<a name="wp73035"> </a>
+			// ----------------------------------------------------<a name="wp73036"> </a>
+			// Create a class instance that implements the interface<a name="wp73037"> </a>
+			// ConnectionPoolDataSource<a name="wp73038"> </a>
+			OracleDataSource ds = new SequeLinkDataSource();<a name="wp73039"> </a>
+<a name="wp73040"> </a>
+			ds.setDescription(<a name="wp73041"> </a>
+				&quot;Oracle on Sparky - SequeLink Data Source&quot;);<a name="wp73042"> </a>
+			ds.setServerName(&quot;sparky&quot;);<a name="wp73043"> </a>
+			ds.setPortNumber(19996);<a name="wp73044"> </a>
+			ds.setUser(&quot;scott&quot;);<a name="wp73045"> </a>
+			ds.setPassword(&quot;test&quot;);<a name="wp73046"> </a>
+<a name="wp73047"> </a>
+ 			// Set up environment for creating initial context<a name="wp73048"> </a>
+			Hashtable env = new Hashtable();<a name="wp73049"> </a>
+			env.put(Context.INITIAL_CONTEXT_FACTORY,<a name="wp73050"> </a>
+				&quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<a name="wp73051"> </a>
+			env.put(Context.PROVIDER_URL, &quot;file:c:\\JDBCDataSource&quot;);<a name="wp73052"> </a>
+			Context ctx = new InitialContext(env);<a name="wp73053"> </a>
+<a name="wp73054"> </a>
+			// Register the data source to JNDI naming service<a name="wp73055"> </a>
+			ctx.bind(&quot;jdbc/SequeLinkSparkyOracle&quot;, ds);<a name="wp73056"> </a>
+<a name="wp73057"> </a>
+		} catch (Exception e) {<a name="wp73058"> </a>
+			System.out.println(e);<a name="wp73059"> </a>
+			return;<a name="wp73060"> </a>
+		}<a name="wp73061"> </a>
+	} // Main<a name="wp73062"> </a>
+} // class SequeLinkDataSourceRegisterJNDI<a name="wp73580"> </a>
+</pre></div>
+<a name="wp73583"> </a><h3 class="pHeading2">
+Creating a Data Source Using the DataDirect Connection Pool Manager
+</h3>
+<a name="wp73116"> </a><p class="pBody">
+The following Java code example creates a data source for JDBC and registers it to a JNDI naming service. The PooledConnectionDataSource class is provided by the DataDirect com.ddtek.pool package. In the following code example, the PooledConnectionDataSource object references a JDBC data source object. Therefore, the example performs a lookup by setting the DataSourceName attribute to the JNDI name of a registered pooled data source (in this example, jdbc/SequeLinkSparkyOracle, which is the JDBC DataSource object created in section <a  href="pool2.html#wp73468">&quot;Creating a DataDirect SequeLink Data Source Object&quot;</a>).
+</p>
+<a name="wp73117"> </a><p class="pBody">
+Client applications that use this data source must perform a lookup using the registered JNDI name (jdbc/SparkyOracle in this example).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+//************************************************************************<a name="wp73119"> </a>
+//<a name="wp73120"> </a>
+// This code creates a data source and registers it to a JNDI naming <a name="wp73121"> </a>
+// service. This data source uses the PooledConnectionDataSource <a name="wp73122"> </a>
+// implementation provided by the DataDirect com.ddtek.pool package.<a name="wp73123"> </a>
+//<a name="wp73124"> </a>
+// This data source refers to a previously registered pooled data source.<a name="wp73125"> </a>
+//<a name="wp73126"> </a>
+// This data source registers its name as &lt;jdbc/SparkyOracle&gt;.<a name="wp73127"> </a>
+// Client applications using pooling must perform a lookup for this name.<a name="wp73128"> </a>
+//<a name="wp73129"> </a>
+//************************************************************************<a name="wp73130"> </a>
+<a name="wp73131"> </a>
+// From the DataDirect connection pooling package:<a name="wp73132"> </a>
+import com.ddtek.pool.PooledConnectionDataSource;<a name="wp73133"> </a>
+<a name="wp73134"> </a>
+import javax.sql.*;<a name="wp73135"> </a>
+import java.sql.*;<a name="wp73136"> </a>
+import javax.naming.*;<a name="wp73137"> </a>
+import javax.naming.directory.*;<a name="wp73138"> </a>
+import java.util.Hashtable;<a name="wp73139"> </a>
+<a name="wp73140"> </a>
+public class PoolMgrDataSourceRegisterJNDI<a name="wp73141"> </a>
+{<a name="wp73142"> </a>
+	public static void main(String argv[])<a name="wp73143"> </a>
+	{<a name="wp73144"> </a>
+		try {<a name="wp73145"> </a>
+			// Set up data source reference data for naming context:<a name="wp73146"> </a>
+			// ----------------------------------------------------<a name="wp73147"> </a>
+			// Create a pooling manager&#39;s class instance that implements<a name="wp73148"> </a>
+			// the interface DataSource<a name="wp73149"> </a>
+			PooledConnectionDataSource ds = new PooledConnectionDataSource();<a name="wp73150"> </a>
+<a name="wp73151"> </a>
+			ds.setDescription(&quot;Sparky Oracle - Oracle Data Source&quot;);<a name="wp73152"> </a>
+<a name="wp73153"> </a>
+			// Refer to a previously registered pooled data source to access <a name="wp73154"> </a>
+			// a ConnectionPoolDataSource object<a name="wp73155"> </a>
+			ds.setDataSourceName(&quot;jdbc/SequeLinkSparkyOracle&quot;);<a name="wp73156"> </a>
+<a name="wp73552"> </a>
+			// The pool manager will be initiated with 5 physical connections<a name="wp73531"> </a>
+			ds.setInitialPoolSize(5);<a name="wp73532"> </a>
+<a name="wp73553"> </a>
+			// The pool maintenance thread will make sure that there are <a name="wp73533"> </a>
+			// at least 5 physical connections available<a name="wp73534"> </a>
+			ds.setMinPoolSize(5);<a name="wp73535"> </a>
+<a name="wp73554"> </a>
+			// The pool maintenance thread will check that there are no more<a name="wp73536"> </a>
+			// than 10 physical connections available<a name="wp73537"> </a>
+			ds.setMaxPoolSize(10);<a name="wp73538"> </a>
+<a name="wp73555"> </a>
+			// The pool maintenance thread will wake up and check the pool<a name="wp73539"> </a>
+			// every 20 seconds<a name="wp73540"> </a>
+			ds.setPropertyCycle(20);<a name="wp73541"> </a>
+<a name="wp73556"> </a>
+			// The pool maintenance thread will remove physical connections<a name="wp73542"> </a>
+			// that are inactive for more than 300 seconds<a name="wp73543"> </a>
+			ds.setMaxIdleTime(300);<a name="wp73544"> </a>
+<a name="wp73523"> </a>
+			// Set tracing off since we choose not to see output listing <a name="wp73166"> </a>
+			// of activities on a connection<a name="wp73167"> </a>
+			ds.setTracing(false);<a name="wp73168"> </a>
+<a name="wp73169"> </a>
+			// Set up environment for creating initial context<a name="wp73170"> </a>
+			Hashtable env = new Hashtable();<a name="wp73171"> </a>
+			env.put(Context.INITIAL_CONTEXT_FACTORY,<a name="wp73172"> </a>
+				&quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<a name="wp73173"> </a>
+			env.put(Context.PROVIDER_URL, &quot;file:c:\\JDBCDataSource&quot;);<a name="wp73174"> </a>
+			Context ctx = new InitialContext(env);<a name="wp73175"> </a>
+<a name="wp73176"> </a>
+			// Register the data source to JNDI naming service<a name="wp73177"> </a>
+			// for application to use<a name="wp73178"> </a>
+			ctx.bind(&quot;jdbc/SparkyOracle&quot;, ds);<a name="wp73179"> </a>
+<a name="wp73180"> </a>
+		} catch (Exception e) {<a name="wp73181"> </a>
+			System.out.println(e);<a name="wp73182"> </a>
+			return;<a name="wp73183"> </a>
+		}<a name="wp73184"> </a>
+<a name="wp73185"> </a>
+	} // Main<a name="wp73186"> </a>
+} // class PoolMgrDataSourceRegisterJNDI<a name="wp73187"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

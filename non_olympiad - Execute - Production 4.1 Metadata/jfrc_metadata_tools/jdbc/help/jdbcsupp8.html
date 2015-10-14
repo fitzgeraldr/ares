@@ -1,0 +1,2926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:53" />
+  <title>jdbcsupp8.html</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp597425"> </a><h2 class="pNewHTMLPage">
+
+</h2>
+<hr />
+<a name="wp597034"> </a><p class="pBody">
+
+</p>
+<a name="wp540571"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp573232"> </a><div class="pCellHeadingDuplicate">
+<font size="+1">DatabaseMetaData Object &#160;</font>
+</div>
+<a name="wp573233"> </a><div class="pCellHeading">
+Methods
+</div>
+</th>
+    <th><a name="wp573235"> </a><div class="pCellHeading">
+Version
+</div>
+<a name="wp573236"> </a><div class="pCellHeading">
+Introduced
+</div>
+</th>
+    <th><a name="wp573238"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp573239"> </a><div class="pCellHeading">
+Supported
+</div>
+</th>
+    <th><a name="wp573241"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp573242"> </a><div class="pCellHeading">
+Comments
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp573244"> </a><div class="pCellBody">
+boolean allProceduresAreCallable () 
+</div>
+</td>
+    <td><a name="wp573246"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573248"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573250"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573252"> </a><div class="pCellBody">
+boolean allTablesAreSelectable () 
+</div>
+</td>
+    <td><a name="wp573254"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573256"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573258"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573260"> </a><div class="pCellBody">
+boolean dataDefinitionCausesTransaction<br />Commit () 
+</div>
+</td>
+    <td><a name="wp573262"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573264"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573266"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573268"> </a><div class="pCellBody">
+boolean dataDefinitionIgnoredInTransactions () 
+</div>
+</td>
+    <td><a name="wp573270"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573272"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573274"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573276"> </a><div class="pCellBody">
+boolean deletesAreDetected (int) 
+</div>
+</td>
+    <td><a name="wp573278"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573280"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573282"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573284"> </a><div class="pCellBody">
+boolean doesMaxRowSizeIncludeBlobs () 
+</div>
+</td>
+    <td><a name="wp573286"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573288"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573290"> </a><div class="pCellBody">
+Not supported with DB2, SQL Server, and Sybase servers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579307"> </a><div class="pCellBody">
+ResultSet getAttributes (String, String) 
+</div>
+</td>
+    <td><a name="wp579321"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579323"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579325"> </a><div class="pCellBody">
+Always returns empty result set.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573292"> </a><div class="pCellBody">
+ResultSet getBestRowIdentifier (String, String, String, int, boolean) 
+</div>
+</td>
+    <td><a name="wp573294"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573296"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573298"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583351"> </a><div class="pCellBody">
+ResultSet getCatalogs () 
+</div>
+</td>
+    <td><a name="wp583353"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp583355"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583357"> </a><div class="pCellBody">
+This method is supported if the SequeLink Server supports it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573300"> </a><div class="pCellBody">
+String getCatalogSeparator () 
+</div>
+</td>
+    <td><a name="wp573302"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573304"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573306"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573308"> </a><div class="pCellBody">
+String getCatalogTerm () 
+</div>
+</td>
+    <td><a name="wp573310"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573312"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573314"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573324"> </a><div class="pCellBody">
+ResultSet getColumnPrivileges (String, String, String, String) 
+</div>
+</td>
+    <td><a name="wp573326"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573328"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573330"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573332"> </a><div class="pCellBody">
+ResultSet getColumns (String, String, String, String) 
+</div>
+</td>
+    <td><a name="wp573334"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573336"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573338"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583439"> </a><div class="pCellBody">
+ResultSet getColumns (String, String, String, String) 
+</div>
+</td>
+    <td><a name="wp583441"> </a><div class="pCellBody">
+3.0 Extension
+</div>
+</td>
+    <td><a name="wp583443"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583445"> </a><div class="pCellBody">
+The extended resultset columns will all contain null as values. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573340"> </a><div class="pCellBody">
+Connection getConnection () 
+</div>
+</td>
+    <td><a name="wp573342"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573344"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573346"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573348"> </a><div class="pCellBody">
+ResultSet getCrossReference (String, String, String, String, String, String) 
+</div>
+</td>
+    <td><a name="wp573350"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573352"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573354"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573356"> </a><div class="pCellBody">
+int getDatabaseMajorVersion ()
+</div>
+</td>
+    <td><a name="wp573358"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573360"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573362"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573364"> </a><div class="pCellBody">
+int getDatabaseMinorVersion ()
+</div>
+</td>
+    <td><a name="wp573366"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573368"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573370"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573372"> </a><div class="pCellBody">
+String getDatabaseProductName () 
+</div>
+</td>
+    <td><a name="wp573374"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573376"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573378"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573380"> </a><div class="pCellBody">
+String getDatabaseProductVersion () 
+</div>
+</td>
+    <td><a name="wp573382"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573384"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573386"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573388"> </a><div class="pCellBody">
+int getDefaultTransactionIsolation () 
+</div>
+</td>
+    <td><a name="wp573390"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573392"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573394"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573396"> </a><div class="pCellBody">
+int getDriverMajorVersion () 
+</div>
+</td>
+    <td><a name="wp573398"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573400"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573402"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573404"> </a><div class="pCellBody">
+int getDriverMinorVersion () 
+</div>
+</td>
+    <td><a name="wp573406"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573408"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573410"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573412"> </a><div class="pCellBody">
+String getDriverName () 
+</div>
+</td>
+    <td><a name="wp573414"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573416"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573418"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573420"> </a><div class="pCellBody">
+String getDriverVersion () 
+</div>
+</td>
+    <td><a name="wp573422"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573424"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573426"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573428"> </a><div class="pCellBody">
+ResultSet getExportedKeys (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573430"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573432"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573434"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573436"> </a><div class="pCellBody">
+String getExtraNameCharacters () 
+</div>
+</td>
+    <td><a name="wp573438"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573440"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573442"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573444"> </a><div class="pCellBody">
+String getIdentifierQuoteString () 
+</div>
+</td>
+    <td><a name="wp573446"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573448"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573450"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573452"> </a><div class="pCellBody">
+ResultSet getImportedKeys (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573454"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573456"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573458"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573460"> </a><div class="pCellBody">
+ResultSet getIndexInfo (String, String, String, boolean, boolean) 
+</div>
+</td>
+    <td><a name="wp573462"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573464"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573466"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579339"> </a><div class="pCellBody">
+int getJDBCMajorVersion () 
+</div>
+</td>
+    <td><a name="wp579347"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579349"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp579351"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579331"> </a><div class="pCellBody">
+int getJDBCMinorVersion () 
+</div>
+</td>
+    <td><a name="wp579353"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579355"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp579357"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573468"> </a><div class="pCellBody">
+int getMaxBinaryLiteralLength () 
+</div>
+</td>
+    <td><a name="wp573470"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573472"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573474"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573476"> </a><div class="pCellBody">
+int getMaxCatalogNameLength () 
+</div>
+</td>
+    <td><a name="wp573478"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573480"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573482"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573484"> </a><div class="pCellBody">
+int getMaxCharLiteralLength () 
+</div>
+</td>
+    <td><a name="wp573486"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573488"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573490"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573492"> </a><div class="pCellBody">
+int getMaxColumnNameLength () 
+</div>
+</td>
+    <td><a name="wp573494"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573496"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573498"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573500"> </a><div class="pCellBody">
+int getMaxColumnsInGroupBy () 
+</div>
+</td>
+    <td><a name="wp573502"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573504"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573506"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573508"> </a><div class="pCellBody">
+int getMaxColumnsInIndex () 
+</div>
+</td>
+    <td><a name="wp573510"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573512"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573514"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573516"> </a><div class="pCellBody">
+int getMaxColumnsInOrderBy () 
+</div>
+</td>
+    <td><a name="wp573518"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573520"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573522"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573524"> </a><div class="pCellBody">
+int getMaxColumnsInSelect () 
+</div>
+</td>
+    <td><a name="wp573526"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573528"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573530"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573532"> </a><div class="pCellBody">
+int getMaxColumnsInTable () 
+</div>
+</td>
+    <td><a name="wp573534"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573536"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573538"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573540"> </a><div class="pCellBody">
+int getMaxConnections () 
+</div>
+</td>
+    <td><a name="wp573542"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573544"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573546"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573548"> </a><div class="pCellBody">
+int getMaxCursorNameLength () 
+</div>
+</td>
+    <td><a name="wp573550"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573552"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573554"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573556"> </a><div class="pCellBody">
+int getMaxIndexLength () 
+</div>
+</td>
+    <td><a name="wp573558"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573560"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573562"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573564"> </a><div class="pCellBody">
+int getMaxProcedureNameLength () 
+</div>
+</td>
+    <td><a name="wp573566"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573568"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573570"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573572"> </a><div class="pCellBody">
+int getMaxRowSize () 
+</div>
+</td>
+    <td><a name="wp573574"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573576"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573578"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573580"> </a><div class="pCellBody">
+int getMaxSchemaNameLength () 
+</div>
+</td>
+    <td><a name="wp573582"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573584"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573586"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573588"> </a><div class="pCellBody">
+int getMaxStatementLength () 
+</div>
+</td>
+    <td><a name="wp573590"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573592"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573594"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573596"> </a><div class="pCellBody">
+int getMaxStatements () 
+</div>
+</td>
+    <td><a name="wp573598"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573600"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573602"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573604"> </a><div class="pCellBody">
+int getMaxTableNameLength () 
+</div>
+</td>
+    <td><a name="wp573606"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573608"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573610"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573612"> </a><div class="pCellBody">
+int getMaxTablesInSelect () 
+</div>
+</td>
+    <td><a name="wp573614"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573616"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573618"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573620"> </a><div class="pCellBody">
+int getMaxUserNameLength () 
+</div>
+</td>
+    <td><a name="wp573622"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573624"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573626"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573628"> </a><div class="pCellBody">
+String getNumericFunctions () 
+</div>
+</td>
+    <td><a name="wp573630"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573632"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573634"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573636"> </a><div class="pCellBody">
+ResultSet getPrimaryKeys (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573638"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573640"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573642"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573644"> </a><div class="pCellBody">
+ResultSet getProcedureColumns (String, String, String, String) 
+</div>
+</td>
+    <td><a name="wp573646"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573648"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573650"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573652"> </a><div class="pCellBody">
+String getProcedureTerm () 
+</div>
+</td>
+    <td><a name="wp573654"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573656"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573658"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573660"> </a><div class="pCellBody">
+ResultSet getProcedures (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573662"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573664"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573666"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573668"> </a><div class="pCellBody">
+int getResultSetHoldability ()
+</div>
+</td>
+    <td><a name="wp573670"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573672"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573674"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583539"> </a><div class="pCellBody">
+ResultSet getSchemas () 
+</div>
+</td>
+    <td><a name="wp583541"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp583543"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583565"> </a><div class="pCellBody">
+ The JDBC driver supports this method if the data store has support for it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583549"> </a><div class="pCellBody">
+ResultSet getSchemas () 
+</div>
+</td>
+    <td><a name="wp583551"> </a><div class="pCellBody">
+3.0 Extension 
+</div>
+</td>
+    <td><a name="wp583553"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583709"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store has support for it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573676"> </a><div class="pCellBody">
+String getSchemaTerm () 
+</div>
+</td>
+    <td><a name="wp573678"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573680"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573682"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573692"> </a><div class="pCellBody">
+String getSearchStringEscape () 
+</div>
+</td>
+    <td><a name="wp573694"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573696"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573698"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573700"> </a><div class="pCellBody">
+String getStringFunctions () 
+</div>
+</td>
+    <td><a name="wp573702"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573704"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573706"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573708"> </a><div class="pCellBody">
+String getSQLKeywords () 
+</div>
+</td>
+    <td><a name="wp573710"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573712"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573714"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573716"> </a><div class="pCellBody">
+int getSQLStateType ()
+</div>
+</td>
+    <td><a name="wp573718"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573720"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573722"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573724"> </a><div class="pCellBody">
+String getSystemFunctions () 
+</div>
+</td>
+    <td><a name="wp573726"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573728"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573730"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579387"> </a><div class="pCellBody">
+ResultSet getSuperTables (String, String, String) 
+</div>
+</td>
+    <td><a name="wp579417"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579419"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579421"> </a><div class="pCellBody">
+Always returns empty ResultSet.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579423"> </a><div class="pCellBody">
+ResultSet getSuperTypes (String, String, String) 
+</div>
+</td>
+    <td><a name="wp579425"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579427"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579429"> </a><div class="pCellBody">
+Always returns empty ResultSet.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573732"> </a><div class="pCellBody">
+ResultSet getTablePrivileges (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573734"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573736"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp596645"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store supports it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573740"> </a><div class="pCellBody">
+ResultSet getTableTypes () 
+</div>
+</td>
+    <td><a name="wp573742"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573744"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573746"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573748"> </a><div class="pCellBody">
+ResultSet getTables (String, String, String, String []) 
+</div>
+</td>
+    <td><a name="wp573750"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573752"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573754"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583739"> </a><div class="pCellBody">
+ResultSet getTables (String, String, String, String []) 
+</div>
+</td>
+    <td><a name="wp583741"> </a><div class="pCellBody">
+3.0 Extension 
+</div>
+</td>
+    <td><a name="wp583743"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583745"> </a><div class="pCellBody">
+The extended resultset columns will all contain null as values.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573756"> </a><div class="pCellBody">
+String getTimeDateFunctions () 
+</div>
+</td>
+    <td><a name="wp573758"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573760"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573762"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573764"> </a><div class="pCellBody">
+ResultSet getTypeInfo () 
+</div>
+</td>
+    <td><a name="wp573766"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573768"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573770"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573772"> </a><div class="pCellBody">
+ResultSet getUDTs (String, String, String, <br />int []) 
+</div>
+</td>
+    <td><a name="wp573774"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573776"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp573778"> </a><div class="pCellBody">
+SequeLink does not support the Advanced Data Type functionality and always returns an empty result set.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583776"> </a><div class="pCellBody">
+ResultSet getUDTs (String, String, String, <br />int []) 
+</div>
+</td>
+    <td><a name="wp583778"> </a><div class="pCellBody">
+3.0 Extension 
+</div>
+</td>
+    <td><a name="wp583780"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp583782"> </a><div class="pCellBody">
+SequeLink does not support the Advanced Data Type functionality and always returns an empty result set.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573780"> </a><div class="pCellBody">
+String getURL () 
+</div>
+</td>
+    <td><a name="wp573782"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573784"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573786"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573788"> </a><div class="pCellBody">
+String getUserName () 
+</div>
+</td>
+    <td><a name="wp573790"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573792"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573794"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573796"> </a><div class="pCellBody">
+ResultSet getVersionColumns (String, String, String) 
+</div>
+</td>
+    <td><a name="wp573798"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573800"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573802"> </a><div class="pCellBody">
+The JDBC driver supports this method if the data store supports it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573804"> </a><div class="pCellBody">
+boolean insertsAreDetected (int) 
+</div>
+</td>
+    <td><a name="wp573806"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573808"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573810"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573812"> </a><div class="pCellBody">
+boolean isCatalogAtStart () 
+</div>
+</td>
+    <td><a name="wp573814"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573816"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573818"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573820"> </a><div class="pCellBody">
+boolean isReadOnly () 
+</div>
+</td>
+    <td><a name="wp573822"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573824"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573826"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573828"> </a><div class="pCellBody">
+boolean locatorsUpdateCopy ()
+</div>
+</td>
+    <td><a name="wp573830"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573832"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573834"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573836"> </a><div class="pCellBody">
+boolean nullPlusNonNullIsNull () 
+</div>
+</td>
+    <td><a name="wp573838"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573840"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573842"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573844"> </a><div class="pCellBody">
+boolean nullsAreSortedAtEnd () 
+</div>
+</td>
+    <td><a name="wp573846"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573848"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573850"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573852"> </a><div class="pCellBody">
+boolean nullsAreSortedAtStart () 
+</div>
+</td>
+    <td><a name="wp573854"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573856"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573858"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573860"> </a><div class="pCellBody">
+boolean nullsAreSortedHigh () 
+</div>
+</td>
+    <td><a name="wp573862"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573864"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573866"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573868"> </a><div class="pCellBody">
+boolean nullsAreSortedLow () 
+</div>
+</td>
+    <td><a name="wp573870"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573872"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573874"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573876"> </a><div class="pCellBody">
+boolean othersDeletesAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573878"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573880"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573882"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573884"> </a><div class="pCellBody">
+boolean othersInsertsAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573886"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573888"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573890"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573892"> </a><div class="pCellBody">
+boolean othersUpdatesAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573894"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573896"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573898"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573900"> </a><div class="pCellBody">
+boolean ownDeletesAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573902"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573904"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573906"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573908"> </a><div class="pCellBody">
+boolean ownInsertsAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573910"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573912"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573914"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573916"> </a><div class="pCellBody">
+boolean ownUpdatesAreVisible (int) 
+</div>
+</td>
+    <td><a name="wp573918"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp573920"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573922"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573924"> </a><div class="pCellBody">
+boolean storesLowerCaseIdentifiers () 
+</div>
+</td>
+    <td><a name="wp573926"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573928"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573930"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573932"> </a><div class="pCellBody">
+boolean storesLowerCaseQuoted<br />Identifiers () 
+</div>
+</td>
+    <td><a name="wp573934"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573936"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573938"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573940"> </a><div class="pCellBody">
+boolean storesMixedCaseIdentifiers () 
+</div>
+</td>
+    <td><a name="wp573942"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573944"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573946"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573948"> </a><div class="pCellBody">
+boolean storesMixedCaseQuoted<br />Identifiers () 
+</div>
+</td>
+    <td><a name="wp573950"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573952"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573954"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573956"> </a><div class="pCellBody">
+boolean storesUpperCaseIdentifiers () 
+</div>
+</td>
+    <td><a name="wp573958"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573960"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573962"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573964"> </a><div class="pCellBody">
+boolean supportsResultSetHoldability (int) 
+</div>
+</td>
+    <td><a name="wp573966"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp573968"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573970"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583837"> </a><div class="pCellBody">
+boolean supportsAlterTableWith<br />AddColumn () 
+</div>
+</td>
+    <td><a name="wp583839"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp583841"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583843"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp583829"> </a><div class="pCellBody">
+boolean supportsAlterTableWith<br />DropColumn () 
+</div>
+</td>
+    <td><a name="wp583831"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp583833"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583835"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573972"> </a><div class="pCellBody">
+boolean supportsANSI92EntryLevelSQL () 
+</div>
+</td>
+    <td><a name="wp573974"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573976"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573978"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573980"> </a><div class="pCellBody">
+boolean supportsANSI92FullSQL () 
+</div>
+</td>
+    <td><a name="wp573982"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573984"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573986"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp573988"> </a><div class="pCellBody">
+boolean supportsANSI92Intermediate<br />SQL () 
+</div>
+</td>
+    <td><a name="wp573990"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp573992"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp573994"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574012"> </a><div class="pCellBody">
+boolean supportsBatchUpdates () 
+</div>
+</td>
+    <td><a name="wp574014"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp574016"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574018"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574020"> </a><div class="pCellBody">
+boolean supportsCatalogsInData<br />Manipulation () 
+</div>
+</td>
+    <td><a name="wp574022"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574024"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574026"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574028"> </a><div class="pCellBody">
+boolean supportsCatalogsInIndex () 
+</div>
+</td>
+    <td><a name="wp574030"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574032"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574034"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574036"> </a><div class="pCellBody">
+boolean supportsCatalogsInPrivilege<br />Definitions () 
+</div>
+</td>
+    <td><a name="wp574038"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574040"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574042"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574044"> </a><div class="pCellBody">
+boolean supportsCatalogsInProcedure<br />Calls () 
+</div>
+</td>
+    <td><a name="wp574046"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574048"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574050"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574052"> </a><div class="pCellBody">
+boolean supportsCatalogsInTable<br />Definitions () 
+</div>
+</td>
+    <td><a name="wp574054"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574056"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574058"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574060"> </a><div class="pCellBody">
+boolean supportsColumnAliasing () 
+</div>
+</td>
+    <td><a name="wp574062"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574064"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574066"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574068"> </a><div class="pCellBody">
+boolean supportsConvert () 
+</div>
+</td>
+    <td><a name="wp574070"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574072"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574074"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574076"> </a><div class="pCellBody">
+boolean supportsConvert (int, int) 
+</div>
+</td>
+    <td><a name="wp574078"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574080"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574082"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574084"> </a><div class="pCellBody">
+boolean supportsCoreSQLGrammar () 
+</div>
+</td>
+    <td><a name="wp574086"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574088"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574090"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574092"> </a><div class="pCellBody">
+boolean supportsCorrelatedSubqueries () 
+</div>
+</td>
+    <td><a name="wp574094"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574096"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574098"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574100"> </a><div class="pCellBody">
+boolean supportsDataDefinitionAndData<br />ManipulationTransactions () 
+</div>
+</td>
+    <td><a name="wp574102"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574104"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574106"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574108"> </a><div class="pCellBody">
+boolean supportsDataManipulation<br />TransactionsOnly () 
+</div>
+</td>
+    <td><a name="wp574110"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574112"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574114"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574116"> </a><div class="pCellBody">
+boolean supportsDifferentTableCorrelation<br />Names () 
+</div>
+</td>
+    <td><a name="wp574118"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574120"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574122"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574124"> </a><div class="pCellBody">
+boolean supportsExpressionsIn<br />OrderBy () 
+</div>
+</td>
+    <td><a name="wp574126"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574128"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574130"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574132"> </a><div class="pCellBody">
+boolean supportsExtendedSQLGrammar () 
+</div>
+</td>
+    <td><a name="wp574134"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574136"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574138"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574140"> </a><div class="pCellBody">
+boolean supportsFullOuterJoins () 
+</div>
+</td>
+    <td><a name="wp574142"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574144"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574146"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574148"> </a><div class="pCellBody">
+boolean supportsGetGeneratedKeys ()
+</div>
+</td>
+    <td><a name="wp574150"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp574152"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574154"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574156"> </a><div class="pCellBody">
+boolean supportsGroupBy () 
+</div>
+</td>
+    <td><a name="wp574158"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574160"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574162"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574164"> </a><div class="pCellBody">
+boolean supportsGroupByBeyondSelect () 
+</div>
+</td>
+    <td><a name="wp574166"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574168"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574170"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574172"> </a><div class="pCellBody">
+boolean supportsGroupByUnrelated () 
+</div>
+</td>
+    <td><a name="wp574174"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574176"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574178"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574180"> </a><div class="pCellBody">
+boolean supportsIntegrityEnhancement<br />Facility () 
+</div>
+</td>
+    <td><a name="wp574182"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574184"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574186"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574188"> </a><div class="pCellBody">
+boolean supportsLikeEscapeClause () 
+</div>
+</td>
+    <td><a name="wp574190"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574192"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574194"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574196"> </a><div class="pCellBody">
+boolean supportsLimitedOuterJoins () 
+</div>
+</td>
+    <td><a name="wp574198"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574200"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574202"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574204"> </a><div class="pCellBody">
+boolean supportsMinimumSQLGrammar () 
+</div>
+</td>
+    <td><a name="wp574206"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574208"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574210"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574212"> </a><div class="pCellBody">
+boolean supportsMixedCaseIdentifiers () 
+</div>
+</td>
+    <td><a name="wp574214"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574216"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574218"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574220"> </a><div class="pCellBody">
+boolean supportsMixedCaseQuoted<br />Identifiers () 
+</div>
+</td>
+    <td><a name="wp574222"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574224"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574226"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574228"> </a><div class="pCellBody">
+boolean supportsMultipleOpenResultSets ()
+</div>
+</td>
+    <td><a name="wp574230"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp574232"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574234"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574236"> </a><div class="pCellBody">
+boolean supportsMultipleResultSets () 
+</div>
+</td>
+    <td><a name="wp574238"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574240"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574242"> </a><div class="pCellBody">
+Not supported on Informix.
+</div>
+<a name="wp591932"> </a><div class="pCellBody">
+NOTE: Use of this method with large result sets incurs a performance and scalability penalty.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574244"> </a><div class="pCellBody">
+boolean supportsMultipleTransactions () 
+</div>
+</td>
+    <td><a name="wp574246"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574248"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574250"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574252"> </a><div class="pCellBody">
+boolean supportsNamedParameters ()
+</div>
+</td>
+    <td><a name="wp574254"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp574256"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574258"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574260"> </a><div class="pCellBody">
+boolean supportsNonNullableColumns () 
+</div>
+</td>
+    <td><a name="wp574262"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574264"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574266"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574268"> </a><div class="pCellBody">
+boolean supportsOpenCursorsAcross<br />Commit () 
+</div>
+</td>
+    <td><a name="wp574270"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574272"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574274"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574276"> </a><div class="pCellBody">
+boolean supportsOpenCursorsAcross<br />Rollback () 
+</div>
+</td>
+    <td><a name="wp574278"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574280"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574282"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574284"> </a><div class="pCellBody">
+boolean supportsOpenStatementsAcross<br />Commit () 
+</div>
+</td>
+    <td><a name="wp574286"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574288"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574290"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574292"> </a><div class="pCellBody">
+boolean supportsOpenStatementsAcross<br />Rollback () 
+</div>
+</td>
+    <td><a name="wp574294"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574296"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574298"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574300"> </a><div class="pCellBody">
+boolean supportsOrderByUnrelated () 
+</div>
+</td>
+    <td><a name="wp574302"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574304"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574306"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574308"> </a><div class="pCellBody">
+boolean supportsOuterJoins () 
+</div>
+</td>
+    <td><a name="wp574310"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574312"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574314"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574316"> </a><div class="pCellBody">
+boolean supportsPositionedDelete () 
+</div>
+</td>
+    <td><a name="wp574318"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574320"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574322"> </a><div class="pCellBody">
+The driver returns hard coded false. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574324"> </a><div class="pCellBody">
+boolean supportsPositionedUpdate () 
+</div>
+</td>
+    <td><a name="wp574326"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574328"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574330"> </a><div class="pCellBody">
+The driver returns hard coded false. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574332"> </a><div class="pCellBody">
+boolean supportsResultSetConcurrency (int, int) 
+</div>
+</td>
+    <td><a name="wp574334"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp574336"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574338"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574348"> </a><div class="pCellBody">
+boolean supportsResultSetType (int) 
+</div>
+</td>
+    <td><a name="wp574350"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp574352"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574354"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574512"> </a><div class="pCellBody">
+boolean supportsSavePoints ()
+</div>
+</td>
+    <td><a name="wp574514"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp574516"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574518"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574356"> </a><div class="pCellBody">
+boolean supportsSchemasInData<br />Manipulation () 
+</div>
+</td>
+    <td><a name="wp574358"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574360"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574362"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574364"> </a><div class="pCellBody">
+boolean supportsSchemasInIndex<br />Definitions () 
+</div>
+</td>
+    <td><a name="wp574366"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574368"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574370"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574372"> </a><div class="pCellBody">
+boolean supportsSchemasIn<br />PrivilegeDefinitions () 
+</div>
+</td>
+    <td><a name="wp574374"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574376"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574378"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574380"> </a><div class="pCellBody">
+boolean supportsSchemasInProcedure<br />Calls () 
+</div>
+</td>
+    <td><a name="wp574382"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574384"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574386"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574388"> </a><div class="pCellBody">
+boolean supportsSchemasInTable<br />Definitions () 
+</div>
+</td>
+    <td><a name="wp574390"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574392"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574394"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574396"> </a><div class="pCellBody">
+boolean supportsSelectForUpdate () 
+</div>
+</td>
+    <td><a name="wp574398"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574400"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp583933"> </a><div class="pCellBody">
+SequeLink supports SELECT FOR UPDATE statements against certain DBMSs. SequeLink returns false, as it does not support UPDATE WHERE CURRENT OF statements.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574404"> </a><div class="pCellBody">
+boolean supportsStoredProcedures () 
+</div>
+</td>
+    <td><a name="wp574406"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574408"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574410"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574412"> </a><div class="pCellBody">
+boolean supportsSubqueriesIn<br />Comparisons () 
+</div>
+</td>
+    <td><a name="wp574414"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574416"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574418"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574420"> </a><div class="pCellBody">
+boolean supportsSubqueriesInExists () 
+</div>
+</td>
+    <td><a name="wp574422"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574424"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574426"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574428"> </a><div class="pCellBody">
+boolean supportsSubqueriesInIns () 
+</div>
+</td>
+    <td><a name="wp574430"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574432"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574434"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574436"> </a><div class="pCellBody">
+boolean supportsSubqueriesIn<br />Quantifieds () 
+</div>
+</td>
+    <td><a name="wp574438"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574440"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574442"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574444"> </a><div class="pCellBody">
+boolean supportsTableCorrelationNames () 
+</div>
+</td>
+    <td><a name="wp574446"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574448"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574450"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574452"> </a><div class="pCellBody">
+boolean supportsTransactionIsolationLevel (int) 
+</div>
+</td>
+    <td><a name="wp574454"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574456"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574458"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574460"> </a><div class="pCellBody">
+boolean supportsTransactions () 
+</div>
+</td>
+    <td><a name="wp574462"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574464"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574466"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574468"> </a><div class="pCellBody">
+boolean supportsUnion () 
+</div>
+</td>
+    <td><a name="wp574470"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574472"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574474"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574476"> </a><div class="pCellBody">
+boolean supportsUnionAll () 
+</div>
+</td>
+    <td><a name="wp574478"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574480"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574482"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574484"> </a><div class="pCellBody">
+boolean updatesAreDetected (int) 
+</div>
+</td>
+    <td><a name="wp574486"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp574488"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574490"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574492"> </a><div class="pCellBody">
+boolean usesLocalFilePerTable () 
+</div>
+</td>
+    <td><a name="wp574494"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574496"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574498"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574500"> </a><div class="pCellBody">
+boolean usesLocalFiles () 
+</div>
+</td>
+    <td><a name="wp574502"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp574504"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp574506"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

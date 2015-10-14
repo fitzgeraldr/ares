@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>J2EE Connector Architecture (JCA) Resource Adapter</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041720"> </a><h1 class="pNewHTMLPageNoNum">
+J2EE Connector Architecture (JCA) Resource Adapter
+</h1>
+<hr /><a name="wp1041721"> </a><p class="pBody">
+The J2EE Connector architecture (JCA) defines a standard structure for connecting the J2EE platform to Enterprise Information Systems (EISs). Examples of EISs include mainframe transaction processing, database systems, and legacy applications not written in the Java programming language. JCA allows you to integrate EISs with application servers and enterprise applications.
+</p>
+<a name="wp1041722"> </a><p class="pBody">
+JCA defines a standard set of system-level contracts between an application server and EISs to ensure compatibility between them. The resource adapter implements the EIS portion of these system-level contracts.
+</p>
+<a name="wp1041723"> </a><p class="pBody">
+A resource adapter is a system-level software driver used by an application server to connect to an EIS. The resource adapter communicates with the server to provide the underlying transaction, security, and connection pooling mechanisms.
+</p>
+<a name="wp1041724"> </a><p class="pBody">
+JCA also defines a standard Service Provider Interface (SPI) for integrating the transaction, security and connection management facilities of an application server with those of a transactional resource manager. The JDBC 3.0 specification describes the relationship of JDBC to the SPI specified in JCA.
+</p>
+<a name="wp1041725"> </a><p class="pBody">
+The JDBC driver supports appropriate JDBC functionality through the JCA SPI by providing resource adapters. The DataDirect resource adapter is provided in a resource archive (RAR) file, sljc.rar. Refer to the <em class="cEmphasis">SequeLink Installation Guide</em> for information about creating the resource adapter.
+</p>
+<a name="wp1041729"> </a><h3 class="pHeading2">
+Using the Resource Adapter with an Application Server
+</h3>
+<a name="wp1041731"> </a><p class="pBody">
+In an application server environment, the resource adapter is deployed using a deployment tool. Each RAR file includes a deployment descriptor, which instructs the application server about how to use the resource adapter in an application server environment. The deployment descriptor contains information about the resource adapter, including security and transactional capabilities, and the ManagedConnectionFactory class name. See your application server documentation for details about how to deploy components using the deployment tool.
+</p>
+<a name="wp1041732"> </a><h3 class="pHeading2">
+Using the Resource Adapter from an Application
+</h3>
+<a name="wp1041734"> </a><p class="pBody">
+The JCA resource adapter may also be used directly from an application, rather than through a container-managed, application server environment. The following code example shows how you might access a database using the resource adapter:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+package examples;<a name="wp1041735"> </a>
+<a name="wp1041736"> </a>
+import java.util.Hashtable;<a name="wp1041737"> </a>
+import java.sql.Connection;<a name="wp1041738"> </a>
+import javax.sql.DataSource;<a name="wp1041739"> </a>
+import javax.naming.*;<a name="wp1041740"> </a>
+import javax.resource.spi.*;<a name="wp1041741"> </a>
+import com.ddtek.resource.sljdbc.JCAConnectionFactory;<a name="wp1041742"> </a>
+import com.ddtek.resource.sljdbc.spi.*;<a name="wp1041743"> </a>
+<a name="wp1041744"> </a>
+public class RAExample {<a name="wp1041745"> </a>
+    static public void main(String[] args) {<a name="wp1041746"> </a>
+        try {<a name="wp1041747"> </a>
+// Create a connection factory instance<a name="wp1041748"> </a>
+            SequeLinkManagedConnectionFactory managedFactory =<a name="wp1041749"> </a>
+            new SequeLinkManagedConnectionFactory();<a name="wp1041750"> </a>
+            managedFactory.setServerName(&quot;MyOracleServer&quot;);<a name="wp1041751"> </a>
+            managedFactory.setPortNumber(&quot;1521&quot;);<a name="wp1041752"> </a>
+            JCAConnectionFactory factory = (JCAConnectionFactory)<a name="wp1041753"> </a>
+<a name="wp1041754"> </a>
+managedFactory.createConnectionFactory();<a name="wp1041755"> </a>
+// Get an InitialContext. Using File System JNDI Service<a name="wp1041756"> </a>
+// Provider as an example<a name="wp1041757"> </a>
+            Hashtable env = new Hashtable();<a name="wp1041758"> </a>
+            env.put(Context.INITIAL_CONTEXT_FACTORY,<a name="wp1041759"> </a>
+                    &quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<a name="wp1041760"> </a>
+            env.put(Context.PROVIDER_URL,<a name="wp1041761"> </a>
+                    &quot;file:c:/ConnectionFactories&quot;);<a name="wp1041762"> </a>
+            Context connectorContext = new InitialContext(env);<a name="wp1041763"> </a>
+// Bind the connection factory<a name="wp1041764"> </a>
+            try {<a name="wp1041765"> </a>
+                connectorContext.bind(&quot;ConnectionFactory&quot;, factory);<a name="wp1041766"> </a>
+            } catch (NameAlreadyBoundException except) {<a name="wp1041767"> </a>
+                connectorContext.rebind(&quot;ConnectionFactory&quot;,<a name="wp1041768"> </a>
+                                        factory);<a name="wp1041769"> </a>
+            }<a name="wp1041770"> </a>
+        } catch (Exception except) {<a name="wp1041771"> </a>
+            System.out.println(&quot;Error creating DataSource&quot;);<a name="wp1041772"> </a>
+            System.exit(0);<a name="wp1041773"> </a>
+        }<a name="wp1041774"> </a>
+// Connect via the DataSource<a name="wp1041775"> </a>
+        try {<a name="wp1041776"> </a>
+// Get an InitialContext. Using File System JNDI Service<a name="wp1041777"> </a>
+// Provider as an example<a name="wp1041778"> </a>
+            Hashtable env = new Hashtable();<a name="wp1041779"> </a>
+            env.put(Context.INITIAL_CONTEXT_FACTORY,<a name="wp1041780"> </a>
+                    &quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<a name="wp1041781"> </a>
+            env.put(Context.PROVIDER_URL,<a name="wp1041782"> </a>
+                    &quot;file:c:/ConnectionFactories&quot;);<a name="wp1041783"> </a>
+            Context connectorContext = new InitialContext(env);<a name="wp1041784"> </a>
+// Lookup the connection factory<a name="wp1041785"> </a>
+            DataSource dataSource = (DataSource)<a name="wp1041786"> </a>
+<a name="wp1041787"> </a>
+connectorContext.lookup(&quot;ConnectionFactory&quot;);<a name="wp1041788"> </a>
+Connection connection =dataSource.getConnection(&quot;scott&quot;, &quot;tiger&quot;);<a name="wp1041789"> </a>
+        catch (Exception except) {<a name="wp1041790"> </a>
+            System.out.println(&quot;Error looking up connection factory&quot;);  }  }<a name="wp1041791"> </a>
+        }<a name="wp1041792"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

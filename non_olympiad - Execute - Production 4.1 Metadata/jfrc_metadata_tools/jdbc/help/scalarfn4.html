@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:49" />
+  <title>Like Predicate Escape Characters</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp17379"> </a><h1 class="pNewHTMLPageNoNum">
+Like Predicate Escape Characters
+</h1>
+<hr /><a name="wp17380"> </a><p class="pBody">
+In a LIKE predicate, the percent sign (%) matches zero or more of any character and the underscore (_) matches any one character. To match an actual percent sign or underscore in a LIKE predicate, an escape character must precede the % or _. The escape sequence that defines the LIKE predicate escape character is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{escape &#39;<code><em>escape-character</em></code>&#39;}<a name="wp17381"> </a>
+</pre></div>
+<a name="wp17382"> </a><p class="pBody">
+where <code><em>escape-character</em></code> is any character supported by the data source.
+</p>
+<a name="wp17383"> </a><p class="pBodyBold">
+Example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT Name FROM Customers
+WHERE Name LIKE &#39;\%AAA%&#39; {escape &#39;\&#39;}<a name="wp17384"> </a>
+</pre></div>
+<a name="wp17385"> </a><p class="pBody">
+Returns all the customers for which the name startS with &#8220;%AAA&#8221;.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

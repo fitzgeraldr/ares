@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:36" />
+  <title>Using Spy with JDBC Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp68530"> </a><h1 class="pNewHTMLPageNoNum">
+Using Spy with JDBC Data Sources
+</h1>
+<hr /><a name="wp69766"> </a><p class="pBody">
+The JDBC driver implements the following features defined by the JDBC 2.0 Optional Package:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp69776"> </a><div class="pSmartList1"><li>JNDI for Naming Databases</li></div><a name="wp69777"> </a><div class="pSmartList1"><li>Connection Pooling</li></div><a name="wp69784"> </a><div class="pSmartList1"><li>Distributed Transaction Management (DTC)</li></div></ul></div>
+<a name="wp69785"> </a><p class="pBody">
+You can use Spy to track JDBC calls with all of these features. The com.ddtek.jdbcx.sequelink.SequeLinkDataSource class supports the SpyAttributes connection attribute, which specifies a semi-colon-separated list of Spy attributes as described in <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a>. See <a  href="usejdbc4.html#wp1041533">&quot;JDBC Connection URL Examples:&quot;</a> for more information about configuring JDBC data sources.
+</p>
+<a name="wp69818"> </a><p class="pBody">
+The following examples create a SequeLinkDataSource and specifies that all JDBC calls must be logged in the file /tmp/spy.log, including the name of the current thread:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp69820"> </a>
+SequeLinkDataSource sds=new SequeLinkDataSource():<a name="wp69829"> </a>
+sds.setServerName(&quot;MyServer&quot;);<a name="wp69838"> </a>
+sds.setPortNumber(1234);<a name="wp69843"> </a>
+sds.setSpyAttributes(&quot;log=(file)/tmp/spy.log;logTName=yes&quot;);<a name="wp69848"> </a>
+Connection conn=sds.getConnection(&quot;scott&quot;,&quot;tiger&quot;);<a name="wp69853"> </a>
+...<a name="wp69857"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:17:35" />
+  <title>Supported Data Types</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp821285"> </a><h1 class="pNewHTMLPageNoNum">
+Supported Data Types
+</h1>
+<hr /><a name="wp821287"> </a><p class="pBody">
+Retrieving and sending certain data types can be expensive. Advances in processor technology brought significant improvements to the way that operations such as floating-point math are handled; however, retrieving and sending certain data types are still expensive when the active portion of your application will not fit into on-chip cache. When you are working with data on a large scale, it is still important to select the data type that can be processed most efficiently. 
+</p>
+<a name="wp957384"> </a><p class="pBody">
+For example, integer data is processed faster than floating-point data. Floating-point data is defined according to internal database-specific formats, usually in a compressed format. The data must be decompressed and converted into a different format so that it can be processed by the wire protocol.
+</p>
+<a name="wp571195"> </a><p class="pBody">
+Processing time is shortest for character strings, followed by integers, which usually require some conversion or byte ordering. Processing floating-point data and timestamps is at least twice as slow as integers.
+</p>
+<a name="wp821349"> </a><h3 class="pHeading2">
+DB2 UDB on z/OS
+</h3>
+<a name="wp1008702"> </a><p class="pBody">
+The following table lists the data types that the JDBC driver supports for DB2 UDB on z/OS:
+</p>
+<a name="wp1008803"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp1008705"> </a><div class="pTableTitleBold">
+Table A-1.  Mapping Data Types for DB2 UDB on z/OS to JDBC Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1008712"> </a><div class="pCellHeading">
+DB2 Data Type
+</div>
+</th>
+    <th><a name="wp1008714"> </a><div class="pCellHeading">
+JDBC Data Type
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1008716"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+    <td><a name="wp1008718"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008720"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp1008722"> </a><div class="pCellBody">
+BLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1008723"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008725"> </a><div class="pCellBody">
+CHAR(size)
+</div>
+</td>
+    <td><a name="wp1008727"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008729"> </a><div class="pCellBody">
+CHAR(size) FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1008731"> </a><div class="pCellBody">
+BINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008733"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp1008735"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1008736"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008738"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1008740"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008742"> </a><div class="pCellBody">
+DBCLOB
+</div>
+</td>
+    <td><a name="wp1008744"> </a><div class="pCellBody">
+CLOB  
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008746"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp1008748"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008750"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+    <td><a name="wp1008752"> </a><div class="pCellBody">
+FLOAT
+</div>
+<a name="wp1008753"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008755"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp1008757"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008759"> </a><div class="pCellBody">
+LONG VARCHAR
+</div>
+</td>
+    <td><a name="wp1008761"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008763"> </a><div class="pCellBody">
+LONG VARCHAR FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1008765"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008767"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+    <td><a name="wp1008769"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008771"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp1008773"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008775"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp1008777"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008779"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp1008781"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008783"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp1008785"> </a><div class="pCellBody">
+TIMESTAMP<font size="1"><sup>3</sup></font>
+</div>
+<a name="wp1008786"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008788"> </a><div class="pCellBody">
+VARCHAR(size)
+</div>
+</td>
+    <td><a name="wp1008790"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1008792"> </a><div class="pCellBody">
+VARCHAR(size) FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1008794"> </a><div class="pCellBody">
+VARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="2" rowspan="1"><a name="wp1008796"> </a><div class="pCellBody">
+NOTES:
+</div>
+<a name="wp1008797"> </a><div class="pCellBody">
+1 Only present when DataSourceReportLobsAsLongvar=False. 
+</div>
+<a name="wp1008798"> </a><div class="pCellBody">
+2 Only present when DataSourceReportLobsAsLongvar=True.
+</div>
+<a name="wp1008799"> </a><div class="pCellBody">
+3 Only present when DataSourceFetchTimestampAsString=False.
+</div>
+<a name="wp1008800"> </a><div class="pCellBody">
+4 Only present when DataSourceFetchTimestampAsString=True.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody"> 
+</p>
+<a name="wp939244"> </a><h3 class="pHeading2">
+DB2 UDB on Windows and UNIX 
+</h3>
+<a name="wp939255"> </a><p class="pBody">
+
+</p>
+<a name="wp1009427"> </a><p class="pBody">
+The following table lists the SQL data types that the JDBC driver supports for DB2 UDB for the default service (ServiceCodePage=Default or OS) and the Unicode service (ServiceCodePage=Database). 
+</p>
+<a name="wp795757"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp1009434"> </a><div class="pTableTitleBold">
+Table A-2.  Mapping DB2 UDB Data Types to JDBC Data Types &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1009440"> </a><div class="pCellHeading">
+DB2 SQL Data Type
+</div>
+</th>
+    <th><a name="wp1009442"> </a><div class="pCellHeading">
+JDBC Data Type Non-Unicode Service
+</div>
+</th>
+    <th><a name="wp1009444"> </a><div class="pCellHeading">
+JDBC Data Type <br />Unicode Service
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1009446"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+    <td><a name="wp1009448"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+    <td><a name="wp1009450"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009452"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp1009454"> </a><div class="pCellBody">
+BLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1009455"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp1009457"> </a><div class="pCellBody">
+BLOB<font size="1"><sup>5</sup></font>
+</div>
+<a name="wp1009458"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>5</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009460"> </a><div class="pCellBody">
+CHAR(size)
+</div>
+</td>
+    <td><a name="wp1009462"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+    <td><a name="wp1009464"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009466"> </a><div class="pCellBody">
+CHAR(size) FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1009468"> </a><div class="pCellBody">
+BINARY
+</div>
+</td>
+    <td><a name="wp1009470"> </a><div class="pCellBody">
+BINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009472"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp1009474"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1009475"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp1009477"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>5</sup></font>
+</div>
+<a name="wp1009478"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>5</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009480"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1009482"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1009484"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009486"> </a><div class="pCellBody">
+DBCLOB
+</div>
+</td>
+    <td><a name="wp1009488"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1009489"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp1009491"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>5</sup></font>
+</div>
+<a name="wp1009492"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>5</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009494"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp1009496"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp1009498"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009500"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+    <td><a name="wp1009502"> </a><div class="pCellBody">
+FLOAT
+</div>
+<a name="wp1009503"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+    <td><a name="wp1009505"> </a><div class="pCellBody">
+FLOAT
+</div>
+<a name="wp1009506"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009508"> </a><div class="pCellBody">
+GRAPHIC(size)
+</div>
+</td>
+    <td><a name="wp1009510"> </a><div class="pCellBody">
+CHAR 
+</div>
+</td>
+    <td><a name="wp1009512"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009514"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp1009516"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp1009518"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009520"> </a><div class="pCellBody">
+LONG VARCHAR 
+</div>
+</td>
+    <td><a name="wp1009522"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp1009524"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009526"> </a><div class="pCellBody">
+LONG VARCHAR FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1009528"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp1009530"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>1</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009532"> </a><div class="pCellBody">
+LONG VARGRAPHIC 
+</div>
+</td>
+    <td><a name="wp1009534"> </a><div class="pCellBody">
+LONGVARCHAR 
+</div>
+</td>
+    <td><a name="wp1009536"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009538"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+    <td><a name="wp1009540"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+    <td><a name="wp1009542"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009544"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp1009546"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp1009548"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009550"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp1009552"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp1009554"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009556"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp1009558"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp1009560"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009562"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp1009564"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+<a name="wp1009565"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>2</sup></font>
+</div>
+</td>
+    <td><a name="wp1009567"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+<a name="wp1009568"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009570"> </a><div class="pCellBody">
+VARCHAR(size)
+</div>
+</td>
+    <td><a name="wp1009572"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+    <td><a name="wp1009574"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009576"> </a><div class="pCellBody">
+VARCHAR(size) FOR BIT DATA
+</div>
+</td>
+    <td><a name="wp1009578"> </a><div class="pCellBody">
+VARBINARY
+</div>
+</td>
+    <td><a name="wp1009580"> </a><div class="pCellBody">
+VARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1009582"> </a><div class="pCellBody">
+VARGRAPHIC(size)
+</div>
+</td>
+    <td><a name="wp1009584"> </a><div class="pCellBody">
+VARCHAR 
+</div>
+</td>
+    <td><a name="wp1009586"> </a><div class="pCellBody">
+VARCHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="3" rowspan="1"><a name="wp1009588"> </a><div class="pCellBody">
+NOTES:
+</div>
+<a name="wp1009589"> </a><div class="pCellBody">
+1 Depends on setting of the DataSourceLobAsLongvar service attribute. When set to False, LOB data types will be handled as LOB objects; when set to True, LOB data types are handled as Longvar data types.
+</div>
+<a name="wp1009590"> </a><div class="pCellBody">
+2 DataSourceFetchTimestampAsString specifies whether timestamps are fetched as character strings.
+</div>
+<a name="wp1009591"> </a><div class="pCellBody">
+3 If DataSourceReportChar is enabled, the CHAR, VARCHAR, LONGVARCHAR data types are additionally reported as the non-Unicode data types (see previous table)
+</div>
+<a name="wp1009592"> </a><div class="pCellBody">
+4 If DataSourceDB2GraphicSupport is enabled, the GRAPHIC datatypes will be available.
+</div>
+<a name="wp1009593"> </a><div class="pCellBody">
+5 Depending on DataSourceReportLobAsLongVarchar: if set to TRUE: LONGVARCHAR data types are reported; if set to FALSE: LOB data types are reported. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

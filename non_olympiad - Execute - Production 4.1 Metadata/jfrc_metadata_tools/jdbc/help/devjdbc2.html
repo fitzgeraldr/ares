@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>JDBC 3.0 Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp525416"> </a><h1 class="pNewHTMLPageNoNum">
+JDBC 3.0 Support
+</h1>
+<hr /><a name="wp525420"> </a><p class="pBody">
+The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver supports the JDBC 3.0 API. This functionality is available only to applications running on JDK 1.4 or higher Virtual Machines. 
+</p>
+<a name="wp531855"> </a><p class="pBody">
+<a  href="devjdbc2.html#wp554840">Table&#160;4-1</a> summarizes the JDBC 3.0 and enhanced JDBC 2.0 functionality that the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver supports. 
+</p>
+<a name="wp538363"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp554840"> </a><div class="pTableTitleBold">
+Table 4-1.  Supported JDBC Features
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp554854"> </a><div class="pCellHeading">
+&#160;
+</div>
+</th>
+    <th><a name="wp554856"> </a><div class="pCellHeading">
+DB2 UDB on z/OS
+</div>
+</th>
+    <th><a name="wp554858"> </a><div class="pCellHeading">
+DB2 UDB Windows and UNIX
+</div>
+</th>
+    <th><a name="wp554860"> </a><div class="pCellHeading">
+Informix 
+</div>
+</th>
+    <th><a name="wp554862"> </a><div class="pCellHeading">
+Oracle
+</div>
+</th>
+    <th><a name="wp554864"> </a><div class="pCellHeading">
+Microsoft SQL Server 
+</div>
+</th>
+    <th><a name="wp554866"> </a><div class="pCellHeading">
+Sybase 
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp554868"> </a><div class="pCellBody">
+Blob interfaces 
+</div>
+</td>
+    <td><a name="wp554870"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554872"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554874"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554876"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554878"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554880"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554882"> </a><div class="pCellBody">
+Clob interfaces 
+</div>
+</td>
+    <td><a name="wp554884"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554886"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554888"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554890"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554892"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554894"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554896"> </a><div class="pCellBody">
+DatabaseMetaData getSchema
+</div>
+</td>
+    <td><a name="wp554898"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554900"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554902"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554904"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554906"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554908"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554910"> </a><div class="pCellBody">
+setQueryTimeout
+</div>
+</td>
+    <td><a name="wp554912"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554914"> </a><div class="pCellBody">
+Note 1
+</div>
+</td>
+    <td><a name="wp554916"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554918"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554920"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554922"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554924"> </a><div class="pCellBody">
+ParameterMetaData
+</div>
+</td>
+    <td><a name="wp554926"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554928"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554930"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554932"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554934"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554936"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554938"> </a><div class="pCellBody">
+Savepoints
+</div>
+</td>
+    <td><a name="wp554940"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554942"> </a><div class="pCellBody">
+Note 2
+</div>
+</td>
+    <td><a name="wp554944"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp554946"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554948"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554950"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554952"> </a><div class="pCellBody">
+Updatable result sets 
+</div>
+</td>
+    <td><a name="wp554954"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554956"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554958"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554960"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554962"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp554964"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="7" rowspan="1"><a name="wp554966"> </a><div class="pCellBody">
+NOTES: 
+</div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp554967"> </a><div class="pSmartList1"><li>setQueryTimeout is supported on DB2 UDB only on Windows.</li></div><a name="wp554968"> </a><div class="pSmartList1"><li>Only one savepoint can be released. </li></div></ol></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp550218"> </a><p class="pBody">
+See <a  href="jdbcsupp.html#wp524304">&quot;JDBC Support&quot;</a> for information on the methods that SequeLink supports and the compatibility between the JDBC application versions.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

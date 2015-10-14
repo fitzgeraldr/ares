@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpTOC version="3.0">
+ <i l="preface.html#wp1043733" t="Using This Help File">
+  <i l="preface2.html#wp1043130" t="Conventions Used in This Help File">
+   <i l="preface2.html#wp1014283" t="Typographical Conventions" />
+  </i>
+  <i l="preface3.html#wp1011254" t="Contacting Technical Support" />
+ </i>
+ <i l="usejdbc.html#wp1041125" t="Using the JDBC Client">
+  <i l="usejdbc2.html#wp1041131" t="About the JDBC Client">
+   <i l="usejdbc2.html#wp1041142" t="JDBC Driver" />
+   <i l="usejdbc2.html#wp1041151" t="SequeLink® Proxy Server" />
+   <i l="usejdbc2.html#wp1041228" t="DataDirect Spy" />
+   <i l="usejdbc2.html#wp1041243" t="DataDirect Test" />
+   <i l="usejdbc2.html#wp1041254" t="DataDirect Connection Pool Manager" />
+   <i l="usejdbc2.html#wp1041262" t="J2EE Connector Architecture (JCA) Resource Adapter" />
+   <i l="usejdbc2.html#wp1041276" t="JDBC Client Directory Structure" />
+  </i>
+  <i l="usejdbc3.html#wp1041456" t="Registering the JDBC Driver" />
+  <i l="usejdbc4.html#wp1041470" t="Specifying JDBC Driver Connection URLs" />
+  <i l="usejdbc5.html#wp1041551" t="Configuring JDBC Data Sources">
+   <i l="usejdbc5.html#wp1041567" t="Creating and Managing JDBC Data Sources" />
+   <i l="usejdbc5.html#wp1041592" t="Using JNDI for Naming Databases" />
+   <i l="usejdbc5.html#wp1041608" t="Using Connection Pooling" />
+  </i>
+  <i l="usejdbc6.html#wp1041651" t="Using the Java Transaction API" />
+  <i l="usejdbc7.html#wp1041720" t="J2EE Connector Architecture (JCA) Resource Adapter">
+   <i l="usejdbc7.html#wp1041729" t="Using the Resource Adapter with an Application Server" />
+   <i l="usejdbc7.html#wp1041732" t="Using the Resource Adapter from an Application" />
+  </i>
+  <i l="usejdbc8.html#wp1041797" t="Specifying Connection Properties">
+   <i l="usejdbc8.html#wp1052615" t="Using Connection URLs or the JDBC Driver Manager" />
+   <i l="usejdbc8.html#wp1052632" t="Using JDBC Data Sources" />
+  </i>
+  <i l="usejdbc9.html#wp1041841" t="JDBC Connection Properties" />
+  <i l="usejdbc10.html#wp1048636" t="Testing JDBC Connections" />
+  <i l="usejdbc11.html#wp1042155" t="Using the JDBC Client on a Java 2 Platform" />
+ </i>
+ <i l="jdbctest.html#wp75363" t="Using DataDirect Test">
+  <i l="jdbctest2.html#wp75369" t="DataDirect Test Tutorial">
+   <i l="jdbctest2.html#wp116017" t="Configuring DataDirect Test" />
+   <i l="jdbctest2.html#wp116528" t="Starting DataDirect Test" />
+   <i l="jdbctest2.html#wp75413" t="Connecting Using DataDirect Test" />
+   <i l="jdbctest2.html#wp75445" t="Executing a Simple Select Statement" />
+   <i l="jdbctest2.html#wp75461" t="Executing a Prepared Statement" />
+   <i l="jdbctest2.html#wp75495" t="Retrieving Database Metadata" />
+   <i l="jdbctest2.html#wp75518" t="Scrolling Through a Result Set" />
+   <i l="jdbctest2.html#wp110635" t="Batch Execution on a Prepared Statement" />
+   <i l="jdbctest2.html#wp120482" t="Returning ParameterMetaData" />
+   <i l="jdbctest2.html#wp120495" t="Establishing Savepoints" />
+   <i l="jdbctest2.html#wp121083" t="Updatable Result Sets" />
+   <i l="jdbctest2.html#wp121252" t="LOB Support" />
+  </i>
+ </i>
+ <i l="spy.html#wp68486" t="Tracking JDBC Calls">
+  <i l="spy2.html#wp74001" t="About DataDirect Spy" />
+  <i l="spy3.html#wp75480" t="Enabling DataDirect Spy">
+   <i l="spy3.html#wp75501" t="Using the JDBC Driver Manager" />
+   <i l="spy3.html#wp75531" t="Using JDBC Data Sources" />
+   <i l="spy3.html#wp75568" t="Using the DataDirect Spy URL" />
+  </i>
+  <i l="spy4.html#wp75440" t="Registering the Spy JDBC Driver">
+   <i l="spy4.html#wp68496" t="DataDirect Spy Attributes" />
+  </i>
+  <i l="spy5.html#wp68530" t="Using Spy with JDBC Data Sources" />
+  <i l="spy6.html#wp75693" t="Checking the DataDirect Spy Version" />
+ </i>
+ <i l="devjdbc.html#wp524304" t="Developing JDBC Applications">
+  <i l="devjdbc2.html#wp525416" t="JDBC 3.0 Support" />
+  <i l="devjdbc3.html#wp539195" t="JCA Resource Adapter Class" />
+  <i l="devjdbc4.html#wp525530" t="SQL Support">
+   <i l="devjdbc4.html#wp549369" t="Binding SQL Statements" />
+  </i>
+  <i l="devjdbc5.html#wp539747" t="Data Types and Isolation Levels" />
+  <i l="devjdbc6.html#wp525623" t="Threading">
+   <i l="devjdbc6.html#wp528345" t="Threading Architecture" />
+   <i l="devjdbc6.html#wp528126" t="Cancelling Functions in Multithreaded Applications" />
+  </i>
+  <i l="devjdbc7.html#wp526076" t="Using Scrollable Cursors">
+   <i l="devjdbc7.html#wp526079" t="Result Set Types" />
+   <i l="devjdbc7.html#wp526088" t="Concurrency Types" />
+   <i l="devjdbc7.html#wp526096" t="Using Scrollable Cursors" />
+  </i>
+  <i l="devjdbc8.html#wp526150" t="Specifying Application IDs" />
+  <i l="devjdbc9.html#wp552197" t="Parameter Metadata Support">
+   <i l="devjdbc9.html#wp555412" t="INSERT and UPDATE Statements" />
+   <i l="devjdbc9.html#wp555326" t="Select Statements" />
+  </i>
+  <i l="devjdbc10.html#wp555509" t="ResultSet Metadata Support" />
+  <i l="devjdbc11.html#wp555719" t="Unicode Support" />
+  <i l="devjdbc12.html#wp527579" t="Error Handling">
+   <i l="devjdbc12.html#wp551035" t="SequeLink® for JDBC Driver Errors" />
+   <i l="devjdbc12.html#wp551045" t="SequeLink® Server Errors" />
+   <i l="devjdbc12.html#wp551058" t="Database Errors" />
+  </i>
+  <i l="devjdbc13.html#wp524689" t="Fine-Tuning JDBC Application Performance">
+   <i l="devjdbc13.html#wp524709" t="Reducing Download Time" />
+   <i l="devjdbc13.html#wp524746" t="Fetching BigDecimal Objects" />
+   <i l="devjdbc13.html#wp529229" t="Using Database Metadata Methods" />
+   <i l="devjdbc13.html#wp529277" t="Retrieving Data" />
+   <i l="devjdbc13.html#wp529294" t="Selecting JDBC Objects and Methods" />
+   <i l="devjdbc13.html#wp550145" t="Using get Methods Effectively" />
+   <i l="devjdbc13.html#wp529318" t="Designing JDBC Applications" />
+   <i l="devjdbc13.html#wp529335" t="Updating Data" />
+  </i>
+ </i>
+ <i l="datatype.html#wp65645" t="Data Types and Isolation Levels">
+  <i l="datatype2.html#wp821285" t="Supported Data Types">
+   <i l="datatype2.html#wp821349" t="DB2 UDB on z/OS" />
+   <i l="datatype2.html#wp939244" t="DB2 UDB on Windows and UNIX" />
+   <i l="datatype3.html#wp958513" t="Informix" />
+   <i l="datatype3.html#wp783999" t="Microsoft SQL Server" />
+   <i l="datatype4.html#wp784274" t="Oracle" />
+   <i l="datatype5.html#wp784403" t="Sybase" />
+  </i>
+  <i l="datatype6.html#wp880640" t="Isolation Levels" />
+ </i>
+ <i l="scalarfn.html#wp24852" t="SQL Escape Sequences">
+  <i l="scalarfn2.html#wp17272" t="Date, Time, and Timestamp Escape Sequences" />
+  <i l="scalarfn3.html#wp17303" t="Scalar Functions">
+   <i l="scalarfn3.html#wp25116" t="String Functions" />
+   <i l="scalarfn3.html#wp17819" t="Numeric Functions" />
+   <i l="scalarfn3.html#wp17964" t="Date and Time Functions" />
+   <i l="scalarfn3.html#wp18096" t="System Functions" />
+  </i>
+  <i l="scalarfn4.html#wp17379" t="Like Predicate Escape Characters" />
+  <i l="scalarfn5.html#wp17386" t="Outer Join Escape Sequences" />
+ </i>
+ <i l="jdbcsupp.html#wp524304" t="JDBC Support">
+  <i l="jdbcsupp2.html#wp537109" t="Supported Functionality" />
+ </i>
+ <i l="pool.html#wp68486" t="JDBC Connection Pool Manager">
+  <i l="pool2.html#wp72987" t="Creating a Data Source">
+   <i l="pool2.html#wp73468" t="Creating a DataDirect® SequeLink® Data Source Object" />
+   <i l="pool2.html#wp73583" t="Creating a Data Source Using the DataDirect Connection Pool Manager" />
+  </i>
+  <i l="pool3.html#wp73233" t="Connecting to a Data Source" />
+  <i l="pool4.html#wp73093" t="Terminating the Pool Manager" />
+ </i>
+ <i l="diagnostics.html#wp619406" t="Troubleshooting Using DataDirect Spy">
+  <i l="diagnostics2.html#wp616142" t="Generating a DataDirect Spy Log">
+   <i l="diagnostics2.html#wp615519" t="Turning On and Off DataDirect Spy Logging" />
+   <i l="diagnostics2.html#wp616206" t="ExtLogControl Class" />
+   <i l="diagnostics2.html#wp615908" t="DataDirect Spy Log Example" />
+  </i>
+ </i>
+</WebWorksHelpTOC>

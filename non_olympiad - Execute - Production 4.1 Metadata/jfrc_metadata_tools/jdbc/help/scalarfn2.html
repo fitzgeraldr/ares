@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:49" />
+  <title>Date, Time, and Timestamp Escape Sequences</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp17272"> </a><h1 class="pNewHTMLPageNoNum">
+Date, Time, and Timestamp Escape Sequences
+</h1>
+<hr /><a name="wp17273"> </a><p class="pBody">
+The escape sequence for date, time, and timestamp literals is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{<code><em>literal-type</em></code> &#39;value&#39;}<a name="wp17274"> </a>
+</pre></div>
+<a name="wp17300"> </a><p class="pBody">
+where <code><em>literal-type</em></code> is one of the following:
+</p>
+<a name="wp74155"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp17277"> </a><div class="pCellHeading">
+literal-type
+</div>
+</th>
+    <th><a name="wp17279"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+    <th><a name="wp17281"> </a><div class="pCellHeading">
+Value Format
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp17283"> </a><div class="pCellBody">
+d
+</div>
+</td>
+    <td><a name="wp17285"> </a><div class="pCellBody">
+Date
+</div>
+</td>
+    <td><a name="wp17287"> </a><div class="pCellBody">
+<code class="cCode">yyy-mm-dd</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp17289"> </a><div class="pCellBody">
+t
+</div>
+</td>
+    <td><a name="wp17291"> </a><div class="pCellBody">
+Time
+</div>
+</td>
+    <td><a name="wp17293"> </a><div class="pCellBody">
+<code class="cCode">hh:mm:ss</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp17295"> </a><div class="pCellBody">
+ts
+</div>
+</td>
+    <td><a name="wp17297"> </a><div class="pCellBody">
+Timestamp
+</div>
+</td>
+    <td><a name="wp17299"> </a><div class="pCellBody">
+<code class="cCode">yyyy-mm-dd hh:mm:ss[.f...]</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">	
+</p>
+<a name="wp17301"> </a><p class="pBodyBold">
+Example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+UPDATE Orders SET OpenDate={d &#39;1995-01-15&#39;} <a name="wp17302"> </a>
+WHERE OrderID=1023<a name="wp40911"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/flyolympiad/projects/box/!svn/ver/279/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators
+END
+NumericValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/NumericValidator.m
+END
+Time24Validator.m
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/Time24Validator.m
+END
+StringValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/flyolympiad/projects/box/!svn/ver/279/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/StringValidator.m
+END
+IntegerListValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/IntegerListValidator.m
+END
+BaseValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/BaseValidator.m
+END
+DateTimeValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/DateTimeValidator.m
+END
+IntegerValidator.m
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src/validators/IntegerValidator.m
+END

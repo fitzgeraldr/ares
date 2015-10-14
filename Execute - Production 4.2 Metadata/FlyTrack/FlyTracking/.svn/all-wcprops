@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/flyolympiad/projects/box/!svn/ver/686/Pipeline/Trunk/FlyTracking
+END
+fo_trak.prj
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/flyolympiad/projects/box/!svn/ver/597/Pipeline/Trunk/FlyTracking/fo_trak.prj
+END
+fotrak.sh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/flyolympiad/projects/box/!svn/ver/588/Pipeline/Trunk/FlyTracking/fotrak.sh
+END
+fotrak_QC.pl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/flyolympiad/projects/box/!svn/ver/607/Pipeline/Trunk/FlyTracking/fotrak_QC.pl
+END
+fotrak.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/flyolympiad/projects/box/!svn/ver/686/Pipeline/Trunk/FlyTracking/fotrak.xml
+END
+build_fo_trak.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/flyolympiad/projects/box/!svn/ver/558/Pipeline/Trunk/FlyTracking/build_fo_trak.sh
+END
+fotrak.bash_tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/flyolympiad/projects/box/!svn/ver/597/Pipeline/Trunk/FlyTracking/fotrak.bash_tmpl
+END
+fotrak.gra
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/flyolympiad/projects/box/!svn/ver/591/Pipeline/Trunk/FlyTracking/fotrak.gra
+END
+fotrak_tube.sh
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/flyolympiad/projects/box/!svn/ver/588/Pipeline/Trunk/FlyTracking/fotrak_tube.sh
+END

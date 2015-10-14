@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:17:35" />
+  <title>Isolation Levels</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp880640"> </a><h1 class="pNewHTMLPageNoNum">
+Isolation Levels
+</h1>
+<hr /><a name="wp794308"> </a><p class="pBody">
+This section lists the isolation levels supported by SequeLink for each data store, including their default isolation level.
+</p>
+<a name="wp794375"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp794314"> </a><div class="pTableTitleBold">
+Table A-7.  Isolation Levels&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp794320"> </a><div class="pCellHeading">
+Database
+</div>
+</th>
+    <th><a name="wp794322"> </a><div class="pCellHeading">
+Isolation Levels
+</div>
+</th>
+    <th><a name="wp794324"> </a><div class="pCellHeading">
+Default
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp794326"> </a><div class="pCellBody">
+DB2 UDB on z/OS
+</div>
+</td>
+    <td><a name="wp794328"> </a><div class="pCellBody">
+Read uncommitted
+</div>
+<a name="wp794329"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp794330"> </a><div class="pCellBody">
+Repeatable read
+</div>
+<a name="wp794331"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp794333"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp874264"> </a><div class="pCellBody">
+DB2 UDB on Windows and UNIX
+</div>
+</td>
+    <td><a name="wp874266"> </a><div class="pCellBody">
+Read uncommitted
+</div>
+<a name="wp874267"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp874268"> </a><div class="pCellBody">
+Repeatable read
+</div>
+<a name="wp874269"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp874271"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp794335"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp794337"> </a><div class="pCellBody">
+Read uncommitted
+</div>
+<a name="wp794338"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp794339"> </a><div class="pCellBody">
+Repeatable read
+</div>
+</td>
+    <td><a name="wp794341"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp794343"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp794345"> </a><div class="pCellBody">
+Read uncommitted
+</div>
+<a name="wp794346"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp794347"> </a><div class="pCellBody">
+Repeatable read
+</div>
+<a name="wp794348"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp794350"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp794352"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp794354"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp794355"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp794357"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp794367"> </a><div class="pCellBody">
+Sybase
+</div>
+</td>
+    <td><a name="wp794369"> </a><div class="pCellBody">
+Read uncommitted
+</div>
+<a name="wp794370"> </a><div class="pCellBody">
+Read committed
+</div>
+<a name="wp794371"> </a><div class="pCellBody">
+Repeatable read
+</div>
+<a name="wp794372"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp794374"> </a><div class="pCellBody">
+Read committed
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

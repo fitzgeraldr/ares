@@ -1,0 +1,1445 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpIX version="3.0">
+ <i t=".NET Client">
+  <i t="data types supported">
+   <i t="DB2 UDB on z/OS">
+    <j l="datatype2.html#wp821349" />
+   </i>
+   <i t="Informix">
+    <j l="datatype3.html#wp958513" />
+   </i>
+   <i t="Microsoft SQL Server">
+    <j l="datatype3.html#wp783999" />
+   </i>
+   <i t="Oracle">
+    <j l="datatype4.html#wp784274" />
+   </i>
+   <i t="Sybase">
+    <j l="datatype5.html#wp784403" />
+   </i>
+  </i>
+ </i>
+ <i t="ABS function">
+  <j l="scalarfn3.html#wp17845" />
+ </i>
+ <i t="ACOS function">
+  <j l="scalarfn3.html#wp17850" />
+ </i>
+ <i t="application">
+  <i t="DataDirect Spy">
+   <i t="logging calls">
+    <j l="diagnostics2.html#wp616142" />
+   </i>
+  </i>
+ </i>
+ <i t="application developers">
+  <i t="JDBC">
+   <j l="devjdbc.html#wp525063" />
+  </i>
+ </i>
+ <i t="application ID">
+  <i t="specifying for JDBC driver">
+   <j l="devjdbc8.html#wp526150" />
+  </i>
+ </i>
+ <i t="ApplicationName">
+  <i t="JDBC Client">
+   <j l="usejdbc9.html#wp1041841" />
+  </i>
+ </i>
+ <i t="Array object">
+  <j l="jdbcsupp2.html#wp596714" />
+ </i>
+ <i t="ASCII">
+  <i t="converting to character">
+   <j l="scalarfn3.html#wp17704" />
+  </i>
+  <i t="function">
+   <j l="scalarfn3.html#wp17704" />
+  </i>
+ </i>
+ <i t="ASIN function">
+  <j l="scalarfn3.html#wp17855" />
+ </i>
+ <i t="ATAN function">
+  <j l="scalarfn3.html#wp17860" />
+ </i>
+ <i t="ATAN2 function">
+  <j l="scalarfn3.html#wp17864" />
+ </i>
+ <i t="BigDecimal objects, fetching">
+  <j l="devjdbc13.html#wp524746" />
+  <j l="jdbcsupp4.html#wp590689" />
+ </i>
+ <i t="binding SQL statements">
+  <i t="JDBC Client">
+   <j l="devjdbc4.html#wp549369" />
+  </i>
+ </i>
+ <i t="blanks, generating">
+  <j l="scalarfn3.html#wp17806" />
+ </i>
+ <i t="Blob object">
+  <j l="jdbcsupp3.html#wp552685" />
+ </i>
+ <i t="CallableStatement object">
+  <j l="jdbcsupp4.html#wp536207" />
+ </i>
+ <i t="cancelling functions (JDBC driver)">
+  <j l="devjdbc6.html#wp528126" />
+ </i>
+ <i t="CEILING function">
+  <j l="scalarfn3.html#wp17869" />
+ </i>
+ <i t="CHAR function">
+  <j l="scalarfn3.html#wp17713" />
+ </i>
+ <i t="checking version of">
+  <i t="DataDirect Spy">
+   <j l="spy6.html#wp75693" />
+  </i>
+ </i>
+ <i t="cipher suites">
+  <j l="usejdbc9.html#wp1054420" />
+ </i>
+ <i t="Client">
+  <i t="SequeLink for JDBC">
+   <j l="usejdbc2.html#wp1041131" />
+  </i>
+ </i>
+ <i t="Clob object">
+  <j l="jdbcsupp5.html#wp538273" />
+ </i>
+ <i t="compatibility of JDBC versions">
+  <j l="jdbcsupp.html#wp546145" />
+ </i>
+ <i t="CONCAT function">
+  <j l="scalarfn3.html#wp17726" />
+ </i>
+ <i t="concurrency types for result sets">
+  <j l="devjdbc7.html#wp526088" />
+ </i>
+ <i t="configuring">
+  <i t="JDBC data sources">
+   <j l="usejdbc5.html#wp1041551" />
+  </i>
+ </i>
+ <i t="connecting">
+  <i t="example">
+   <i t="using Driver Manager">
+    <j l="spy3.html#wp75514" />
+   </i>
+  </i>
+  <i t="using DataDirect Test">
+   <j l="jdbctest2.html#wp75413" />
+  </i>
+  <i t="using URLs (JDBC)">
+   <j l="usejdbc4.html#wp1046540" />
+  </i>
+  <i t="with JDBC data sources">
+   <j l="usejdbc8.html#wp1052632" />
+  </i>
+ </i>
+ <i t="connection">
+  <i t="JDBC options">
+   <j l="usejdbc.html#wp1041125" />
+  </i>
+  <i t="non-pooled">
+   <j l="pool3.html#wp74372" />
+  </i>
+  <i t="precedence for JDBC driver">
+   <j l="usejdbc8.html#wp1052615" />
+  </i>
+  <i t="properties for JDBC driver">
+   <j l="usejdbc8.html#wp1041797" />
+  </i>
+ </i>
+ <i t="Connection object (JDBC)">
+  <j l="jdbcsupp6.html#wp596983" />
+ </i>
+ <i t="Connection Pool Manager, about (JDBC)">
+  <j l="usejdbc2.html#wp1041254" />
+ </i>
+ <i t="connection pooling">
+  <i t="JDBC driver">
+   <i t="connecting to a data source">
+    <j l="pool3.html#wp73233" />
+   </i>
+   <i t="Connection Pool Manager">
+    <j l="pool.html#wp68486" />
+   </i>
+   <i t="creating a data source">
+    <j l="pool2.html#wp73583" />
+   </i>
+   <i t="creating a pooled data source object">
+    <j l="pool2.html#wp73468" />
+   </i>
+   <i t="terminating the pool manager">
+    <j l="pool4.html#wp73093" />
+   </i>
+   <i t="using">
+    <j l="usejdbc5.html#wp1041608" />
+   </i>
+  </i>
+ </i>
+ <i t="contacting Technical Support">
+  <j l="preface3.html#wp1039210" />
+ </i>
+ <i t="conventions used in this book">
+  <j l="preface2.html#wp1036257" />
+ </i>
+ <i t="COS function">
+  <j l="scalarfn3.html#wp17875" />
+ </i>
+ <i t="COT function">
+  <j l="scalarfn3.html#wp17880" />
+ </i>
+ <i t="creating">
+  <i t="JDBC data sources">
+   <j l="usejdbc5.html#wp1041567" />
+  </i>
+ </i>
+ <i t="CURDATE function">
+  <j l="scalarfn3.html#wp65626" />
+ </i>
+ <i t="cursors">
+  <i t="forward-only result sets (JDBC)">
+   <j l="devjdbc7.html#wp526081" />
+  </i>
+  <i t="scroll-insensitive (Java 2 platform)">
+   <j l="usejdbc11.html#wp1042171" />
+  </i>
+  <i t="scroll-insensitive result sets (JDBC)">
+   <j l="devjdbc7.html#wp526082" />
+  </i>
+  <i t="scroll-sensitive result sets (JDBC)">
+   <j l="devjdbc7.html#wp526083" />
+  </i>
+  <i t="support for scrollable (JDBC)">
+   <j l="devjdbc7.html#wp554405" />
+  </i>
+ </i>
+ <i t="CURTIME function">
+  <j l="scalarfn3.html#wp65643" />
+ </i>
+ <i t="data source">
+  <i t="configuring">
+   <i t="JDBC">
+    <j l="usejdbc5.html#wp1041551" />
+   </i>
+  </i>
+  <i t="connecting with JDBC">
+   <j l="usejdbc8.html#wp1052632" />
+  </i>
+  <i t="creating">
+   <i t="JDBC">
+    <j l="usejdbc5.html#wp1041567" />
+   </i>
+   <i t="non-pooled">
+    <j l="pool2.html#wp74477" />
+   </i>
+   <i t="pooled">
+    <j l="pool2.html#wp74481" />
+   </i>
+  </i>
+  <i t="examples of JDBC">
+   <j l="usejdbc5.html#wp1041585" />
+  </i>
+  <i t="non-pooled">
+   <j l="pool2.html#wp74477" />
+  </i>
+ </i>
+ <i t="data types">
+  <i t="DB2 UDB on Windows and UNIX">
+   <j l="datatype2.html#wp939244" />
+  </i>
+  <i t="DB2 UDB on z/OS">
+   <j l="datatype2.html#wp821349" />
+  </i>
+  <i t="Informix">
+   <j l="datatype3.html#wp958513" />
+  </i>
+  <i t="Microsoft SQL Server">
+   <j l="datatype3.html#wp783999" />
+  </i>
+  <i t="Oracle">
+   <j l="datatype4.html#wp784274" />
+  </i>
+  <i t="Sybase">
+   <j l="datatype5.html#wp784403" />
+  </i>
+ </i>
+ <i t="database">
+  <i t="naming using JNDI">
+   <j l="usejdbc5.html#wp1041592" />
+  </i>
+ </i>
+ <i t="DATABASE function">
+  <j l="scalarfn3.html#wp18113" />
+ </i>
+ <i t="DatabaseMetaData object">
+  <j l="jdbcsupp8.html#wp573232" />
+ </i>
+ <i t="database-specific information">
+  <j l="datatype.html#wp65645" />
+ </i>
+ <i t="DataDirect Connection Pool Manager">
+  <j l="usejdbc2.html#wp1056185" />
+ </i>
+ <i t="DataDirect Spy">
+  <i t="attributes">
+   <j l="spy4.html#wp68496" />
+  </i>
+  <i t="checking the version">
+   <j l="spy6.html#wp75693" />
+  </i>
+  <i t="enabling">
+   <i t="using DataDirect Spy URL">
+    <j l="spy3.html#wp75568" />
+   </i>
+   <i t="using JDBC data sources">
+    <j l="spy3.html#wp75531" />
+   </i>
+   <i t="using JDBC Driver Manager">
+    <j l="spy3.html#wp75501" />
+   </i>
+  </i>
+  <i t="example">
+   <i t="JDBC data source connection">
+    <j l="spy3.html#wp75565" />
+   </i>
+   <i t="JDBC Driver Manager connection">
+    <j l="spy3.html#wp75519" />
+   </i>
+   <i t="URL">
+    <j l="spy3.html#wp75580" />
+   </i>
+  </i>
+  <i t="generating a log">
+   <j l="diagnostics2.html#wp616142" />
+  </i>
+  <i t="jar file">
+   <j l="usejdbc2.html#wp1056234" />
+  </i>
+  <i t="log example">
+   <j l="diagnostics2.html#wp615908" />
+  </i>
+  <i t="logging">
+   <i t="generating a log">
+    <j l="diagnostics2.html#wp616142" />
+   </i>
+   <i t="turning on and off">
+    <j l="diagnostics2.html#wp615519" />
+   </i>
+  </i>
+  <i t="overview">
+   <j l="usejdbc2.html#wp1041228" />
+  </i>
+  <i t="registering the JDBC driver">
+   <j l="spy4.html#wp75440" />
+  </i>
+  <i t="setEnableLogging method">
+   <j l="diagnostics2.html#wp615224" />
+  </i>
+  <i t="SpyAttributes connection property">
+   <j l="spy3.html#wp75503" />
+  </i>
+  <i t="URL syntax">
+   <j l="spy4.html#wp68496" />
+  </i>
+  <i t="using with JDBC data sources">
+   <j l="spy5.html#wp68530" />
+  </i>
+ </i>
+ <i t="DataDirect Test">
+  <i t="batch execution on a prepared statement">
+   <j l="jdbctest2.html#wp110635" />
+  </i>
+  <i t="configuring">
+   <j l="jdbctest2.html#wp116017" />
+  </i>
+  <i t="connecting">
+   <j l="jdbctest2.html#wp75413" />
+  </i>
+  <i t="establishing savepoints">
+   <j l="jdbctest2.html#wp120495" />
+  </i>
+  <i t="executing a prepared statement">
+   <j l="jdbctest2.html#wp75461" />
+  </i>
+  <i t="executing a simple select statement">
+   <j l="jdbctest2.html#wp75445" />
+  </i>
+  <i t="files">
+   <j l="usejdbc2.html#wp1056164" />
+  </i>
+  <i t="LOB support">
+   <j l="jdbctest2.html#wp121252" />
+  </i>
+  <i t="retrieving database metadata">
+   <j l="jdbctest2.html#wp75495" />
+  </i>
+  <i t="returning ParameterMetaData">
+   <j l="jdbctest2.html#wp120482" />
+  </i>
+  <i t="scrolling through a result set">
+   <j l="jdbctest2.html#wp75518" />
+  </i>
+  <i t="starting">
+   <j l="jdbctest2.html#wp116528" />
+  </i>
+  <i t="tutorial">
+   <j l="jdbctest2.html#wp75369" />
+  </i>
+  <i t="updateable result sets">
+   <j l="jdbctest2.html#wp121083" />
+  </i>
+  <i t="using">
+   <j l="jdbctest.html#wp75363" />
+  </i>
+ </i>
+ <i t="DataSource object">
+  <j l="jdbcsupp9.html#wp541864" />
+ </i>
+ <i t="date">
+  <i t="returning current">
+   <j l="scalarfn3.html#wp65626" />
+  </i>
+  <i t="returning month">
+   <j l="scalarfn3.html#wp65686" />
+  </i>
+  <i t="returning year">
+   <j l="scalarfn3.html#wp65727" />
+  </i>
+  <i t="scalar functions">
+   <j l="scalarfn3.html#wp17969" />
+  </i>
+ </i>
+ <i t="DAYNAME function">
+  <j l="scalarfn3.html#wp65647" />
+ </i>
+ <i t="DAYOFMONTH function">
+  <j l="scalarfn3.html#wp65652" />
+ </i>
+ <i t="DAYOFWEEK function">
+  <j l="scalarfn3.html#wp65657" />
+ </i>
+ <i t="DAYOFYEAR function">
+  <j l="scalarfn3.html#wp65662" />
+ </i>
+ <i t="DB2">
+  <i t="ResultSet metadata">
+   <j l="devjdbc10.html#wp555509" />
+  </i>
+ </i>
+ <i t="DB2 UDB on Windows and UNIX">
+  <i t="Distributed Transaction Management support">
+   <j l="usejdbc6.html#wp1041651" />
+  </i>
+  <i t="scalar functions">
+   <j l="scalarfn3.html#wp64170" />
+  </i>
+  <i t="support for scrollable cursors">
+   <i t="JDBC">
+    <j l="devjdbc7.html#wp554414" />
+   </i>
+  </i>
+ </i>
+ <i t="DB2 UDB on z/OS">
+  <i t="data types supported">
+   <j l="datatype2.html#wp821349" />
+  </i>
+  <i t="Distributed Transaction Management support">
+   <j l="usejdbc6.html#wp1041651" />
+  </i>
+  <i t="scalar functions">
+   <j l="scalarfn3.html#wp25197" />
+  </i>
+  <i t="support for scrollable cursors">
+   <i t="JDBC">
+    <j l="devjdbc7.html#wp554414" />
+   </i>
+  </i>
+ </i>
+ <i t="DEGREES function">
+  <j l="scalarfn3.html#wp17884" />
+ </i>
+ <i t="DIFFERENCE function">
+  <j l="scalarfn3.html#wp17731" />
+ </i>
+ <i t="directory structure for the JDBC Client">
+  <j l="usejdbc2.html#wp1041276" />
+ </i>
+ <i t="Distributed Transaction Management">
+  <j l="usejdbc6.html#wp1041651" />
+ </i>
+ <i t="downloading applets, tips">
+  <j l="devjdbc13.html#wp524709" />
+ </i>
+ <i t="Driver object">
+  <j l="jdbcsupp10.html#wp541955" />
+ </i>
+ <i t="dynamic parameters, binding">
+  <i t="JDBC driver">
+   <j l="devjdbc4.html#wp549369" />
+  </i>
+ </i>
+ <i t="error handling">
+  <i t="JDBC driver">
+   <j l="devjdbc12.html#wp527579" />
+  </i>
+ </i>
+ <i t="example">
+  <i t="DataDirect Spy">
+   <i t="JDBC data source connection">
+    <j l="spy3.html#wp75565" />
+   </i>
+   <i t="JDBC Driver Manager connection">
+    <j l="spy3.html#wp75519" />
+   </i>
+   <i t="URL">
+    <j l="spy3.html#wp75580" />
+   </i>
+  </i>
+  <i t="Driver Manager, using to connect">
+   <j l="spy3.html#wp75514" />
+  </i>
+ </i>
+ <i t="examples">
+  <i t="connection pooling">
+   <j l="usejdbc5.html#wp1041608" />
+  </i>
+  <i t="creating and using JDBC data sources">
+   <j l="usejdbc5.html#wp1041585" />
+  </i>
+  <i t="DataDirect Spy">
+   <i t="log">
+    <j l="diagnostics2.html#wp615908" />
+   </i>
+  </i>
+ </i>
+ <i t="EXP function">
+  <j l="scalarfn3.html#wp17890" />
+ </i>
+ <i t="ExtLogControl class">
+  <j l="diagnostics2.html#wp616206" />
+ </i>
+ <i t="EXTRACT function">
+  <j l="scalarfn3.html#wp65668" />
+ </i>
+ <i t="fetching">
+  <i t="BigDecimal objects">
+   <j l="devjdbc13.html#wp524746" />
+  </i>
+ </i>
+ <i t="File System JNDI Provider">
+  <j l="usejdbc2.html#wp1056256" />
+ </i>
+ <i t="files in the JDBC Client directory">
+  <j l="usejdbc2.html#wp1041276" />
+ </i>
+ <i t="FLOOR function">
+  <j l="scalarfn3.html#wp17895" />
+ </i>
+ <i t="forward-only result sets (JDBC)">
+  <j l="devjdbc7.html#wp526081" />
+ </i>
+ <i t="functions">
+  <i t="cancelling in multithreaded applications">
+   <j l="devjdbc6.html#wp528126" />
+  </i>
+  <i t="date and time">
+   <j l="scalarfn3.html#wp17969" />
+  </i>
+  <i t="numeric">
+   <j l="scalarfn3.html#wp17824" />
+  </i>
+  <i t="scalar">
+   <j l="scalarfn3.html#wp17303" />
+  </i>
+  <i t="string">
+   <j l="scalarfn3.html#wp25116" />
+  </i>
+ </i>
+ <i t="generating DataDirect Spy log">
+  <j l="diagnostics2.html#wp616142" />
+ </i>
+ <i t="get methods, using effectively">
+  <j l="devjdbc13.html#wp550145" />
+ </i>
+ <i t="HOUR function">
+  <j l="scalarfn3.html#wp65675" />
+ </i>
+ <i t="IFNULL function">
+  <j l="scalarfn3.html#wp18119" />
+ </i>
+ <i t="Informix">
+  <i t="data types">
+   <j l="datatype3.html#wp958513" />
+  </i>
+ </i>
+ <i t="INSERT function">
+  <j l="scalarfn3.html#wp17736" />
+ </i>
+ <i t="isolation levels">
+  <i t="by data store">
+   <j l="datatype6.html#wp880640" />
+  </i>
+  <i t="JDBC driver">
+   <j l="devjdbc5.html#wp539747" />
+  </i>
+ </i>
+ <i t="JAR files">
+  <j l="devjdbc13.html#wp524713" />
+ </i>
+ <i t="Java 2 Platform">
+  <j l="usejdbc11.html#wp1042155" />
+ </i>
+ <i t="Java Transaction API">
+  <j l="usejdbc6.html#wp1041651" />
+ </i>
+ <i t="Java Virtual Machine versions">
+  <j l="jdbcsupp.html#wp546145" />
+ </i>
+ <i t="JCA">
+  <i t="resource adapter class">
+   <j l="devjdbc3.html#wp539195" />
+  </i>
+  <i t="resource adapters">
+   <i t="overview">
+    <j l="usejdbc7.html#wp1041720" />
+   </i>
+   <i t="using from an application">
+    <j l="usejdbc7.html#wp1041732" />
+   </i>
+   <i t="using with application server">
+    <j l="usejdbc7.html#wp1041729" />
+   </i>
+  </i>
+ </i>
+ <i t="JDBC">
+  <i t="compatibility">
+   <j l="jdbcsupp.html#wp546145" />
+  </i>
+  <i t="connection options">
+   <j l="usejdbc.html#wp1041125" />
+  </i>
+  <i t="forward-only result sets">
+   <j l="devjdbc7.html#wp526081" />
+  </i>
+  <i t="functionality supported">
+   <j l="jdbcsupp2.html#wp537109" />
+  </i>
+  <i t="scroll-insensitive result sets">
+   <j l="devjdbc7.html#wp526082" />
+  </i>
+  <i t="scroll-sensitive result sets">
+   <j l="devjdbc7.html#wp526083" />
+  </i>
+  <i t="support">
+   <j l="jdbcsupp.html#wp524304" />
+  </i>
+  <i t="support for 2.0 functionality">
+   <j l="devjdbc2.html#wp525416" />
+  </i>
+ </i>
+ <i t="JDBC 2.0 Optional Package">
+  <j l="usejdbc2.html#wp1056133" />
+  <j l="usejdbc2.html#wp1056238" />
+ </i>
+ <i t="JDBC Client">
+  <i t="configuring JDBC data sources">
+   <j l="usejdbc5.html#wp1041567" />
+  </i>
+  <i t="directory structure">
+   <j l="usejdbc2.html#wp1041276" />
+  </i>
+  <i t="overview">
+   <j l="usejdbc2.html#wp1041131" />
+  </i>
+  <i t="using connection pooling">
+   <j l="usejdbc5.html#wp1041608" />
+  </i>
+  <i t="using on a Java 2 Platform">
+   <j l="usejdbc11.html#wp1042155" />
+  </i>
+  <i t="using the JTA">
+   <j l="usejdbc6.html#wp1041651" />
+  </i>
+ </i>
+ <i t="JDBC data sources">
+  <j l="usejdbc2.html#wp1056128" />
+ </i>
+ <i t="JDBC driver">
+  <i t="binding dynamic parameters">
+   <j l="devjdbc4.html#wp549369" />
+  </i>
+  <i t="configuring data sources">
+   <j l="usejdbc5.html#wp1041551" />
+  </i>
+  <i t="connection properties">
+   <j l="usejdbc8.html#wp1041797" />
+   <j l="usejdbc9.html#wp1041841" />
+  </i>
+  <i t="creating data sources">
+   <j l="usejdbc5.html#wp1041567" />
+  </i>
+  <i t="data types supported">
+   <i t="DB2 UDB on z/OS">
+    <j l="datatype2.html#wp821349" />
+   </i>
+   <i t="Informix">
+    <j l="datatype3.html#wp958513" />
+   </i>
+   <i t="Microsoft SQL Server">
+    <j l="datatype3.html#wp783999" />
+   </i>
+   <i t="Oracle">
+    <j l="datatype4.html#wp784274" />
+   </i>
+   <i t="Sybase">
+    <j l="datatype5.html#wp784403" />
+   </i>
+  </i>
+  <i t="error handling">
+   <j l="devjdbc12.html#wp527579" />
+  </i>
+  <i t="functionality for JDBC objects">
+   <j l="jdbcsupp2.html#wp537109" />
+  </i>
+  <i t="loading">
+   <j l="usejdbc3.html#wp1041456" />
+  </i>
+  <i t="overview">
+   <j l="usejdbc2.html#wp1041142" />
+  </i>
+  <i t="performance">
+   <j l="jdbcsupp8.html#wp591932" />
+  </i>
+  <i t="registering with JDBC driver Manager">
+   <j l="usejdbc3.html#wp1041456" />
+  </i>
+  <i t="specification supported">
+   <j l="usejdbc2.html#wp1041142" />
+  </i>
+  <i t="specifying application IDs">
+   <j l="devjdbc8.html#wp526150" />
+  </i>
+  <i t="specifying connection URLs">
+   <j l="usejdbc4.html#wp1041470" />
+  </i>
+  <i t="supported JDBC connection properties">
+   <j l="usejdbc9.html#wp1041841" />
+  </i>
+  <i t="threading for driver">
+   <j l="devjdbc6.html#wp525623" />
+  </i>
+  <i t="tracking calls">
+   <j l="usejdbc2.html#wp1041228" />
+  </i>
+  <i t="using">
+   <i t="data sources">
+    <j l="usejdbc8.html#wp1052632" />
+   </i>
+   <i t="getObject method">
+    <j l="devjdbc13.html#wp550146" />
+   </i>
+  </i>
+  <i t="using connection pooling">
+   <j l="usejdbc5.html#wp1041608" />
+  </i>
+  <i t="using Distributed Transaction Management">
+   <j l="usejdbc6.html#wp1041651" />
+  </i>
+  <i t="using Spy with data sources">
+   <j l="spy5.html#wp68530" />
+  </i>
+ </i>
+ <i t="JDBC Driver Manager">
+  <i t="registering">
+   <i t="DataDirect Spy driver">
+    <j l="spy3.html#wp75569" />
+   </i>
+  </i>
+  <i t="SpyAttributes property, specifying with">
+   <j l="spy3.html#wp75482" />
+  </i>
+ </i>
+ <i t="JNDI">
+  <i t="registering a SequeLink for JDBC DataSource object">
+   <j l="pool2.html#wp73001" />
+  </i>
+  <i t="using for naming databases">
+   <j l="usejdbc5.html#wp1041592" />
+  </i>
+ </i>
+ <i t="JNDI 1.2">
+  <j l="usejdbc2.html#wp1056246" />
+ </i>
+ <i t="JTA 1.0.1">
+  <j l="usejdbc2.html#wp1056251" />
+ </i>
+ <i t="LCASE function">
+  <j l="scalarfn3.html#wp17741" />
+ </i>
+ <i t="LDAP">
+  <i t="creating a JDBC data source">
+   <j l="usejdbc5.html#wp1041585" />
+  </i>
+  <i t="setting parameters in DataDirect Test">
+   <j l="jdbctest2.html#wp120662" />
+  </i>
+ </i>
+ <i t="LDAP JNDI Provider">
+  <j l="usejdbc2.html#wp1056261" />
+ </i>
+ <i t="LEFT function">
+  <j l="scalarfn3.html#wp17748" />
+ </i>
+ <i t="LENGTH function">
+  <j l="scalarfn3.html#wp17752" />
+ </i>
+ <i t="loading the JDBC driver">
+  <j l="usejdbc3.html#wp1041456" />
+ </i>
+ <i t="LOCATE function">
+  <j l="scalarfn3.html#wp17758" />
+ </i>
+ <i t="log for DataDirect Spy, generating">
+  <j l="diagnostics2.html#wp616142" />
+ </i>
+ <i t="LOG function">
+  <j l="scalarfn3.html#wp17900" />
+ </i>
+ <i t="LOG10 function">
+  <j l="scalarfn3.html#wp17905" />
+ </i>
+ <i t="logging JDBC calls">
+  <j l="spy2.html#wp74001" />
+ </i>
+ <i t="LTRIM function">
+  <j l="scalarfn3.html#wp17763" />
+ </i>
+ <i t="ManagedConnectionFactory">
+  <j l="devjdbc3.html#wp539195" />
+ </i>
+ <i t="managing">
+  <i t="JDBC data sources">
+   <j l="usejdbc5.html#wp1041567" />
+  </i>
+ </i>
+ <i t="mapping data types">
+  <i t="supported by DB2 UDB on Windows and UNIX">
+   <j l="datatype2.html#wp939244" />
+  </i>
+  <i t="supported by DB2 UDB on z/OS">
+   <j l="datatype2.html#wp821349" />
+  </i>
+  <i t="supported by Informix">
+   <j l="datatype3.html#wp958513" />
+  </i>
+  <i t="supported by Microsoft SQL Server">
+   <j l="datatype3.html#wp783999" />
+  </i>
+  <i t="supported by Oracle">
+   <j l="datatype4.html#wp784274" />
+  </i>
+  <i t="supported by Sybase">
+   <j l="datatype5.html#wp784403" />
+  </i>
+ </i>
+ <i t="metadata">
+  <i t="parameter">
+   <j l="devjdbc9.html#wp552197" />
+  </i>
+  <i t="ResultSet">
+   <j l="devjdbc10.html#wp555509" />
+  </i>
+ </i>
+ <i t="methods">
+  <i t="ExtLogControl class">
+   <j l="diagnostics2.html#wp616206" />
+  </i>
+ </i>
+ <i t="Microsoft SQL Server">
+  <i t="data types supported">
+   <j l="datatype3.html#wp783999" />
+  </i>
+ </i>
+ <i t="MINUTE function">
+  <j l="scalarfn3.html#wp65680" />
+ </i>
+ <i t="MOD function">
+  <j l="scalarfn3.html#wp17909" />
+ </i>
+ <i t="MONTH function">
+  <j l="scalarfn3.html#wp65686" />
+ </i>
+ <i t="MONTHNAME function">
+  <j l="scalarfn3.html#wp65690" />
+ </i>
+ <i t="multithreaded applications">
+  <i t="cancelling functions">
+   <j l="devjdbc6.html#wp528126" />
+  </i>
+ </i>
+ <i t="naming databases with JNDI">
+  <j l="usejdbc5.html#wp1041592" />
+ </i>
+ <i t="non-pooled data source">
+  <j l="pool2.html#wp74477" />
+ </i>
+ <i t="NOW function">
+  <j l="scalarfn3.html#wp65696" />
+ </i>
+ <i t="Number">
+  <i t="raising to power">
+   <j l="scalarfn3.html#wp17921" />
+  </i>
+  <i t="rounding">
+   <j l="scalarfn3.html#wp17935" />
+  </i>
+ </i>
+ <i t="numeric functions">
+  <j l="scalarfn3.html#wp17824" />
+ </i>
+ <i t="object">
+  <i t="ExtConnection">
+   <j l="diagnostics2.html#wp615240" />
+  </i>
+ </i>
+ <i t="Objects">
+  <j l="devjdbc13.html#wp524746" />
+ </i>
+ <i t="objects supported">
+  <i t="by the JDBC driver">
+   <j l="jdbcsupp2.html#wp537109" />
+  </i>
+ </i>
+ <i t="ODBC driver">
+  <i t="cancelling functions in multithreaded applications">
+   <j l="devjdbc6.html#wp528126" />
+  </i>
+ </i>
+ <i t="Oracle">
+  <i t="data types">
+   <j l="datatype4.html#wp784274" />
+  </i>
+  <i t="support for scrollable cursors (JDBC)">
+   <j l="devjdbc7.html#wp554441" />
+  </i>
+ </i>
+ <i t="parameter metadata (JDBC)">
+  <j l="devjdbc9.html#wp552197" />
+ </i>
+ <i t="parameter metadata, returning (JDBC)">
+  <j l="jdbctest2.html#wp120482" />
+ </i>
+ <i t="ParameterMetaData object">
+  <j l="devjdbc4.html#wp550580" />
+  <j l="jdbcsupp11.html#wp564722" />
+ </i>
+ <i t="performance hints">
+  <i t="choosing the data type">
+   <j l="datatype2.html#wp821287" />
+  </i>
+  <i t="JDBC">
+   <i t="fetching BigDecimal objects">
+    <j l="devjdbc13.html#wp524746" />
+   </i>
+   <i t="penalty for emulating multiple open ResultSet objects">
+    <j l="jdbcsupp8.html#wp591932" />
+   </i>
+   <i t="reducing download time">
+    <j l="devjdbc13.html#wp524709" />
+   </i>
+   <i t="using get methods effectively">
+    <j l="devjdbc13.html#wp550145" />
+   </i>
+  </i>
+ </i>
+ <i t="performance optimization">
+  <i t="designing JDBC applications">
+   <j l="devjdbc13.html#wp529318" />
+  </i>
+  <i t="retrieving data">
+   <j l="devjdbc13.html#wp529277" />
+  </i>
+  <i t="selecting JDBC objects and methods">
+   <j l="devjdbc13.html#wp529294" />
+  </i>
+  <i t="updating data">
+   <j l="devjdbc13.html#wp529335" />
+  </i>
+ </i>
+ <i t="PI function">
+  <j l="scalarfn3.html#wp17915" />
+ </i>
+ <i t="pool manager">
+  <i t="See connection pooling" c="connection pooling">
+   <j l="pool.html#wp68486" />
+  </i>
+ </i>
+ <i t="pooled data source">
+  <j l="pool2.html#wp74481" />
+ </i>
+ <i t="PooledConnection object">
+  <j l="jdbcsupp12.html#wp585764" />
+ </i>
+ <i t="POWER function">
+  <j l="scalarfn3.html#wp17921" />
+ </i>
+ <i t="precedence of JDBC connection properties">
+  <j l="usejdbc8.html#wp1052615" />
+ </i>
+ <i t="PreparedStatement object">
+  <j l="jdbcsupp13.html#wp569864" />
+ </i>
+ <i t="properties">
+  <i t="JDBC connection">
+   <j l="usejdbc8.html#wp1041797" />
+   <j l="usejdbc9.html#wp1041841" />
+  </i>
+ </i>
+ <i t="Proxy Server, SequeLink">
+  <j l="usejdbc2.html#wp1041151" />
+ </i>
+ <i t="QUARTER function">
+  <j l="scalarfn3.html#wp65701" />
+ </i>
+ <i t="RADIANS function">
+  <j l="scalarfn3.html#wp17925" />
+ </i>
+ <i t="RAND function">
+  <j l="scalarfn3.html#wp17930" />
+ </i>
+ <i t="read-only result set">
+  <j l="devjdbc7.html#wp526088" />
+ </i>
+ <i t="Ref object">
+  <j l="jdbcsupp14.html#wp597137" />
+ </i>
+ <i t="Referenceable object">
+  <j l="jdbcsupp15.html#wp542836" />
+ </i>
+ <i t="registering the JDBC driver">
+  <j l="usejdbc3.html#wp1041456" />
+ </i>
+ <i t="REPEAT function">
+  <j l="scalarfn3.html#wp17777" />
+ </i>
+ <i t="REPLACE function">
+  <j l="scalarfn3.html#wp17782" />
+ </i>
+ <i t="resource adapters, JCA">
+  <i t="overview">
+   <j l="usejdbc7.html#wp1041720" />
+  </i>
+  <i t="resource adapter class">
+   <j l="devjdbc3.html#wp539195" />
+  </i>
+  <i t="support">
+   <j l="usejdbc2.html#wp1041262" />
+  </i>
+ </i>
+ <i t="Resource Archive">
+  <j l="usejdbc2.html#wp1056156" />
+ </i>
+ <i t="result sets (JDBC)">
+  <i t="concurrency types">
+   <j l="devjdbc7.html#wp526088" />
+  </i>
+  <i t="types">
+   <j l="devjdbc7.html#wp526079" />
+  </i>
+  <i t="updatable supported">
+   <j l="devjdbc7.html#wp526103" />
+  </i>
+ </i>
+ <i t="ResultSet metadata">
+  <i t="DB2">
+   <j l="devjdbc10.html#wp555509" />
+  </i>
+ </i>
+ <i t="ResultSet metadata for Select statements (JDBC)">
+  <j l="devjdbc10.html#wp555509" />
+ </i>
+ <i t="ResultSet object">
+  <j l="jdbcsupp16.html#wp593658" />
+ </i>
+ <i t="ResultSetMetaData object">
+  <j l="jdbcsupp17.html#wp544037" />
+ </i>
+ <i t="resultSetMetaDataOptions performance considerations">
+  <j l="usejdbc9.html#wp1054595" />
+ </i>
+ <i t="retrieving">
+  <i t="long data using JDBC applications">
+   <j l="devjdbc13.html#wp530583" />
+  </i>
+ </i>
+ <i t="reusing connections with connection pooling">
+  <j l="usejdbc5.html#wp1041608" />
+ </i>
+ <i t="RIGHT function">
+  <j l="scalarfn3.html#wp17788" />
+ </i>
+ <i t="ROUND function">
+  <j l="scalarfn3.html#wp17935" />
+ </i>
+ <i t="RowSet object">
+  <j l="jdbcsupp18.html#wp545393" />
+ </i>
+ <i t="RTRIM function">
+  <j l="scalarfn3.html#wp17792" />
+ </i>
+ <i t="SavePoint object (JDBC)">
+  <j l="jdbcsupp19.html#wp564502" />
+ </i>
+ <i t="scalar functions">
+  <i t="support for">
+   <j l="scalarfn3.html#wp17303" />
+  </i>
+ </i>
+ <i t="scrollable cursors">
+  <i t="concurrency types (JDBC)">
+   <j l="devjdbc7.html#wp526088" />
+  </i>
+  <i t="insensitive (JDBC)">
+   <j l="usejdbc11.html#wp1042171" />
+  </i>
+  <i t="result set types (JDBC)">
+   <j l="devjdbc7.html#wp526079" />
+  </i>
+  <i t="using with JDBC driver">
+   <j l="devjdbc7.html#wp526077" />
+  </i>
+ </i>
+ <i t="scroll-insensitive result sets (JDBC)">
+  <j l="devjdbc7.html#wp526082" />
+ </i>
+ <i t="scroll-sensitive result sets (JDBC)">
+  <j l="devjdbc7.html#wp526083" />
+ </i>
+ <i t="SECOND function">
+  <j l="scalarfn3.html#wp65706" />
+ </i>
+ <i t="SequeLink Client for ADO">
+  <i t="data types">
+   <i t="DB2 on z/OS">
+    <j l="datatype2.html#wp821349" />
+   </i>
+   <i t="DB2 UDB on Windows and UNIX">
+    <j l="datatype2.html#wp939244" />
+   </i>
+   <i t="Informix">
+    <j l="datatype3.html#wp958513" />
+   </i>
+   <i t="Microsoft SQL Server">
+    <j l="datatype3.html#wp783999" />
+   </i>
+   <i t="Oracle">
+    <j l="datatype4.html#wp784274" />
+   </i>
+   <i t="Sybase">
+    <j l="datatype5.html#wp784403" />
+   </i>
+  </i>
+ </i>
+ <i t="SequeLink Client for JDBC">
+  <i t="JDBC 3.0 functionality">
+   <j l="devjdbc2.html#wp525416" />
+  </i>
+  <i t="Proxy Server">
+   <j l="usejdbc2.html#wp1041151" />
+  </i>
+  <i t="specifying application IDs">
+   <j l="devjdbc8.html#wp526150" />
+  </i>
+ </i>
+ <i t="SequeLink Client for ODBC">
+  <i t="data types">
+   <i t="DB2 UDB on Windows and UNIX">
+    <j l="datatype2.html#wp939244" />
+   </i>
+   <i t="DB2 UDB on z/OS">
+    <j l="datatype2.html#wp821349" />
+   </i>
+   <i t="Informix">
+    <j l="datatype3.html#wp958513" />
+   </i>
+   <i t="Microsoft SQL Server">
+    <j l="datatype3.html#wp783999" />
+   </i>
+   <i t="Oracle">
+    <j l="datatype4.html#wp784274" />
+   </i>
+   <i t="Sybase">
+    <j l="datatype5.html#wp784403" />
+   </i>
+  </i>
+  <i t="isolation levels">
+   <j l="datatype.xml#wp1008579" />
+  </i>
+ </i>
+ <i t="SequeLink Proxy Server">
+  <i t="files">
+   <j l="usejdbc2.html#wp1056190" />
+   <j l="usejdbc2.html#wp1056207" />
+  </i>
+  <i t="overview">
+   <j l="usejdbc2.html#wp1051783" />
+  </i>
+  <i t="using SSL encryption">
+   <j l="usejdbc2.html#wp1051842" />
+  </i>
+ </i>
+ <i t="SequeLink Server for DB2 UDB on z/OS">
+  <i t="data types">
+   <j l="datatype2.html#wp821349" />
+  </i>
+  <i t="scalar functions">
+   <j l="scalarfn3.html#wp25197" />
+  </i>
+ </i>
+ <i t="SequeLink Server for JDBC Socket">
+  <i t="JTA support">
+   <j l="usejdbc6.html#wp1050586" />
+  </i>
+  <i t="scroll-sensitive cursor support">
+   <j l="devjdbc7.html#wp554430" />
+  </i>
+ </i>
+ <i t="SequeLink Server for ODBC Socket">
+  <i t="JTA support">
+   <j l="usejdbc6.html#wp1050466" />
+  </i>
+  <i t="scrollable cursor support (JDBC)">
+   <j l="devjdbc7.html#wp554435" />
+  </i>
+ </i>
+ <i t="Serializable object">
+  <j l="jdbcsupp20.html#wp574700" />
+ </i>
+ <i t="setEnableLogging, using to turn on and off DataDirect Spy logging">
+  <j l="diagnostics2.html#wp615224" />
+ </i>
+ <i t="SIGN function">
+  <j l="scalarfn3.html#wp17941" />
+ </i>
+ <i t="SIN function">
+  <j l="scalarfn3.html#wp17946" />
+ </i>
+ <i t="SOUNDEX function">
+  <j l="scalarfn3.html#wp17798" />
+ </i>
+ <i t="SPACE function">
+  <j l="scalarfn3.html#wp17806" />
+ </i>
+ <i t="specification supported">
+  <i t="JDBC">
+   <j l="usejdbc2.html#wp1041142" />
+   <j l="devjdbc2.html#wp525416" />
+  </i>
+ </i>
+ <i t="Spy">
+  <i t="about">
+   <j l="spy2.html#wp74001" />
+  </i>
+  <i t="attributes">
+   <j l="spy4.html#wp68496" />
+  </i>
+  <i t="options">
+   <j l="spy4.html#wp68496" />
+  </i>
+  <i t="registering the JDBC driver">
+   <j l="spy4.html#wp75440" />
+  </i>
+  <i t="URL syntax">
+   <j l="spy4.html#wp68496" />
+  </i>
+  <i t="using with JDBC data sources">
+   <j l="spy5.html#wp68530" />
+  </i>
+ </i>
+ <i t="SQL support">
+  <i t="binding SQL statements (JDBC)">
+   <j l="devjdbc4.html#wp549369" />
+  </i>
+  <i t="date and timestamp escape sequences">
+   <j l="scalarfn2.html#wp17272" />
+  </i>
+  <i t="numeric functions">
+   <j l="scalarfn3.html#wp17819" />
+  </i>
+  <i t="outer join escape sequences">
+   <j l="scalarfn5.html#wp17386" />
+  </i>
+  <i t="overview">
+   <j l="scalarfn.html#wp24852" />
+  </i>
+  <i t="scalar functions">
+   <j l="scalarfn3.html#wp17303" />
+  </i>
+  <i t="string functions">
+   <j l="scalarfn3.html#wp25116" />
+  </i>
+ </i>
+ <i t="SQLCancel, effect of threading">
+  <j l="devjdbc6.html#wp528126" />
+ </i>
+ <i t="SQRT function">
+  <j l="scalarfn3.html#wp17952" />
+ </i>
+ <i t="SSL encryption">
+  <i t="cancel functionality">
+   <j l="devjdbc6.html#wp528527" />
+  </i>
+  <i t="connection URL format">
+   <j l="usejdbc4.html#wp1046543" />
+  </i>
+  <i t="JAR files">
+   <j l="usejdbc2.html#wp1056145" />
+   <j l="usejdbc2.html#wp1056150" />
+  </i>
+  <i t="permissions required">
+   <j l="usejdbc11.html#wp1042179" />
+  </i>
+  <i t="using with the proxy server">
+   <j l="usejdbc2.html#wp1051842" />
+  </i>
+ </i>
+ <i t="Statement object">
+  <j l="jdbcsupp21.html#wp580355" />
+ </i>
+ <i t="string">
+  <i t="changing case of">
+   <j l="scalarfn3.html#wp17741" />
+  </i>
+  <i t="functions">
+   <j l="scalarfn3.html#wp25116" />
+  </i>
+  <i t="length of">
+   <j l="scalarfn3.html#wp17752" />
+  </i>
+  <i t="removing blanks from">
+   <j l="scalarfn3.html#wp17763" />
+   <j l="scalarfn3.html#wp17792" />
+  </i>
+  <i t="returning substring of">
+   <j l="scalarfn3.html#wp17810" />
+  </i>
+ </i>
+ <i t="Struct object">
+  <j l="jdbcsupp22.html#wp574762" />
+ </i>
+ <i t="SUBSTRING function">
+  <j l="scalarfn3.html#wp17810" />
+ </i>
+ <i t="SupportLink">
+  <j l="preface3.html#wp1039210" />
+ </i>
+ <i t="Sybase">
+  <i t="data types">
+   <j l="datatype5.html#wp784403" />
+  </i>
+ </i>
+ <i t="syntax for URLs for Spy">
+  <j l="spy4.html#wp68496" />
+ </i>
+ <i t="TAN function">
+  <j l="scalarfn3.html#wp17956" />
+ </i>
+ <i t="TCP port">
+  <j l="usejdbc4.html#wp1046569" />
+ </i>
+ <i t="Technical Support, contacting">
+  <j l="preface3.html#wp1039210" />
+ </i>
+ <i t="terminating the pool manager">
+  <j l="pool4.html#wp73093" />
+ </i>
+ <i t="testing">
+  <i t="JDBC connections">
+   <j l="jdbctest2.html#wp75413" />
+  </i>
+ </i>
+ <i t="threading">
+  <i t="JDBC driver">
+   <j l="devjdbc6.html#wp525623" />
+  </i>
+ </i>
+ <i t="time functions">
+  <j l="scalarfn3.html#wp17969" />
+ </i>
+ <i t="TIMESTAMPADD function">
+  <j l="scalarfn3.html#wp65712" />
+ </i>
+ <i t="TIMESTAMPDIFF function">
+  <j l="scalarfn3.html#wp65717" />
+ </i>
+ <i t="tracking JDBC calls">
+  <j l="usejdbc2.html#wp1041228" />
+  <j l="spy5.html#wp68530" />
+ </i>
+ <i t="troubleshooting driver problems">
+  <j l="diagnostics.html#wp615221" />
+ </i>
+ <i t="TRUNCATE function">
+  <j l="scalarfn3.html#wp17961" />
+ </i>
+ <i t="turning on and off DataDirect Spy logging">
+  <j l="diagnostics2.html#wp615519" />
+ </i>
+ <i t="UCASE function">
+  <j l="scalarfn3.html#wp17816" />
+ </i>
+ <i t="Unicode">
+  <i t="DB2 UDB data types supported">
+   <j l="datatype.xml#wp1004590" />
+  </i>
+  <i t="JDBC driver">
+   <j l="devjdbc11.html#wp555719" />
+  </i>
+  <i t="see also SequeLink Administrator&#8217;s Guide">
+   <j l="devjdbc.html#wp524304" />
+  </i>
+ </i>
+ <i t="updatable result sets">
+  <j l="devjdbc7.html#wp526088" />
+ </i>
+ <i t="URL">
+  <i t="format for connections (JDBC)">
+   <j l="usejdbc4.html#wp1046540" />
+  </i>
+  <i t="precedence of JDBC connection properties">
+   <j l="usejdbc8.html#wp1052615" />
+  </i>
+ </i>
+ <i t="USER function">
+  <j l="scalarfn3.html#wp18124" />
+ </i>
+ <i t="using">
+  <i t="JDBC Client on Java 2 Platform">
+   <j l="usejdbc11.html#wp1042155" />
+  </i>
+  <i t="scrollable cursors">
+   <i t="with the JDBC driver">
+    <j l="devjdbc7.html#wp526096" />
+   </i>
+  </i>
+ </i>
+ <i t="WEEK function">
+  <j l="scalarfn3.html#wp65722" />
+ </i>
+ <i t="XAConnection object">
+  <j l="jdbcsupp23.html#wp585274" />
+ </i>
+ <i t="XADataSource object">
+  <j l="jdbcsupp24.html#wp585176" />
+ </i>
+ <i t="YEAR function">
+  <j l="scalarfn3.html#wp65727" />
+ </i>
+</WebWorksHelpIX>

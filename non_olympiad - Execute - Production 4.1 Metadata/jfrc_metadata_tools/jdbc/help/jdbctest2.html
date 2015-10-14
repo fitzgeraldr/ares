@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:33" />
+  <title>DataDirect Test Tutorial</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp75369"> </a><h1 class="pNewHTMLPageNoNum">
+DataDirect Test Tutorial
+</h1>
+<hr /><a name="wp75370"> </a><p class="pBody">
+This DataDirect Test tutorial explains how to use the most important features of DataDirect Test (and the JDBC API) and assumes that you can connect to a database with the standard available demo table or fine-tune the sample SQL statements shown in this example as appropriate for your environment. 
+</p>
+<a name="wp91332"> </a><p class="pBody">
+NOTE: The step-by-step examples used in this tutorial do not show typical clean-up routines (for example, closing result sets and connections). These steps have been omitted to simplify the examples. Do not forget to add these steps when you use equivalent code in your applications.
+</p>
+<a name="wp116017"> </a><h3 class="pHeading2">
+Configuring DataDirect Test
+</h3>
+<a name="wp116018"> </a><p class="pBody">
+The default DataDirect Test configuration file is:
+</p>
+<a name="wp116019"> </a><p class="pBody">
+ <em class="cEmphasis">install_dir</em>/testforjdbc/Config.txt
+</p>
+<a name="wp116020"> </a><p class="pBody">
+where <em class="cEmphasis">install_dir</em> is your SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> Driver installation directory. This file can be edited as appropriate for your environment using any text editor. All parameters are configurable, but the most commonly configured parameters are:
+</p>
+<a name="wp116046"> </a><p class="pBody">
+	</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp120646"> </a><div class="pCellBody">
+<span style="font-style: normal; font-weight: normal; text-decoration: none; vertical-align: baseline">Drivers</span>
+</div>
+</td>
+    <td><a name="wp120648"> </a><div class="pCellBody">
+A list of colon-separated JDBC driver classes.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp120650"> </a><div class="pCellBody">
+DefaultDriver
+</div>
+</td>
+    <td><a name="wp120652"> </a><div class="pCellBody">
+The default JDBC driver that appears in the Get Driver URL window.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp120654"> </a><div class="pCellBody">
+Databases
+</div>
+</td>
+    <td><a name="wp120656"> </a><div class="pCellBody">
+A list of comma-separated JDBC URLs. The first item in the list appears as the default in the database selection window. You can use one of these URLs as a template when you make a JDBC connection. The default Config.txt file contains example URLs for most databases.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp120662"> </a><div class="pCellBody">
+InitialContextFactory
+</div>
+</td>
+    <td><a name="wp120664"> </a><div class="pCellBody">
+Should be set to com.sun.jndi.fscontext.RefFSContextFactory<br />if you are using file system data sources, or<br />com.sun.jndi.ldap.LdapCtxFactory<br />if you are using LDAP.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp120666"> </a><div class="pCellBody">
+ContextProviderURL
+</div>
+</td>
+    <td><a name="wp120668"> </a><div class="pCellBody">
+The location of the .bindings file if you are using file system data sources, or your LDAP Provider URL if you are using LDAP.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp120670"> </a><div class="pCellBody">
+Datasources
+</div>
+</td>
+    <td><a name="wp120672"> </a><div class="pCellBody">
+A list of comma-separated JDBC data sources. The first item in the list appears as the default in the data source selection window.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp116528"> </a><h3 class="pHeading2">
+Starting DataDirect Test
+</h3>
+<a name="wp116529"> </a><p class="pBody">
+How you start DataDirect Test depends on your platform:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp147372"> </a><div class="pSmartList1"><li><b class="cBold">As a Java application on Windows</b>&#8212;Run the testforjdbc.bat file located in the testforjdbc directory. </li></div><a name="wp147379"> </a><div class="pSmartList1"><li><b class="cBold">As a Java application on UNIX</b>&#8212;Run the testforjdbc.sh shell script located in the testforjdbc directory beneath the installation directory.</li></div></ul></div>
+<a name="wp116582"> </a><p class="pBody">
+After you start DataDirect Test, the following window appears:
+</p>
+<a name="wp116592"> </a><p class="pBody">
+The main DataDirect Test window shows the following information:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp116593"> </a><div class="pSmartList1"><li>In the Connection List box, a list of available connections.</li></div><a name="wp116594"> </a><div class="pSmartList1"><li>In the JDBC/Database scroll box, a report indicating whether the last action succeeded or failed.</li></div><a name="wp116595"> </a><div class="pSmartList1"><li>In the Java Code scroll box, the actual Java code used to implement the last action.</li></div></ul></div>
+<a name="wp116761"> </a><p class="pBody">
+TIP: The DataDirect Test windows contain two Concatenate check boxes. Select a Concatenate check box to see a cumulative record of previous actions; otherwise, only the last action is shown. Selecting Concatenate can degrade performance, particularly when displaying large resultSets.
+</p>
+<a name="wp75413"> </a><h3 class="pHeading2">
+Connecting Using DataDirect Test 
+</h3>
+<a name="wp115112"> </a><p class="pBody">
+There are two methods to connect using DataDirect Test: through a data source or through driver/database selection.
+</p>
+<a name="wp115099"> </a><h4 class="pHeading3">
+Connecting through a Data Source
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp115658"> </a><div class="pSmartList1"><li>From the DataDirect Test main window menu, select <b class="cBold">Connection</b> / <b class="cBold">Connect to DB via Data Source</b>. DataDirect Test displays the Select A Datasource window.</li></div><a name="wp115594"> </a><div class="pSmartList1"><li>Select a data source from the Defined Datasources pane. In the User Name and Password fields, type the required user and password connection properties; then, click <b class="cBold">Connect</b>. See <a  href="devjdbc.html#wp524304">&quot;Developing JDBC Applications&quot;</a> for information about JDBC connection properties.</li></div><a name="wp120843"> </a><div class="pSmartList1"><li>If the connection was successful, the Connection window appears and displays <code class="cCode">Connection Established</code> in the JDBC/Database Output scroll box.</li></div></ol></div>
+<a name="wp115261"> </a><h4 class="pHeading3">
+Connecting through Driver/Database Selection
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp91087"> </a><div class="pSmartList1"><li>From the DataDirect Test main window menu, select <b class="cBold">Driver</b> / <b class="cBold">Register Driver</b>. DataDirect Test prompts you for a JDBC driver name.</li></div><a name="wp91088"> </a><div class="pSmartList1"><li>In the Please Supply a Driver URL field, make sure that a driver is specified, as in the following example; then, click <b class="cBold">OK</b>.</li></div><a name="wp94855"> </a><p class="pSyntaxEmbed">
+com.ddtek.jdbc.sequelink.SequeLinkDriver
+</p>
+<a name="wp89802"> </a><p class="pBodyIndent12pxBeforeAfter">
+If the JDBC driver was registered successfully, the main DataDirect Test window appears with a confirmation in the JDBC/Database Output scroll box.
+</p>
+<a name="wp79608"> </a><div class="pSmartList1"><li>Select <b class="cBold">Connection</b> / <b class="cBold">Connect to DB</b> from the main menu. JDBC prompts with a list of default connection URLs.</li></div><a name="wp93405"> </a><div class="pSmartList1"><li>Select one of the default JDBC driver connection URLs. In the Database field, modify the default values of the connection URL appropriately for your environment.</li></div><a name="wp93406"> </a><div class="pSmartList1"><li>In the User Name and Password fields, type the required user and password connection properties; then, click <b class="cBold">Connect</b>. See <a  href="devjdbc.html#wp524304">&quot;Developing JDBC Applications&quot;</a> for information about JDBC connection properties.</li></div><a name="wp90244"> </a><div class="pSmartList1"><li>If the connection was successful, the Connection window appears and displays <code class="cCode">Connection Established</code> in the JDBC/Database Output scroll box.</li></div></ol></div>
+<a name="wp75445"> </a><h3 class="pHeading2">
+Executing a Simple Select Statement
+</h3>
+<a name="wp75446"> </a><p class="pBody">
+This example explains how to execute a simple Select statement and retrieve the results.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp75447"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create Statement</b>. The connection window indicates that the creation of the statement was successful.</li></div><a name="wp75448"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>. DataDirect Test displays a dialog box that prompts for a SQL statement.</li></div><a name="wp75449"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp75454"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp75455"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Show All Results</b>. The data from your result set is displayed.</li></div><a name="wp75460"> </a><div class="pSmartList1"><li>Scroll through the code in the Java Code scroll box to see which JDBC calls have been implemented by DataDirect Test.</li></div></ol></div>
+<a name="wp75461"> </a><h3 class="pHeading2">
+Executing a Prepared Statement
+</h3>
+<a name="wp75462"> </a><p class="pBody">
+This example explains how to execute a parameterized statement multiple times.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp75463"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create Prepared Statement</b>. DataDirect Test prompts you for a SQL statement.</li></div><a name="wp75464"> </a><div class="pSmartList1"><li>Specify the Insert statement that you want to execute.</li></div><a name="wp75469"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp75470"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Set Prepared Parameters</b>. To set the value and type for each parameter:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp104152"> </a><div class="pSmartList2"><li>Type the parameter number.</li></div>
+<a name="wp104153"> </a><div class="pSmartList2"><li>Select the parameter type.</li></div>
+<a name="wp104154"> </a><div class="pSmartList2"><li>Type the parameter value.</li></div>
+<a name="wp104155"> </a><div class="pSmartList2"><li>Click <b class="cBold">Set</b> to pass this information to the JDBC driver.</li></div>
+</ol></div>
+<a name="wp111429"> </a><div class="pSmartList1"><li>When you are finished, click <b class="cBold">Close</b>.</li></div><a name="wp75480"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Update</b>. The JDBC/Database Output scroll box indicates that one row has been inserted.</li></div><a name="wp75486"> </a><div class="pSmartList1"><li>If you want to insert multiple records, repeat <a  href="jdbctest2.html#wp75470">Step 3</a> and <a  href="jdbctest2.html#wp75480">Step 5</a> for each record.</li></div><a name="wp75489"> </a><div class="pSmartList1"><li>If you repeat the steps described in <a  href="jdbctest2.html#wp75445">&quot;Executing a Simple Select Statement&quot;</a>, you will see that the previously inserted records are also returned.</li></div></ol></div>
+<a name="wp75495"> </a><h3 class="pHeading2">
+Retrieving Database Metadata
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp75497"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Get DB Meta Data</b>.</li></div><a name="wp75498"> </a><div class="pSmartList1"><li>Select <b class="cBold">MetaData</b> / <b class="cBold">Show Meta Data</b>. Information about the JDBC driver and the database to which you are connected is returned.</li></div><a name="wp75504"> </a><div class="pSmartList1"><li>Scroll through the Java code in the Java Code scroll box to find out which JDBC calls have been implemented by DataDirect Test.</li></div><a name="wp75505"> </a><p class="pBodyIndent12pxBeforeAfter">
+The metadata also allows you to query the database catalog (enumerate the tables in the database, for example). In this example, we will query all tables that are owned by the user SCOTT.
+</p>
+<a name="wp75506"> </a><div class="pSmartList1"><li>Select <b class="cBold">MetaData</b> / <b class="cBold">Tables</b>.</li></div><a name="wp75507"> </a><div class="pSmartList1"><li>In the Schema Pattern field, type <code class="cCode">SCOTT</code>.</li></div><a name="wp75512"> </a><div class="pSmartList1"><li>Click <b class="cBold">Ok</b>. The Connection window indicates that getTables() succeeded.</li></div><a name="wp75513"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Show All Results</b>. All tables owned by SCOTT are returned.</li></div></ol></div>
+<a name="wp75518"> </a><h3 class="pHeading2">
+Scrolling Through a Result Set
+</h3>
+<a name="wp75520"> </a><p class="pBody">
+NOTE: Scrollable result sets are supported by JDBC 2.0 and higher and require a Java 2 Platform (JDK 1.2)-compatible Java Virtual Machine.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp75521"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create JDBC 2.0 Statement</b>. DataDirect Test prompts you for a result set type and concurrency.</li></div><a name="wp75523"> </a><div class="pSmartList1"><li>In the resultSetType field, select <b class="cBold">TYPE_SCROLL_SENSITIVE</b>. In the resultSetConcurrency field, select <b class="cBold">CONCUR_READ_ONLY</b>.</li></div><a name="wp75528"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp75529"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>.</li></div><a name="wp75530"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp81173"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp75536"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Scroll Results</b>. The Scroll Result Set window indicates that the cursor is positioned before the first row.</li></div><a name="wp75542"> </a><div class="pSmartList1"><li>Click the <b class="cBold">Absolute</b>, <b class="cBold">Relative</b>, <b class="cBold">Before</b>, <b class="cBold">First</b>, <b class="cBold">Prev</b>, <b class="cBold">Next</b>, <b class="cBold">Last</b>, and <b class="cBold">After</b> buttons as appropriate to navigate through the result set. After each action, the Scroll Result Set window displays the data at the current position of the cursor.</li></div><a name="wp75547"> </a><div class="pSmartList1"><li>Click <b class="cBold">Close</b>.</li></div></ol></div>
+<a name="wp110635"> </a><h3 class="pHeading2">
+Batch Execution on a Prepared Statement
+</h3>
+<a name="wp110636"> </a><p class="pBody">
+Batch execution on a prepared statement allows you to update or insert multiple records simultaneously. In some cases, this can significantly improve system performance because fewer round-trips to the database are required.
+</p>
+<a name="wp110637"> </a><p class="pBody">
+NOTE: Batch execution on a prepared statement is supported by the JDBC 2.0 and higher specifications and requires a Java 2 Platform (JDK&#160;1.2 or higher)-compatible Java Virtual Machine.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp110638"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create Prepared Statement</b>.</li></div><a name="wp110639"> </a><div class="pSmartList1"><li>Specify the Insert statement that you want to execute.</li></div><a name="wp110644"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp110646"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Add Stmt Batch</b>.</li></div><a name="wp110647"> </a><div class="pSmartList1"><li>For each parameter:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp110648"> </a><div class="pSmartList2"><li>Type the parameter number.</li></div>
+<a name="wp110649"> </a><div class="pSmartList2"><li>Select the parameter type.</li></div>
+<a name="wp110650"> </a><div class="pSmartList2"><li>Type the parameter value.</li></div>
+<a name="wp110651"> </a><div class="pSmartList2"><li>Click <b class="cBold">Set</b>.</li></div>
+</ol></div>
+<a name="wp110657"> </a><div class="pSmartList1"><li>Click <b class="cBold">Add</b> to add the specified set of parameters to the batch. To add multiple parameter sets to the batch, repeat <a  href="jdbctest2.html#wp110646">Step 3</a> through <a  href="jdbctest2.html#wp110657">Step&#160;5</a> as many times as necessary. When you are finished adding parameter sets to the batch, click <b class="cBold">Close</b>.</li></div><a name="wp110665"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Batch</b>. DataDirect Test displays the rowcount for each of the elements in the batch.</li></div><a name="wp110672"> </a><div class="pSmartList1"><li>If you re-execute the Select statement from <a  href="jdbctest2.html#wp75445">&quot;Executing a Simple Select Statement&quot;</a>, you see that the previously inserted records are returned.</li></div></ol></div>
+<a name="wp120482"> </a><h3 class="pHeading2">
+Returning ParameterMetaData
+</h3>
+<a name="wp121276"> </a><p class="pBody">
+NOTE: Returning ParameterMetaData is a JDBC 3.0 feature and requires a JDK 1.4 Java Virtual Machine.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp120483"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create Prepared Statement</b>.</li></div><a name="wp117025"> </a><div class="pSmartList1"><li>Specify the prepared statement that you want to execute.</li></div><a name="wp117739"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp117743"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Get ParameterMetaData</b>. The Connection window displays ParameterMetaData.</li></div></ol></div>
+<a name="wp120495"> </a><h3 class="pHeading2">
+Establishing Savepoints
+</h3>
+<a name="wp121270"> </a><p class="pBody">
+NOTE: Savepoints is a JDBC 3.0 feature and requires a JDK 1.4 Java Virtual Machine.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp120302"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Connection Properties</b>.</li></div><a name="wp120303"> </a><div class="pSmartList1"><li>Select <b class="cBold">TRANSACTION_COMMITTED</b> from the Transaction Isolation drop-down list. Do not select the Auto Commit check box.</li></div><a name="wp120312"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Set</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp122914"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Load and Go</b>. The Get Load And Go SQL window appears.</li></div><a name="wp122915"> </a><div class="pSmartList1"><li>Specify the statement that you want to execute. </li></div><a name="wp120961"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>.
+</p>
+<a name="wp120721"> </a><div class="pSmartList1"><li>Select <b class="cBold">Connection</b> / <b class="cBold">Set Savepoint</b>. In the Set Savepoints window, specify a savepoint name.</li></div><a name="wp121025"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Apply</b>; then, click <b class="cBold">Close</b>. The Connection window indicates whether or not the savepoint succeeded.
+</p>
+<a name="wp121019"> </a><div class="pSmartList1"><li>Return to the Get Load And Go SQL window and specify another statement.</li></div><a name="wp121038"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>.
+</p>
+<a name="wp120726"> </a><div class="pSmartList1"><li>Select <b class="cBold">Connection</b> / <b class="cBold">Rollback Savepoint</b>. In the Rollback Savepoints window, specify the savepoint name.</li></div><a name="wp121057"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Apply</b>; then, click <b class="cBold">Close</b>. The Connection window indicates whether or not the savepoint rollback succeeded.
+</p>
+<a name="wp120765"> </a><div class="pSmartList1"><li>Return to the Get Load And Go SQL window and specify another statement.</li></div><a name="wp122544"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>. 
+</p>
+<a name="wp126964"> </a><p class="pBodyIndent12pxBeforeAfter">
+The Connection window displays data that was inserted before the first Savepoint. The second insert was rolled back.
+</p>
+</ol></div>
+<a name="wp121083"> </a><h3 class="pHeading2">
+Updatable Result Sets
+</h3>
+<a name="wp121102"> </a><p class="pBody">
+The following examples illustrate Updatable result sets by deleting, inserting, and updating a row.
+</p>
+<a name="wp121119"> </a><h4 class="pHeading3">
+Deleting a Row
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp121084"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create JDBC 2.0 Statement</b>.</li></div><a name="wp121136"> </a><div class="pSmartList1"><li>In the resultSetType field, select <b class="cBold">TYPE_SCROLL_SENSITIVE</b>. In the resultSetConcurrency field, select <b class="cBold">CONCUR_UPDATABLE</b>.</li></div><a name="wp121143"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121148"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>.</li></div><a name="wp121149"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp121158"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121159"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Inspect Results</b>. The Inspect Result Set window is displayed.</li></div><a name="wp121758"> </a><div class="pSmartList1"><li>Click <b class="cBold">Next</b>. Current Row changes to 1.</li></div><a name="wp121771"> </a><div class="pSmartList1"><li>Click <b class="cBold">Delete Row</b>. </li></div><a name="wp121810"> </a><div class="pSmartList1"><li>To verify the result, return to the Connection menu and select <b class="cBold">Connection</b> / <b class="cBold">Load And Go</b>. The Get Load and Go SQL window appears.</li></div><a name="wp121824"> </a><div class="pSmartList1"><li>Specify the statement that you want to execute. </li></div><a name="wp121830"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121833"> </a><div class="pSmartList1"><li>The Connection window shows one row returned.</li></div></ol></div>
+<a name="wp121404"> </a><h4 class="pHeading3">
+Inserting a Row
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp121837"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create JDBC 2.0 Statement</b>.</li></div><a name="wp121838"> </a><div class="pSmartList1"><li>In the resultSetType field, select <b class="cBold">TYPE_SCROLL_SENSITIVE</b>. In the resultSetConcurrency field, select <b class="cBold">CONCUR_UPDATABLE</b>.</li></div><a name="wp121847"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121848"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>.</li></div><a name="wp121849"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp121939"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121954"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Inspect Results</b>. The Inspect Result Set window is displayed.</li></div><a name="wp121503"> </a><div class="pSmartList1"><li>Click <b class="cBold">Move to insert row</b>; Current Row is now Insert row.</li></div><a name="wp121978"> </a><div class="pSmartList1"><li>Change Data Type to int. In Set Cell Value, enter <code class="cCode">20</code>. Click <b class="cBold">Set Cell</b>.</li></div><a name="wp121985"> </a><div class="pSmartList1"><li>Select the second row in the top pane. Change the Data Type to String. In Set Cell Value, enter <code class="cCode">RESEARCH</code>. Click <b class="cBold">Set Cell</b>.</li></div><a name="wp121993"> </a><div class="pSmartList1"><li>Select the third row in the top pane. In Set Cell Value, enter <code class="cCode">DALLAS</code>. Click <b class="cBold">Set Cell</b>.</li></div><a name="wp122005"> </a><div class="pSmartList1"><li>Click <b class="cBold">Insert Row</b>.</li></div><a name="wp122015"> </a><div class="pSmartList1"><li>To verify the result, return to the Connection menu and select <b class="cBold">Connection</b> / <b class="cBold">Load And Go</b>. The Get Load and Go SQL window appears.</li></div><a name="wp122016"> </a><div class="pSmartList1"><li>Specify the statement that you want to execute. </li></div><a name="wp122020"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp122021"> </a><div class="pSmartList1"><li>The Connection window shows two rows returned.</li></div></ol></div>
+<a name="wp121199"> </a><p class="pBody">
+Note that the ID will be 3 for the row just inserted, because it is an auto increment column.
+</p>
+<a name="wp122028"> </a><h4 class="pHeading3">
+Updating a Row
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp123186"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create JDBC 2.0 Statement</b>.</li></div><a name="wp123187"> </a><div class="pSmartList1"><li>In the resultSetType field, select <b class="cBold">TYPE_SCROLL_SENSITIVE</b>. In the resultSetConcurrency field, select <b class="cBold">CONCUR_UPDATABLE</b>.</li></div><a name="wp122081"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp122082"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>.</li></div><a name="wp122083"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp121554"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp121555"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Inspect Results</b>. The Inspect Result Set window is displayed.</li></div><a name="wp122136"> </a><div class="pSmartList1"><li>Click <b class="cBold">Next</b>. Current Row changes to 1.</li></div><a name="wp122141"> </a><div class="pSmartList1"><li>In Set Cell Value, enter <code class="cCode">RALEIGH</code>. Click <b class="cBold">Set Cell</b>.</li></div><a name="wp122158"> </a><div class="pSmartList1"><li>Click <b class="cBold">Update Row</b>.</li></div><a name="wp122172"> </a><div class="pSmartList1"><li>To verify the result, return to the Connection menu and select <b class="cBold">Connection</b> / <b class="cBold">Load And Go</b>. The Get Load and Go SQL window appears.</li></div><a name="wp122173"> </a><div class="pSmartList1"><li>Specify the statement that you want to execute. </li></div><a name="wp122179"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp122180"> </a><div class="pSmartList1"><li>The Connection window shows LOC for accounting changed from NEW YORK to RALEIGH.</li></div></ol></div>
+<a name="wp121252"> </a><h3 class="pHeading2">
+LOB Support
+</h3>
+<a name="wp121218"> </a><p class="pBody">
+NOTE: LOB is a JDBC 3.0 feature and requires a JDK 1.4 Java Virtual Machine.
+</p>
+<a name="wp122338"> </a><p class="pBody">
+The following example uses CLOB data; however, this procedure also applies to BLOB data. This example illustrates only one of several ways in which LOB data can be processed.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp121219"> </a><div class="pSmartList1"><li>From the Connection window menu, select <b class="cBold">Connection</b> / <b class="cBold">Create Statement</b>.</li></div><a name="wp121625"> </a><div class="pSmartList1"><li>Select <b class="cBold">Statement</b> / <b class="cBold">Execute Stmt Query</b>.</li></div><a name="wp122201"> </a><div class="pSmartList1"><li>Specify the Select statement that you want to execute.</li></div><a name="wp122234"> </a><p class="pBodyIndent12pxBeforeAfter">
+Click <b class="cBold">Submit</b>; then, click <b class="cBold">Close</b>.
+</p>
+<a name="wp122256"> </a><div class="pSmartList1"><li>Select <b class="cBold">Results</b> / <b class="cBold">Inspect Results</b>. The Inspect Result Set window is displayed.</li></div><a name="wp122682"> </a><div class="pSmartList1"><li>Click <b class="cBold">Next</b>. Current Row changes to 1.</li></div><a name="wp122556"> </a><div class="pSmartList1"><li>Deselect <b class="cBold">Auto Traverse</b>. This disables automatic traversal to the next row.</li></div><a name="wp122273"> </a><div class="pSmartList1"><li>Click <b class="cBold">Get Cell</b>.</li></div><a name="wp121241"> </a><div class="pSmartList1"><li>Values are returned in the Get Cell Value field.</li></div><a name="wp122296"> </a><div class="pSmartList1"><li>Change the Data Type to Clob.</li></div><a name="wp122318"> </a><div class="pSmartList1"><li>Click <b class="cBold">Get Cell</b>. The Clob data window appears.</li></div><a name="wp120719"> </a><div class="pSmartList1"><li>Click <b class="cBold">Get Cell</b>.</li></div><a name="wp122635"> </a><div class="pSmartList1"><li>Values are returned in the Cell Value field.</li></div></ol></div>
+<a name="wp122561"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

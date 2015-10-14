@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:36" />
+  <title>Registering the Spy JDBC Driver</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp75440"> </a><h1 class="pNewHTMLPageNoNum">
+Registering the Spy JDBC Driver
+</h1>
+<hr /><a name="wp74019"> </a><p class="pBody">
+To use the Spy JDBC Driver, you first must register it with the JDBC Driver Manager. You can register the Spy JDBC Driver in any of the following ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp69565"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 1</em>: Set the Java property jdbc.drivers using the Java -D option. The jdbc.drivers property is defined as a colon-separated list of driver class names. For example:</li></div><a name="wp69566"> </a><p class="pSyntaxEmbed">
+com.ddtek.jdbcspy.SpyDriver:<br />com.ddtek.jdbc.sequelink.SequeLinkDriver
+</p>
+<a name="wp69495"> </a><p class="pBodyIndent12pxBeforeAfter">
+The jdbc.drivers property can be set like other Java properties, using the -D option. For example:
+</p>
+<a name="wp69496"> </a><p class="pSyntaxEmbed">
+java -Djdbc.drivers=com.ddtek.jdbcspy.SpyDriver
+</p>
+<a name="wp69497"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 2</em>: Set the Java property jdbc.drivers from within your Java application or applet. To do this, code the following lines in your Java application or applet, and call DriverManager.getConnection():</li></div><a name="wp69498"> </a><p class="pSyntaxEmbed">
+Properties p = System.getProperties();
+</p>
+<a name="wp69499"> </a><p class="pSyntaxEmbed">
+p.put (&#8220;jdbc.drivers&#8221;, &#8220;com.ddtek.jdbcspy.SpyDriver&#8221;);
+</p>
+<a name="wp69500"> </a><p class="pSyntaxEmbed">
+System.setProperties (p);
+</p>
+<a name="wp69501"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 3</em>: Explicitly load the driver class using the standard Class.forName() method. To do this, code the following line and call DriverManager.getConnection():</li></div><a name="wp69502"> </a><p class="pSyntaxEmbed">
+Class.forName(&quot;com.ddtek.jdbcspy.SpyDriver&quot;);
+</p>
+</ul></div>
+<a name="wp68496"> </a><h3 class="pHeading2">
+DataDirect Spy Attributes
+</h3>
+<a name="wp68497"> </a><p class="pBody">
+DataDirect Spy uses the following format as a connection URL:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:spy:{<em class="cEmphasis">original-url</em>};[<em class="cEmphasis">key</em><code><em>=</em></code><em class="cEmphasis">value</em>]...<a name="wp68498"> </a>
+</pre></div>
+<a name="wp68499"> </a><p class="pBody">
+where <code><em>original-url</em></code> is the connection URL of the underlying JDBC driver.
+</p>
+<a name="wp68526"> </a><p class="pBody">
+In addition, you can specify the following options:
+</p>
+<a name="wp75388"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp68502"> </a><div class="pCellBody">
+<span style="font-style: normal; font-weight: normal; text-decoration: none; vertical-align: baseline">log=System.out</span>
+</div>
+</td>
+    <td><a name="wp68504"> </a><div class="pCellBody">
+Redirects logging to the Java output standard, System.out.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp68506"> </a><div class="pCellBody">
+log=(file)<em class="cEmphasis">filename</em>
+</div>
+</td>
+    <td><a name="wp68508"> </a><div class="pCellBody">
+Redirects logging to the file specified by <em class="cEmphasis">filename</em>. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp68510"> </a><div class="pCellBody">
+load=<em class="cEmphasis">classname</em>
+</div>
+</td>
+    <td><a name="wp68512"> </a><div class="pCellBody">
+Loads the driver specified by <em class="cEmphasis">classname</em>. The default value is com.ddtek.sequelink.jdbc.<br />SequeLinkDriver.
+</div>
+<a name="wp76330"> </a><div class="pCellBody">
+This attribute is supported only when you enable DataDirect Spy using the DataDirect Spy URL.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp68519"> </a><div class="pCellBody">
+linelimit=<em class="cEmphasis">numberofchars</em>
+</div>
+</td>
+    <td><a name="wp68521"> </a><div class="pCellBody">
+The maximum number of characters, specified by <em class="cEmphasis">numberofchars</em>, that Spy will log on one line. 
+</div>
+<a name="wp77229"> </a><div class="pCellBody">
+When set to no (the initial default), there is no maximum limit on the number of characters.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp74320"> </a><div class="pCellBody">
+logLobs={yes | no}
+</div>
+</td>
+    <td><a name="wp74322"> </a><div class="pCellBody">
+Specifies whether Spy logs activity on Blob / Clob. The initial default is no.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp68523"> </a><div class="pCellBody">
+logIS={yes | no | nosingleread}
+</div>
+</td>
+    <td><a name="wp68525"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs activity on InputStreams.
+</div>
+<a name="wp69691"> </a><div class="pCellBody">
+When logIS=nosingleread, logging on InputStream and Reader objects is active; however, logging of the single-byte read InputStream.read or single-character Reader.read is suppressed to prevent generating large log files that contain single-byte or single character read messages.
+</div>
+<a name="wp70248"> </a><div class="pCellBody">
+When set to no (the initial default), DataDirect Spy does not log activity on InputStreams.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp68902"> </a><div class="pCellBody">
+logTName={yes | no}
+</div>
+</td>
+    <td><a name="wp68904"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs the name of the current thread. 
+</div>
+<a name="wp77228"> </a><div class="pCellBody">
+When set to no (the initial default), DataDirect Spy does not log the name of the current thread.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp74282"> </a><div class="pCellBody">
+timestamp={yes | no}
+</div>
+</td>
+    <td><a name="wp74294"> </a><div class="pCellBody">
+Specifies whether a timestamp should be included on each line of the DataDirect Spy log. 
+</div>
+<a name="wp77227"> </a><div class="pCellBody">
+When set to no (the initial default), DataDirect Spy does not include a timestamp on each line.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

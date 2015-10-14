@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>ResultSet Metadata Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp555509"> </a><h1 class="pNewHTMLPageNoNum">
+ResultSet Metadata Support
+</h1>
+<hr /><a name="wp555510"> </a><p class="pBody">
+If your application requires table name information, the JDBC driver can return table name information in ResultSet metadata for Select statements. By setting the ResultSetMetaDataOptions property to 1, the JDBC driver performs additional processing to determine the correct table name for each column in the result set when the ResultSetMetaData.getTableName() method is called. Otherwise, the getTableName() method may return an empty string for each column in the result set.
+</p>
+<a name="wp555511"> </a><p class="pBody">
+The table name information that is returned by the JDBC driver depends on whether the column in a result set maps to a column in a table in the database. For each column in a result set that maps to a column in a table in the database, the JDBC driver returns the table name associated with that column. For columns in a result set that do not map to a column in a table (for example, aggregates and literals), the JDBC driver returns an empty string.
+</p>
+<a name="wp555512"> </a><p class="pBody">
+The Select statements for which ResultSet metadata is returned        may contain aliases, joins, and fully qualified names. The        following queries are examples of Select statements for which        the ResultSetMetaData.getTableName() method returns the correct table name for columns in the Select list:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT id, name FROM Employee<a name="wp555513"> </a>
+SELECT E.id, E.name FROM Employee E <a name="wp555514"> </a>
+SELECT E.id, E.name AS EmployeeName FROM Employee E<a name="wp555515"> </a>
+SELECT E.id, E.name, I.location, I.phone FROM Employee E, <a name="wp555516"> </a>
+   EmployeeInfo I WHERE E.id = I.id<a name="wp555517"> </a>
+SELECT id, name, location, phone FROM Employee,<a name="wp555518"> </a>
+   EmployeeInfo WHERE id = empId<a name="wp555519"> </a>
+SELECT Employee.id, Employee.name, EmployeeInfo.location, <a name="wp555520"> </a>
+   EmployeeInfo.phone FROM Employee, EmployeeInfo <a name="wp555521"> </a>
+   WHERE Employee.id = EmployeeInfo.id<a name="wp555522"> </a>
+</pre></div>
+<a name="wp555523"> </a><p class="pBody">
+The table name returned by the driver for generated columns is an empty string. The following query is an example of a Select statement that returns a result set that contains a generated column (the column named &quot;upper&quot;).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT E.id, E.name as EmployeeName, {fn UCASE(E.name)} <a name="wp555524"> </a>
+   AS upper FROM Employee E<a name="wp555525"> </a>
+</pre></div>
+<a name="wp555526"> </a><p class="pBody">
+The JDBC driver also can return schema name and catalog name information when the ResultSetMetaData.getSchemaName() and ResultSetMetaData.getCatalogName() methods are called if the driver can determine that information. For example, for the following statement, the JDBC driver returns &quot;test&quot; for the catalog name, &quot;test1&quot; for the schema name, and &quot;foo&quot; for the table name:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM test.test1.foo <a name="wp555527"> </a>
+</pre></div>
+<a name="wp555528"> </a><p class="pBody">
+The additional processing required to return table name, schema name, and catalog name information is only performed if the ResultSetMetaData.getTableName(), ResultSetMetaData.getSchemaName(), or ResultSetMetaData.getCatalogName() methods are called. 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:53" />
+  <title>jdbcsupp24.html</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp585172"> </a><h2 class="pNewHTMLPage">
+
+</h2>
+<hr />
+<a name="wp597647"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp585176"> </a><div class="pCellHeadingDuplicate">
+<font size="+1">XADataSource Object &#160;</font>
+</div>
+<a name="wp585180"> </a><div class="pCellHeading">
+Methods
+</div>
+</th>
+    <th><a name="wp585182"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp585183"> </a><div class="pCellHeading">
+Version
+</div>
+<a name="wp585184"> </a><div class="pCellHeading">
+Introduced
+</div>
+</th>
+    <th><a name="wp585186"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp585187"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp585188"> </a><div class="pCellHeading">
+Supported
+</div>
+</th>
+    <th><a name="wp585190"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp585191"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp585192"> </a><div class="pCellHeading">
+Comments
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp585194"> </a><div class="pCellBody">
+int getLoginTimeout () 
+</div>
+</td>
+    <td><a name="wp585196"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585198"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585200"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp585202"> </a><div class="pCellBody">
+PrintWriter getLogWriter () 
+</div>
+</td>
+    <td><a name="wp585204"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585206"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585208"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp585210"> </a><div class="pCellBody">
+XAConnection getXAConnection () 
+</div>
+</td>
+    <td><a name="wp585212"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585214"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585216"> </a><div class="pCellBody">
+The behavior of these methods depends on whether distributed/XA transactions are supported by the SequeLink Server. If not supported, the JDBC driver will throw an &quot;XA-Open failed with return code -3&quot; exception. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp585218"> </a><div class="pCellBody">
+XAConnection getXAConnection (String, String) 
+</div>
+</td>
+    <td><a name="wp585220"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585222"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585224"> </a><div class="pCellBody">
+The behavior of these methods depends on whether distributed/XA transactions are supported by the SequeLink Server. If not supported, the JDBC driver will throw an &quot;XA-Open failed with return code -3&quot; exception. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp585226"> </a><div class="pCellBody">
+void setLoginTimeout (int) 
+</div>
+</td>
+    <td><a name="wp585228"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585230"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585232"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp585234"> </a><div class="pCellBody">
+void setLogWriter (PrintWriter) 
+</div>
+</td>
+    <td><a name="wp585236"> </a><div class="pCellBody">
+2.0 Optional
+</div>
+</td>
+    <td><a name="wp585238"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp585240"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp544654"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

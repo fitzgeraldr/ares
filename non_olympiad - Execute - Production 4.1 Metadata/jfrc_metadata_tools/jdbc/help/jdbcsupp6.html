@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:53" />
+  <title>jdbcsupp6.html</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp597413"> </a><h2 class="pNewHTMLPage">
+
+</h2>
+<hr />
+<a name="wp596967"> </a><p class="pBody">
+
+</p>
+<a name="wp537178"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp596983"> </a><div class="pCellHeadingDuplicate">
+<font size="+1">Connection Object &#160;</font>
+</div>
+<a name="wp560963"> </a><div class="pCellHeading">
+Methods
+</div>
+</th>
+    <th><a name="wp560965"> </a><div class="pCellHeading">
+Version
+</div>
+<a name="wp560966"> </a><div class="pCellHeading">
+Introduced
+</div>
+</th>
+    <th><a name="wp560968"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp560969"> </a><div class="pCellHeading">
+Supported
+</div>
+</th>
+    <th><a name="wp560971"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp560972"> </a><div class="pCellHeading">
+Comments
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp576391"> </a><div class="pCellBody">
+void clearWarnings ()
+</div>
+</td>
+    <td><a name="wp576393"> </a><div class="pCellBody">
+1.0
+</div>
+</td>
+    <td><a name="wp576395"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp576397"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560974"> </a><div class="pCellBody">
+void close () 
+</div>
+</td>
+    <td><a name="wp560976"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp560978"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp560980"> </a><div class="pCellBody">
+When a connection is closed while there is an active transaction, that transaction is rolled-back.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560982"> </a><div class="pCellBody">
+void commit () 
+</div>
+</td>
+    <td><a name="wp560984"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp560986"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp560988"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp592287"> </a><div class="pCellBody">
+SQLWarning getWarnings () 
+</div>
+</td>
+    <td><a name="wp592289"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp592291"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp592293"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560990"> </a><div class="pCellBody">
+Statement createStatement () 
+</div>
+</td>
+    <td><a name="wp560992"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp560994"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp560996"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560998"> </a><div class="pCellBody">
+Statement createStatement (int, int) 
+</div>
+</td>
+    <td><a name="wp561000"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp561002"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561004"> </a><div class="pCellBody">
+The supported values for resultSetConcurrency depend on the data store you are connected to.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579086"> </a><div class="pCellBody">
+Statement createStatement (int, int, int) 
+</div>
+</td>
+    <td><a name="wp579122"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579124"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579126"> </a><div class="pCellBody">
+SequeLink only supports fixed Holdability values per RDBMS 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561007"> </a><div class="pCellBody">
+boolean getAutoCommit () 
+</div>
+</td>
+    <td><a name="wp561009"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561011"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561013"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561015"> </a><div class="pCellBody">
+String getCatalog () 
+</div>
+</td>
+    <td><a name="wp561017"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561019"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561022"> </a><div class="pCellBody">
+Support is database-specific.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579128"> </a><div class="pCellBody">
+int getHoldability () 
+</div>
+</td>
+    <td><a name="wp579130"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579132"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp579134"> </a><div class="pCellBody">
+SequeLink only supports fixed Holdability values per RDBMS 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561024"> </a><div class="pCellBody">
+DatabaseMetaData getMetaData () 
+</div>
+</td>
+    <td><a name="wp561026"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561028"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561030"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561032"> </a><div class="pCellBody">
+int getTransactionIsolation () 
+</div>
+</td>
+    <td><a name="wp561034"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561036"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561038"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561040"> </a><div class="pCellBody">
+Map getTypeMap () 
+</div>
+</td>
+    <td><a name="wp561042"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp561044"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561046"> </a><div class="pCellBody">
+Always returns empty java.util.HashMap.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561048"> </a><div class="pCellBody">
+SQLWarning getWarnings () 
+</div>
+</td>
+    <td><a name="wp561050"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561052"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561054"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561056"> </a><div class="pCellBody">
+boolean isClosed () 
+</div>
+</td>
+    <td><a name="wp561058"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561060"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561062"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561064"> </a><div class="pCellBody">
+boolean isReadOnly () 
+</div>
+</td>
+    <td><a name="wp561066"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561068"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561070"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561072"> </a><div class="pCellBody">
+String nativeSQL (String) 
+</div>
+</td>
+    <td><a name="wp561074"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561076"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561078"> </a><div class="pCellBody">
+Always returns same String as passed in. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561080"> </a><div class="pCellBody">
+CallableStatement prepareCall (String) 
+</div>
+</td>
+    <td><a name="wp561082"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561084"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561086"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561088"> </a><div class="pCellBody">
+CallableStatement prepareCall (String, int, int) 
+</div>
+</td>
+    <td><a name="wp561090"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp561092"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561094"> </a><div class="pCellBody">
+The supported values for resultSetConcurrency depend on the data store you are connected to.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579138"> </a><div class="pCellBody">
+CallableStatement prepareCall (String, int, int, int) 
+</div>
+</td>
+    <td><a name="wp579150"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579152"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579154"> </a><div class="pCellBody">
+SequeLink only supports fixed Holdability values per RDBMS 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561097"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String) 
+</div>
+</td>
+    <td><a name="wp561099"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561101"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561103"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579214"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String, int) 
+</div>
+</td>
+    <td><a name="wp579222"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579224"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579226"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579156"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String, int[]) 
+</div>
+</td>
+    <td><a name="wp579228"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579230"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579232"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561105"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String, int, int) 
+</div>
+</td>
+    <td><a name="wp561107"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp561109"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561111"> </a><div class="pCellBody">
+The supported values for resultSetType and resultSetConcurrency depend on the data store you are connected to.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579234"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String, int, int, int) 
+</div>
+</td>
+    <td><a name="wp579242"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579244"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp579246"> </a><div class="pCellBody">
+SequeLink only supports fixed Holdability values per RDBMS 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579248"> </a><div class="pCellBody">
+PreparedStatement prepareStatement (String, String []) 
+</div>
+</td>
+    <td><a name="wp579250"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579252"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579254"> </a><div class="pCellBody">
+Throws &#8220;unsupported method&#8221; exception.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp564456"> </a><div class="pCellBody">
+void releaseSavepoint (Savepoint) 
+</div>
+</td>
+    <td><a name="wp564458"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp564460"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569250"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561114"> </a><div class="pCellBody">
+void rollback () 
+</div>
+</td>
+    <td><a name="wp561116"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561118"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561120"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp564420"> </a><div class="pCellBody">
+void rollback (Savepoint) 
+</div>
+</td>
+    <td><a name="wp564422"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp564424"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp569262"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561122"> </a><div class="pCellBody">
+void setAutoCommit (boolean) 
+</div>
+</td>
+    <td><a name="wp561124"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561126"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561128"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561130"> </a><div class="pCellBody">
+void setCatalog (String) 
+</div>
+</td>
+    <td><a name="wp561132"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561134"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561137"> </a><div class="pCellBody">
+Switching of catalogs is supported if the SequeLink Server supports it.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579258"> </a><div class="pCellBody">
+void setHoldability (int)
+</div>
+</td>
+    <td><a name="wp579260"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579262"> </a><div class="pCellBody">
+No 
+</div>
+</td>
+    <td><a name="wp579264"> </a><div class="pCellBody">
+SequeLink only supports fixed Holdability values per RDBMS.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561139"> </a><div class="pCellBody">
+void setReadOnly (boolean) 
+</div>
+</td>
+    <td><a name="wp561141"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561143"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561145"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579291"> </a><div class="pCellBody">
+void setSavepoint () 
+</div>
+</td>
+    <td><a name="wp579293"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579295"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp579297"> </a><div class="pCellBody">
+Not supported with Informix servers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp579283"> </a><div class="pCellBody">
+void setSavepoint (String) 
+</div>
+</td>
+    <td><a name="wp579285"> </a><div class="pCellBody">
+3.0 
+</div>
+</td>
+    <td><a name="wp579287"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp579289"> </a><div class="pCellBody">
+Not supported with Informix servers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561147"> </a><div class="pCellBody">
+void setTransactionIsolation (int) 
+</div>
+</td>
+    <td><a name="wp561149"> </a><div class="pCellBody">
+1.0 
+</div>
+</td>
+    <td><a name="wp561151"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561153"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561155"> </a><div class="pCellBody">
+void setTypeMap (Map) 
+</div>
+</td>
+    <td><a name="wp561157"> </a><div class="pCellBody">
+2.0 Core 
+</div>
+</td>
+    <td><a name="wp561160"> </a><div class="pCellBody">
+Yes 
+</div>
+</td>
+    <td><a name="wp561162"> </a><div class="pCellBody">
+Ignored.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

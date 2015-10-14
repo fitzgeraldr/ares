@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>Using Scrollable Cursors</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526076"> </a><h1 class="pNewHTMLPageNoNum">
+Using Scrollable Cursors
+</h1>
+<hr /><a name="wp526077"> </a><p class="pBody">
+Scrollable cursors can move backward and forward in a result set, allowing the application to scroll back and forth through retrieved data.
+</p>
+<a name="wp526079"> </a><h3 class="pHeading2">
+Result Set Types
+</h3>
+<a name="wp526080"> </a><p class="pBody">
+JDBC defines the following result set types:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp526081"> </a><div class="pSmartList1"><li>Forward-only</li></div><a name="wp526082"> </a><div class="pSmartList1"><li>Scroll-insensitive</li></div><a name="wp526083"> </a><div class="pSmartList1"><li>Scroll-sensitive</li></div></ul></div>
+<a name="wp541783"> </a><p class="pBody">
+<em class="cEmphasis">Forward-only result sets</em> allow you to move forward, but not backward, through the data. The application can move only forward using the next() method.
+</p>
+<a name="wp526085"> </a><p class="pBody">
+Typically, a <em class="cEmphasis">scroll-insensitive result set</em> ignores changes that are made while it is open. It provides a static view of the underlying data it contains. The membership, order, and column values of rows are fixed when the result set is created.
+</p>
+<a name="wp526086"> </a><p class="pBody">
+In contrast, a <em class="cEmphasis">scroll-sensitive result set</em> provides a dynamic view of the underlying data, reflecting changes that are made while it is open. The membership and ordering of rows in the result set may be fixed, depending on how it is implemented.
+</p>
+<a name="wp529100"> </a><p class="pBody">
+Support for the scroll-sensitive cursors depends on the data store to which you are connecting, as described in <a  href="devjdbc7.html#wp554405">Table&#160;4-3</a>.
+</p>
+<a name="wp530180"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp554405"> </a><div class="pTableTitleBold">
+Table 4-3.  Support for Scroll-Sensitive Cursors&#160;(JDBC)
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp554409"> </a><div class="pCellHeading">
+Database
+</div>
+</th>
+    <th><a name="wp554411"> </a><div class="pCellHeading">
+Conditions for Support
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp554414"> </a><div class="pCellBody">
+DB2 UDB
+</div>
+</td>
+    <td><a name="wp554416"> </a><div class="pCellBody">
+The DB2 tables must contain an auto-unique column. The name and other properties of the auto-unique column must be configured in the data source of the SequeLink Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554422"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp554424"> </a><div class="pCellBody">
+None (inherently supported).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554426"> </a><div class="pCellBody">
+Microsoft SQL Server 
+</div>
+</td>
+    <td><a name="wp554428"> </a><div class="pCellBody">
+The table must contain an identity column.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554430"> </a><div class="pCellBody">
+JDBC Socket
+</div>
+</td>
+    <td><a name="wp554432"> </a><div class="pCellBody">
+The backend database must support an auto-unique column. The name and other properties of the auto-unique column must be configured in the data source of the SequeLink Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554435"> </a><div class="pCellBody">
+ODBC Socket
+</div>
+</td>
+    <td><a name="wp554437"> </a><div class="pCellBody">
+The backend database must support an auto-unique column. The name and other properties of the auto-unique column must be configured in the data source of the SequeLink Server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554441"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp554443"> </a><div class="pCellBody">
+None (inherently supported).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554445"> </a><div class="pCellBody">
+Sybase 
+</div>
+</td>
+    <td><a name="wp554447"> </a><div class="pCellBody">
+The table must contain an identity column.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp526088"> </a><h3 class="pHeading2">
+Concurrency Types
+</h3>
+<a name="wp526089"> </a><p class="pBody">
+JDBC defines the following concurrency types for a result set:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp526090"> </a><div class="pSmartList1"><li>Read-only</li></div><a name="wp526091"> </a><div class="pSmartList1"><li>Updatable</li></div></ul></div>
+<a name="wp526092"> </a><p class="pBody">
+A <em class="cEmphasis">read-only</em> result set does not allow its contents to be updated. Read-only result sets can increase the overall level of concurrency between transactions, because multiple read-only locks can be held on a data item simultaneously.
+</p>
+<a name="wp526093"> </a><p class="pBody">
+An <em class="cEmphasis">updatable </em>result set allows its contents to be updated and may use database write locks to mediate access to the same data item by different transactions. Because only a single write lock may be held at one time on a data item, updatable result sets can reduce concurrency.
+</p>
+<a name="wp526094"> </a><p class="pBody">
+An optimistic concurrency control scheme may be appropriate if you can accurately predict that conflicting access to data will seldom occur. Typically, optimistic concurrency control implementations compare rows by a value or by a version number to determine if an update conflict has occurred.
+</p>
+<a name="wp526096"> </a><h3 class="pHeading2">
+Using Scrollable Cursors
+</h3>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp526097"> </a><div class="pSmartList1"><li>The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver supports forward-only and scroll-insensitive result sets against all data stores.</li></div><a name="wp526098"> </a><div class="pSmartList1"><li>Scroll-sensitive result sets on stored procedures or explicit batches are not supported.</li></div><a name="wp526099"> </a><div class="pSmartList1"><li>Scroll-sensitive result sets are not supported when the Select statement contains any of the following SQL&#160;language constructions:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp526100"> </a><div class="pSmartList2"><li>JOIN</li></div>
+<a name="wp526101"> </a><div class="pSmartList2"><li>Aggregate functions</li></div>
+<a name="wp526102"> </a><div class="pSmartList2"><li>GROUP BY</li></div>
+</ul></div>
+<a name="wp526103"> </a><div class="pSmartList1"><li>The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver supports updatable result&#160;sets.</li></div></ul></div>
+<a name="wp526104"> </a><p class="pBody">
+NOTE: When the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver cannot support the requested result set type or concurrency, it will automatically downgrade it and generate one or multiple SQLWarnings with detailed information.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

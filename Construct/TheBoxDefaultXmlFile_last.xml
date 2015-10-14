@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment>
+    <assay appear_advanced="true, readonly"
+        appear_basic="true, readonly" datatype="string" default="$LAST"
+        description="Assay being run (expressed as a CV name)"
+        entry="manual" last="fly_olympiad_box"
+        range_advanced="fly_olympiad_box" range_basic="fly_olympiad_box"
+        required="true" units=""/>
+    <exp_datetime appear_advanced="true" appear_basic="true"
+        datatype="datetime" default=""
+        description="Date and time the assay was run." entry="manual"
+        last="20150930T081623" range_advanced="" range_basic=""
+        required="true" units=""/>
+    <experimenter appear_advanced="true" appear_basic="true"
+        datatype="string" default="$LAST"
+        description="Name of the person who is running the experiment."
+        entry="manual" last="rowellw" range_advanced="$LDAP"
+        range_basic="$LDAP" required="true" units=""/>
+    <protocol appear_advanced="true" appear_basic="true, readonly"
+        datatype="string" default="$LAST"
+        description="Name of an excel (.xlsx) file that has values for experiment parameters (see bottom of page for protocol fields) whenever an experiment protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+        entry="manual" last="EP_Box_v003p3.xlsx"
+        range_advanced="EP_Box_v003p0.xlsx, EP_Box_v003p1.xlsx, EP_Box_v003p2.xlsx, EP_Box_v003p3.xlsx, EP_Box_v004p0.xlsx, EP_Box_v004p1.xlsx, EP_Box_v004p2.xlsx, EP_Box_v010p2.xlsx"
+        range_basic="EP_Box_v003p0.xlsx, EP_Box_v003p1.xlsx, EP_Box_v003p2.xlsx, EP_Box_v003p3.xlsx, EP_Box_v004p0.xlsx, EP_Box_v004p1.xlsx, EP_Box_v004p2.xlsx, EP_Box_v010p2.xlsx"
+        required="true" units=""/>
+    <screen_type appear_advanced="true" appear_basic="true"
+        datatype="string" default="primary"
+        description="Type of experiment. Non_production is for testing purposes."
+        entry="manual" last="primary"
+        range_advanced="primary, secondary, non_olympiad, non_production"
+        range_basic="primary, secondary, non_olympiad, non_production"
+        required="true" units=""/>
+    <screen_reason appear_advanced="true" appear_basic="true"
+        datatype="string" default="standard"
+        description="Reason for experiment." entry="manual"
+        last="standard" range_advanced="standard, retest, control"
+        range_basic="standard, retest, control" required="true" units=""/>
+    <apparatus>
+        <apparatus_id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="string" default=""
+            description="Top plate NIDAQ ID." entry="manual"
+            last="12D9655" range_advanced="" range_basic=""
+            required="true" units=""/>
+        <box appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="string" default=""
+            description="Name of box" entry="manual" last="Ares"
+            range_advanced="" range_basic="" required="true" units=""/>
+        <computer appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="string" default=""
+            description="Computer identifier." entry="manual"
+            last="REISERLAB-HPWW6" range_advanced="" range_basic=""
+            required="true" units=""/>
+        <room appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="string"
+            default="$LAST" description="Environmental chamber"
+            entry="manual" last="2C.310.2"
+            range_advanced="2C.310.1, 2C.310.2, 2C.310.3, 2E.361.1, 2E.363"
+            range_basic="2C.310.1, 2C.310.2, 2C.310.3, 2E.361.1, 2E.363"
+            required="true" units=""/>
+    </apparatus>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="1"
+            description="Tube ID." entry="manual" last="1"
+            range_advanced="[1,1]" range_basic="[1,1]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="2"
+            description="Tube ID." entry="manual" last="2"
+            range_advanced="[2,2]" range_basic="[2,2]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="3"
+            description="Tube ID." entry="manual" last="3"
+            range_advanced="[3,3]" range_basic="[3,3]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="4"
+            description="Tube ID." entry="manual" last="4"
+            range_advanced="[4,4]" range_basic="[4,4]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="5"
+            description="Tube ID." entry="manual" last="5"
+            range_advanced="[5,5]" range_basic="[5,5]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <session>
+        <id appear_advanced="true, readonly"
+            appear_basic="true, readonly" datatype="integer" default="6"
+            description="Tube ID." entry="manual" last="6"
+            range_advanced="[6,6]" range_basic="[6,6]" required="true" units=""/>
+        <flies>
+            <cross_barcode appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="integer"
+                default="-1"
+                description="Barcode number for cross. Setting this value populates fields 'line', 'effector', etc. via lookup in the Fly Core Filemaker database."
+                entry="manual" last="-1" range_advanced="[-1,999999]"
+                range_basic="[-1,999999]" required="true" units=""/>
+            <wish_list appear_advanced="true" appear_basic="true"
+                datatype="integer" default="-1"
+                description="Wish list number (set number)"
+                entry="manual" last="-1" range_advanced="[-1,400]"
+                range_basic="[-1,1000]" required="true" units="flies"/>
+            <line appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
+                entry="manual" last="Buzzlight"
+                range_advanced="$LINENAME" range_basic="$LINENAME"
+                required="true" units=""/>
+            <effector appear_advanced="true, readonly"
+                appear_basic="true, readonly" datatype="string"
+                default="$LAST"
+                description="Verified as legal effector name in SAGE."
+                entry="manual" last="UAS_Shi_ts1_3_0001"
+                range_advanced="$EFFECTOR" range_basic="$EFFECTOR"
+                required="true" units=""/>
+            <genotype appear_advanced="true, readonly" appear_basic="true, readonly">
+                <content appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Genotype of flies. Typically auto-generated from line and effector."
+                    entry="manual"
+                    last="Buzzlight &amp; UAS_Shi_ts1_3_0001"
+                    range_advanced="" range_basic="" required="true" units=""/>
+            </genotype>
+            <gender appear_advanced="true" appear_basic="true, readonly"
+                datatype="string" default="$LAST"
+                description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
+                entry="manual" last="m" range_advanced="m,f,b,x"
+                range_basic="m,f,b,x" required="true" units=""/>
+            <cross_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was made to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <flip_used appear_advanced="true" appear_basic="true"
+                datatype="integer" default="1"
+                description="Which flip of the parents were used to generate the flies. 0 = original cross vials, 1 = first flip vials, etc"
+                entry="manual" last="1" range_advanced="[-1,3]"
+                range_basic="[-1,3]" required="true" units=""/>
+            <flip_date appear_advanced="true" appear_basic="true"
+                datatype="datetime" default="$LAST"
+                description="Date cross was flipped to generate this set of flies."
+                entry="manual" last="20150912T000000"
+                range_advanced="[now-30,now-5], days"
+                range_basic="[now-30,now-5], days" required="true" units=""/>
+            <num_flies appear_advanced="true" appear_basic="true"
+                datatype="integer" default="15"
+                description="Number of flies actually put into apparatus for this experiment; may be different from protocol number of flies intended for the experiment."
+                entry="manual" last="15" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <num_flies_dead appear_advanced="true" appear_basic="true"
+                datatype="integer" default="0"
+                description="Number of dead flies observed at start of experiment; may be different from num_flies."
+                entry="manual" last="0" range_advanced="[0,20]"
+                range_basic="[0,20]" required="true" units="flies"/>
+            <rearing>
+                <rearing_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel (xlsx) file that has values for rearing parameters (see bottom of page for protocol fields) whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
+                    entry="manual" last="RP_Olympiad_v003p2.xlsx"
+                    range_advanced="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    range_basic="RP_Olympiad_v001p0.xlsx, RP_Olympiad_v002p0.xlsx, RP_Olympiad_v003p0.xlsx, RP_Olympiad_v003p1.xlsx, RP_Olympiad_v003p2.xlsx, RP_Olympiad_v004p0.xlsx, RP_Olympiad_v005p0.xlsx, RP_Olympiad_v006p0.xlsx, RP_Olympiad_v006p1.xlsx, RP_Olympiad_v007p0.xlsx, RP_Olympiad_v008p0.xlsx, RP_Olympiad_v008p1.xlsx, RP_Olympiad_v009p0.xlsx, unknown"
+                    required="true" units=""/>
+                <rearing_incubator appear_advanced="true"
+                    appear_basic="true" datatype="integer"
+                    default="$LAST"
+                    description="ID number for incubator flies were raised in."
+                    entry="manual" last="2" range_advanced="[-1,4]"
+                    range_basic="[-1,4]" required="true" units=""/>
+            </rearing>
+            <handling>
+                <handling_protocol appear_advanced="true"
+                    appear_basic="true, readonly" datatype="string"
+                    default="$LAST"
+                    description="Name of an excel file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
+                    entry="manual" last="HP_Box_v001p0.xlsx"
+                    range_advanced="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    range_basic="HP_Box_v001p0.xlsx, HP_Box_v002p0.xlsx, unknown"
+                    required="true" units=""/>
+                <handler_cross appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who handled the flies pre-experiment."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_sorting appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="mcmahonj"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
+                <handler_starvation appear_advanced="true"
+                    appear_basic="true" datatype="string"
+                    default="$LAST"
+                    description="Name of the person who sorted the flies."
+                    entry="manual" last="rowellw" range_advanced="$LDAP"
+                    range_basic="$LDAP" required="true" units=""/>
+                <hours_sorted appear_advanced="true" appear_basic="true"
+                    datatype="string" default="$LAST"
+                    description="Time in hours since flies were sorted."
+                    entry="manual" last="24"
+                    range_advanced="0,24,48,72,96,144"
+                    range_basic="0,24,48,72,96,144" required="true" units="hours"/>
+                <hours_starved appear_advanced="true"
+                    appear_basic="true" datatype="float" default="$LAST"
+                    description="Number of hours flies were starved prior to start of experiment."
+                    entry="manual" last="3" range_advanced="[0,48]"
+                    range_basic="[0,6]" required="true" units="hours"/>
+            </handling>
+            <robot_stock_copy appear_advanced="true" appear_basic="true"
+                datatype="string" default="unknown"
+                description="Which FlyCore robot stock copy (A or B) of the line was used."
+                entry="manual" last="unknown"
+                range_advanced="A, B, unknown"
+                range_basic="A, B, unknown" required="true" units=""/>
+        </flies>
+    </session>
+    <environment>
+        <temperature appear_advanced="true" appear_basic="true"
+            datatype="float" default="$LAST"
+            description="Temperature snapshot at the time the assay was started."
+            entry="manual" last="00" range_advanced="[-Inf, Inf]"
+            range_basic="[-Inf, Inf]" required="true" units="degrees Celsius"/>
+        <humidity appear_advanced="true" appear_basic="true"
+            datatype="float" default="$LAST"
+            description="Humidity snapshot at the time the assay was started."
+            entry="manual" last="00" range_advanced="[0,100]"
+            range_basic="[0,100]" required="true" units="percent"/>
+    </environment>
+    <notes_behavioral>
+        <content appear_advanced="false" appear_basic="false"
+            datatype="string" default=""
+            description="An open field area for the experimenter to write observations about fly behavior from the start of the experiment."
+            entry="acquire" last="" range_advanced="" range_basic=""
+            required="false" units=""/>
+    </notes_behavioral>
+    <notes_technical>
+        <content appear_advanced="false" appear_basic="false"
+            datatype="string" default=""
+            description="An open field area for the experimenter to write observations about experimental equipment/conditions at the start of the experiment."
+            entry="acquire" last="" range_advanced="" range_basic=""
+            required="false" units=""/>
+    </notes_technical>
+    <flag_redo appear_advanced="true" appear_basic="true"
+        datatype="integer" default="0"
+        description="Flag specifying whether or not experiment should be re-done."
+        entry="manual" last="0" range_advanced="[0, 1]"
+        range_basic="[0, 1]" required="true" units=""/>
+    <flag_review appear_advanced="true" appear_basic="true"
+        datatype="integer" default="0"
+        description="Flag specifying whether or not experiment should be re-done."
+        entry="manual" last="0" range_advanced="[0, 1]"
+        range_basic="[0, 1]" required="true" units=""/>
+    <flag_aborted appear_advanced="false" appear_basic="false"
+        datatype="integer" default="0"
+        description="Flag specifying whether or not experiment was aborted: 0 = not aborted, 1 = aborted."
+        entry="manual" last="0" range_advanced="[0, 1]"
+        range_basic="[0, 1]" required="true" units=""/>
+    <flag_legacy appear_advanced="false" appear_basic="false"
+        datatype="integer" default="0"
+        description="Flag specifying whether or not experiment was run before final metadata launch on 20110418"
+        entry="manual" last="0" range_advanced="[0, 1]"
+        range_basic="[0, 1]" required="true" units=""/>
+    <notes_keyword>
+        <content appear_advanced="true" appear_basic="true"
+            datatype="string" default=""
+            description="Legal keyword(s) from SAGE cv_term table"
+            entry="manual" last="" range_advanced="" range_basic=""
+            required="false" units=""/>
+    </notes_keyword>
+    <archive_behavior appear_advanced="true, readonly"
+        appear_basic="true, readonly" datatype="string"
+        default="default"
+        description="Should these experiments be archived, and how should they be handled?"
+        entry="manual" last="default"
+        range_advanced="default, move, copy, copy_and_remove_sbfmf"
+        range_basic="default, move, copy, copy_and_remove_sbfmf"
+        required="true" units=""/>
+    <archive_path appear_advanced="true, readonly"
+        appear_basic="true, readonly" datatype="string" default="$LAST"
+        description="Root path for archiving experiments."
+        entry="manual" last="" range_advanced="" range_basic=""
+        required="false" units=""/>
+</experiment>

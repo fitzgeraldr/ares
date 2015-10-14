@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Using the Java Transaction API</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041651"> </a><h1 class="pNewHTMLPageNoNum">
+Using the Java Transaction API
+</h1>
+<hr /><a name="wp1041655"> </a><p class="pBody">
+<a  href="usejdbc6.html#wp1050438">Table&#160;1-2</a> lists which databases are supported for the Java Transaction API (JTA) by the JDBC Client. 
+</p>
+<a name="wp1050418"> </a><p class="pBody">
+<b class="cBold"></b></p><div align="left">
+<table border="1">
+  <caption><a name="wp1050438"> </a><div class="pTableTitleBold">
+Table 1-2.  Support for the Java Transaction API (JTA) by the JDBC Client&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1050445"> </a><div class="pCellHeading">
+Database
+</div>
+</th>
+    <th><a name="wp1050447"> </a><div class="pCellHeading">
+JTA Supported?
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1050449"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp1050451"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050453"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp1050455"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050457"> </a><div class="pCellBody">
+DB2 UDB on z/OS
+</div>
+</td>
+    <td><a name="wp1050459"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050461"> </a><div class="pCellBody">
+DB2 UDB on Windows and UNIX
+</div>
+</td>
+    <td><a name="wp1050463"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050586"> </a><div class="pCellBody">
+JDBC Socket
+</div>
+</td>
+    <td><a name="wp1050588"> </a><div class="pCellBody">
+No
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050466"> </a><div class="pCellBody">
+ODBC Socket
+</div>
+</td>
+    <td><a name="wp1050468"> </a><div class="pCellBody">
+No
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050470"> </a><div class="pCellBody">
+Sybase 
+</div>
+</td>
+    <td><a name="wp1050472"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1050474"> </a><div class="pCellBody">
+SQL Server 
+</div>
+</td>
+    <td><a name="wp1050476"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody"><b class="cBold"></b>
+</p>
+<a name="wp1041708"> </a><p class="pBody">
+Once a JDBC data source has been registered with JNDI, it can be used by your JDBC application as shown in the following example, typically through application server software:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Context ctx = new InitialContext();<a name="wp1041709"> </a>
+XADataSource ds = (XADataSource)
+ctx.lookup(&#8220;jdbc/EmployeeDB&#8221;);<a name="wp1041710"> </a>
+XAConnection xacon = ds.getXAConnection(&#8220;scott&#8221;, &#8220;tiger&#8221;);<a name="wp1041711"> </a>
+</pre></div>
+<a name="wp1041712"> </a><p class="pBody">
+In this example, the JNDI environment is first initialized. Next, the initial naming context is used to find the logical name of the JDBC data source. The Context.lookup() method returns a reference to a Java object, which is narrowed to a javax.sql.XADataSource object. Finally, the XADataSource.getXAConnection() method is called to establish a connection with the SequeLink service.
+</p>
+<a name="wp1041716"> </a><p class="pBody">
+See <a  href="usejdbc5.html#wp1041567">&quot;Creating and Managing JDBC Data Sources&quot;</a> for instructions on creating JDBC data sources.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

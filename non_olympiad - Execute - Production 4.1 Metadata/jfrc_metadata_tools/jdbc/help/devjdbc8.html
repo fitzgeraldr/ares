@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>Specifying Application IDs</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526150"> </a><h1 class="pNewHTMLPageNoNum">
+Specifying Application IDs
+</h1>
+<hr /><a name="wp552905"> </a><p class="pBody">
+<em class="cEmphasis">Application IDs</em> are alphanumeric strings passed by a SequeLink Client that identify the client application to a SequeLink service that has been configured to accept connections only from specific application IDs.
+</p>
+<a name="wp553770"> </a><p class="pBody">
+After establishing a connection with the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver, immediately invoke setApplicationId. The setApplicationId method is defined on the interface com.ddtek.jdbc.extensions.SlExtensionInterface, and uses the following method prototype:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+public void setApplicationId(String s) throws SQLException<a name="wp553771"> </a>
+</pre></div>
+<a name="wp553772"> </a><p class="pBody">
+You can set the application ID as shown in the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import java.sql.*;<a name="wp553773"> </a>
+import com.ddtek.jdbc.extensions.SlExtensionInterface;<a name="wp553774"> </a>
+<a name="wp553775"> </a>
+...<a name="wp553776"> </a>
+Connection con = DriverManager.getConnection(...);<a name="wp553777"> </a>
+<a name="wp553778"> </a>
+String appId = &quot;<code><em>myAppID</em></code>&quot;; <a name="wp553779"> </a>
+if (con instanceof SlExtensionInterface)<a name="wp553780"> </a>
+   {<a name="wp553781"> </a>
+   SlExtensionInterface slCon = (SlExtensionInterface)con;<a name="wp553782"> </a>
+   slCon.setApplicationId(<code><em>myAppID</em></code>);<a name="wp553783"> </a>
+   }<a name="wp553784"> </a>
+</pre></div>
+<a name="wp553785"> </a><p class="pBody">
+where <code><em>myAppID</em></code> is the application ID.
+</p>
+<a name="wp553726"> </a><p class="pBody">
+For more information about configuring SequeLink services to accept connections only from specific application IDs, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

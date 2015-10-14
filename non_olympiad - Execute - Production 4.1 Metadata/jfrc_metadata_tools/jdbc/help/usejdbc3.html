@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Registering the JDBC Driver</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041456"> </a><h1 class="pNewHTMLPageNoNum">
+Registering the JDBC Driver
+</h1>
+<hr /><a name="wp1041457"> </a><p class="pBody">
+To use the JDBC driver, you first must register it with the JDBC Driver Manager. You can register the JDBC driver in any of the following ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041458"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 1</em>: Set the Java property jdbc.drivers using the Java -D option. The jdbc.drivers property is defined as a colon-separated list of driver class names. For example:</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+com.ddtek.jdbc.sequelink.SequeLinkDriver:sun.jdbc.odbc.JdbcOdbcDriver<a name="wp1041459"> </a>
+<a name="wp1041460"> </a><p class="pBodyIndent12pxBeforeAfter">
+The jdbc.drivers property can be set like other Java properties, using the -D option. For example:
+</p>
+java -Djdbc.drivers=com.ddtek.jdbc.sequelink.SequeLinkDriver<a name="wp1041461"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041462"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 2</em>: Set the Java property jdbc.drivers from within your Java application or applet. To do this, include the following code in your application or applet, and call DriverManager.getConnection():</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+Properties p = System.getProperties();<a name="wp1041463"> </a>
+p.put (&quot;jdbc.drivers&quot;, &quot;com.ddtek.jdbc.sequelink.SequeLinkDriver&quot;);<a name="wp1041464"> </a>
+System.setProperties (p);<a name="wp1041465"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1041466"> </a><div class="pSmartList1"><li><em class="cEmphasis">Method 3</em>: Explicitly load the driver class using the standard Class.forName() method. To do this, include the following code in your application or applet and call DriverManager.getConnection():</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+Class.forName(&quot;com.ddtek.jdbc.sequelink.SequeLinkDriver&quot;);<a name="wp1041467"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

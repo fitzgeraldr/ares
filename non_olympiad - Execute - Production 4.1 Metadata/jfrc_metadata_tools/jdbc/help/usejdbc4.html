@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Specifying JDBC Driver Connection&#160;URLs</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041470"> </a><h1 class="pNewHTMLPageNoNum">
+Specifying JDBC Driver Connection&#160;URLs
+</h1>
+<hr /><a name="wp1046537"> </a><p class="pBody">
+The connection URL format depends on whether you are using SSL encryption. For more information about SSL encryption, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</p>
+<a name="wp1046540"> </a><p class="pBodyBold">
+If not using SSL encryption, the connection URL format is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:sequelink://<code><em>hostname</em></code>:<em class="cEmphasis">port</em>[;<em class="cEmphasis">key</em>=<em class="cEmphasis">value</em>]...<a name="wp1046541"> </a>
+</pre></div>
+<a name="wp1046543"> </a><p class="pBodyBold">
+If using SSL encryption, the connection URL format is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:sequelink:ssl://<em class="cEmphasis">hostname</em>:<em class="cEmphasis">port</em>[;<em class="cEmphasis">key</em>=<em class="cEmphasis">value</em>]...<a name="wp1046544"> </a>
+</pre></div>
+<a name="wp1046545"> </a><p class="pBody">
+where:
+</p>
+<a name="wp1046588"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp1046559"> </a><div class="pCellBody">
+<code><em>hostname</em></code>
+</div>
+</td>
+    <td colspan="2" rowspan="1"><a name="wp1046561"> </a><div class="pCellBody">
+is the TCP/IP address or TCP/IP host name of the SequeLink server to which you are connecting.
+</div>
+<a name="wp1046562"> </a><div class="pCellBody">
+NOTE: Untrusted applets cannot open a socket to a machine other than the originating host. For more information about untrusted applets, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1046566"> </a><div class="pCellBody">
+<code><em>port</em></code>
+</div>
+</td>
+    <td colspan="2" rowspan="1"><a name="wp1046569"> </a><div class="pCellBody">
+is the TCP/IP port on which the SequeLink server is listening. A default installation of SequeLink Server uses the port 19996.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1046579"> </a><div class="pCellBody">
+<code><em>key=value</em></code>
+</div>
+</td>
+    <td colspan="2" rowspan="1"><a name="wp1046584"> </a><div class="pCellBody">
+specifies connection properties. See <a  href="usejdbc9.html#wp1041841"><a  href="usejdbc9.html#wp1041841">&quot;JDBC Connection Properties&quot;</a> </a>for a list of connection properties and their valid values.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp1041533"> </a><p class="pBodyBold">
+JDBC Connection URL Examples:
+</p>
+<a name="wp1046610"> </a><p class="pBody">
+The following examples show some typical JDBC driver connection URLs:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:sequelink://sequelinkhost:19996;<a name="wp1046611"> </a>
+jdbc:sequelink://189.23.5.25:19996;user=john;
+password=whatever<a name="wp1046612"> </a>
+jdbc:sequelink://189.23.5.132:19996;databaseName=stores7<a name="wp1046613"> </a>
+jdbc:sequelink://189.23.5.68:19996;databaseName=pubs;
+HUser=john;HPassword=whatever<a name="wp1046614"> </a>
+jdbc:sequelink://sequelinkhost:4006;
+databaseName=pubs;DBUser=john;DBPassword=whatever<a name="wp1046615"> </a>
+jdbc:sequelink:ssl://mysecurehost:9500;
+cipherSuites=SSL_DH_anon_WITH_RC4_128_MD5<a name="wp1046616"> </a>
+jdbc:sequelink:ssl://mysecurehost:9502;
+cipherSuites=SSL_DHE_RSA_WITH_DES_CBC_SHA;
+certificateChecker=CheckAgainstCertificateFromJar<a name="wp1046617"> </a>
+</pre></div>
+<a name="wp1046618"> </a><p class="pBody">
+The preceding<b class="cBold"> </b>examples do not show the user and password connection properties. Typically, these properties are specified in the connection properties stored in the java.util.Properties object, which is supplied as a parameter to the getConnection method.
+</p>
+<a name="wp1041547"> </a><p class="pBody">
+ 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

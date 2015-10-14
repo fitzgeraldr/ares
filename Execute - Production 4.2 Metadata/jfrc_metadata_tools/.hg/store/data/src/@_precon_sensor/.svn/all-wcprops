@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor
+END
+_precon_sensor.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/_precon_sensor.m.i
+END
+flush.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/flush.m.i
+END
+open.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/open.m.i
+END
+close.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/close.m.i
+END
+get_available_serial_ports.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/get_available_serial_ports.m.i
+END
+read.m.i
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/flyolympiad/projects/box/!svn/ver/243/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/.hg/store/data/src/@_precon_sensor/read.m.i
+END

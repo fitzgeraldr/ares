@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>JDBC Connection Properties</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041841"> </a><h1 class="pNewHTMLPageNoNum">
+JDBC Connection Properties
+</h1>
+<hr /><a name="wp1054334"> </a><p class="pBody">
+<span style="font-weight: normal"><a  href="usejdbc9.html#wp1054341"></span><a  href="usejdbc9.html#wp1054341"><span style="font-weight: normal">Table&#160;1-3</span></a><span style="font-weight: normal"></a></span> lists the JDBC connection properties supported by the JDBC driver, describes each property, and specifies the methods with which it can be specified.
+</p>
+<a name="wp1054656"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp1054341"> </a><div class="pTableTitleBold">
+Table 1-3.  JDBC Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1054346"> </a><div class="pCellHeading">
+Property
+</div>
+</th>
+    <th><a name="wp1054348"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1054350"> </a><div class="pCellBody">
+allowPrefetch
+</div>
+</td>
+    <td><a name="wp1054352"> </a><div class="pCellBody">
+allowPrefetch={0 | 1}. Enables the prefetch feature. When enabled, the JDBC driver requests a next set of rows from the server while the client application is processing the previous set of rows. 
+</div>
+<a name="wp1054353"> </a><div class="pCellBody">
+When set to 1, the prefetch feature is enabled. Overall throughput increases, if the application always fetches all rows from a result set. When this feature is enabled and the application does not fetch all data from result sets, performance can be significantly degraded.
+</div>
+<a name="wp1054354"> </a><div class="pCellBody">
+When set to 0 (the initial default), the prefetch feature is disabled. 
+</div>
+<a name="wp1054355"> </a><div class="pCellBody">
+This property can be specified using: 
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054356"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054357"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054358"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054359"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054361"> </a><div class="pCellBody">
+ApplicationName
+</div>
+</td>
+    <td><a name="wp1054363"> </a><div class="pCellBody">
+Identifies the application that is establishing the connections. When the application does not provide a value, the initial default is SequeLink for JDBC Application.
+</div>
+<a name="wp1054364"> </a><div class="pCellBody">
+This property can be specified using: 
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054365"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054366"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054367"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054369"> </a><div class="pCellBody">
+blockFetchForUpdate
+</div>
+</td>
+    <td><a name="wp1054371"> </a><div class="pCellBody">
+blockFetchForUpdate={0 | 1}. Specifies a workaround connection attribute. When the isolation level is Read Committed and a SELECT FOR UPDATE statement is issued against some data stores, the JDBC Client does not lock the expected row. 
+</div>
+<a name="wp1054372"> </a><div class="pCellBody">
+When set to 0, the appropriate row is locked.
+</div>
+<a name="wp1054373"> </a><div class="pCellBody">
+When set to 1 (the initial default), the appropriate row is not locked.
+</div>
+<a name="wp1054374"> </a><div class="pCellBody">
+IMPORTANT: Specifying 0 will degrade performance for SELECT FOR UPDATE statements because rows will be fetched one at a time.
+</div>
+<a name="wp1054375"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054376"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054377"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054378"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054379"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054394"> </a><div class="pCellBody">
+certificateChecker
+</div>
+</td>
+    <td><a name="wp1054396"> </a><div class="pCellBody">
+The fully qualified class name of a user-defined server certificate checker class. When the SequeLink Client and SequeLink Server have agreed on an SSL cipher suite that requires a server certificate, this class is used to verify the server certificate on behalf of the client. The class must be an implementation of the com.ddtek.sequelink.cert.CertificateCheckerInterface interface.
+</div>
+<a name="wp1054397"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054398"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054399"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054400"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+<a name="wp1054401"> </a><div class="pCellBody">
+For more information about certificate checker classes, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054417"> </a><div class="pCellBody">
+cipherSuites
+</div>
+</td>
+    <td><a name="wp1054420"> </a><div class="pCellBody">
+The Secure Socket Layer (SSL) cipher suites with which the JDBC Client can use to connect. This property is required when networkProtocol=ssl.
+</div>
+<a name="wp1054421"> </a><div class="pCellBody">
+For a list of supported cipher suites, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+<a name="wp1054422"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054423"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054424"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054425"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054427"> </a><div class="pCellBody">
+databaseName
+</div>
+</td>
+    <td><a name="wp1054429"> </a><div class="pCellBody">
+The name of the data store to which you want to connect.
+</div>
+<a name="wp1054430"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054431"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054432"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054433"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054434"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054436"> </a><div class="pCellBody">
+DBPassword 
+</div>
+</td>
+    <td><a name="wp1054438"> </a><div class="pCellBody">
+The data store password, which may be required depending on the server configuration.
+</div>
+<a name="wp1054439"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054440"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054441"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054442"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054444"> </a><div class="pCellBody">
+DBUser 
+</div>
+</td>
+    <td><a name="wp1054446"> </a><div class="pCellBody">
+The data store user name, which may be required depending on the server configuration.
+</div>
+<a name="wp1054447"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054448"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054449"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054450"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054452"> </a><div class="pCellBody">
+description
+</div>
+</td>
+    <td><a name="wp1054454"> </a><div class="pCellBody">
+A description of the connection or data source.
+</div>
+<a name="wp1054455"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054456"> </a><div class="pSmartList1"><li>JDBC data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054458"> </a><div class="pCellBody">
+HPassword 
+</div>
+</td>
+    <td><a name="wp1054460"> </a><div class="pCellBody">
+The host password, which may be required depending on the server configuration.
+</div>
+<a name="wp1054461"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054462"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054463"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054464"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054466"> </a><div class="pCellBody">
+HUser 
+</div>
+</td>
+    <td><a name="wp1054468"> </a><div class="pCellBody">
+The host user name, which may be required depending on the server configuration.
+</div>
+<a name="wp1054469"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054470"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054471"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054472"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054474"> </a><div class="pCellBody">
+insensitiveResultSetBufferSize
+</div>
+</td>
+    <td><a name="wp1054476"> </a><div class="pCellBody">
+{-1 | 0 | <em class="cEmphasis">x</em>}. Determines the amount of memory used by the driver to cache insensitive result set data. It must have one of the following values:
+</div>
+<a name="wp1054477"> </a><div class="pCellBody">
+If set to -1, the driver caches all insensitive result set data in memory. If the size of the result set exceeds available memory, an OutOfMemoryException is generated. Because the need to write result set data to disk is eliminated, the driver processes the data more efficiently.
+</div>
+<a name="wp1054478"> </a><div class="pCellBody">
+If set to 0, the driver caches all insensitive result set data in memory, up to a maximum of 2 GB. If the size of the result set data exceeds available memory, the driver pages the result set data to disk. Because result set data may be written to disk, the driver may have to reformat the data to write it correctly to disk.
+</div>
+<a name="wp1054479"> </a><div class="pCellBody">
+If set to <em class="cEmphasis">x</em>, where <em class="cEmphasis">x</em> is a positive integer, the driver caches all insensitive result set data in memory, using this value to set the size (in KB) of the memory buffer for caching insensitive result set data. If the size of the result set data exceeds the buffer size, the driver pages the result set data to disk. Because the result set data may be written to disk, the driver may have to reformat the data to write it correctly to disk. Specifying a buffer size that is a power of 2 results in more efficient memory use.
+</div>
+<a name="wp1054480"> </a><div class="pCellBody">
+The initial default is 2048 (KB).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054495"> </a><div class="pCellBody">
+MSSMapLongtoDecimal
+</div>
+</td>
+    <td><a name="wp1054497"> </a><div class="pCellBody">
+Turns on client-side workarounds that allow you to take full advantage of the JDBC driver with JDBC applications that require non-standard or extended behavior. For more information, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+<a name="wp1054501"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054502"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054503"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054504"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054505"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054507"> </a><div class="pCellBody">
+networkProtocol
+</div>
+</td>
+    <td><a name="wp1054509"> </a><div class="pCellBody">
+networkProtocol={socket | ssl}. Specifies the protocol to be used.
+</div>
+<a name="wp1054510"> </a><div class="pCellBody">
+The initial default is socket.
+</div>
+<a name="wp1054511"> </a><div class="pCellBody">
+When set to socket (the initial default), SSL encryption is not used.
+</div>
+<a name="wp1054512"> </a><div class="pCellBody">
+When set to ssl, SSL encryption is used.
+</div>
+<a name="wp1054513"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054514"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054515"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054516"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054532"> </a><div class="pCellBody">
+newPassword
+</div>
+</td>
+    <td><a name="wp1054534"> </a><div class="pCellBody">
+The new host password to be used. If specified and applicable to the connection, the SequeLink password change mechanism is invoked. When the password has been changed successfully, the following warning is returned:
+</div>
+<a name="wp1054535"> </a><div class="pCellBody">
+[DataDirect][SequeLink JDBC driver]<br />[SequeLink Server] The user password was changed successfully
+</div>
+<a name="wp1054536"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054537"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054538"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054539"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+<a name="wp1054540"> </a><div class="pCellBody">
+For more information about the SequeLink password change mechanism, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054542"> </a><div class="pCellBody">
+ORANumber0IsNumeric
+</div>
+</td>
+    <td><a name="wp1054544"> </a><div class="pCellBody">
+Turns on client-side workarounds that allow you to take full advantage of the JDBC driver with JDBC applications that require non-standard or extended behavior. For more information, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</div>
+<a name="wp1054548"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054549"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054550"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054551"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054552"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054567"> </a><div class="pCellBody">
+password
+</div>
+</td>
+    <td><a name="wp1054569"> </a><div class="pCellBody">
+The host or data store password, which may be required depending on the server configuration.
+</div>
+<a name="wp1054570"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054571"> </a><div class="pSmartList1"><li>getConnection</li></div><a name="wp1054572"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054573"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054574"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054576"> </a><div class="pCellBody">
+portNumber
+</div>
+</td>
+    <td><a name="wp1054578"> </a><div class="pCellBody">
+The TCP/IP port on which the SequeLink service is listening.
+</div>
+<a name="wp1054579"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054580"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054581"> </a><div class="pSmartList1"><li>URL</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054590"> </a><div class="pCellBody">
+resultSetMetaDataOptions
+</div>
+</td>
+    <td><a name="wp1054592"> </a><div class="pCellBody">
+resultSetMetaDataOptions={0 | 1}. Returns table name information in the ResultSet metadata for Select statements if your application requires that information.
+</div>
+<a name="wp1054593"> </a><div class="pCellBody">
+If set to 0 (the default) and the ResultSetMetaData.getTableName() method is called, the driver does not perform additional processing to determine the correct table name for each column in the result set. In this case, the getTableName() method may return an empty string for each column in the result set.
+</div>
+<a name="wp1054594"> </a><div class="pCellBody">
+If set to 1 and the ResultSetMetaData.getTableName() method is called, the driver performs additional processing to determine the correct table name for each column in the result set. The driver also can return schema name and catalog name information when the ResultSetMetaData.getSchemaName() and ResultSetMetaData.getCatalogName() methods are called if the driver can determine that information.
+</div>
+<a name="wp1054595"> </a><div class="pCellBody">
+By default, the JDBC driver skips the additional processing required to return the correct table name for each column in the result set when the ResultSetMetaData.getTableName() method is called. Because of this, the getTableName() method may return an empty string for each column in the result set. If you know that your application does not require table name information, this setting provides the best performance.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054598"> </a><div class="pCellBody">
+serverDataSource
+</div>
+</td>
+    <td><a name="wp1054600"> </a><div class="pCellBody">
+A property that specifies a string to identify the server data source to be used for the connection. If unspecified, the configuration of the default server data source will be used for the connection.
+</div>
+<a name="wp1054601"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054602"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054603"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054604"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054606"> </a><div class="pCellBody">
+serverName
+</div>
+</td>
+    <td><a name="wp1054608"> </a><div class="pCellBody">
+The TCP/IP address of the SequeLink server in dotted format or host name format.
+</div>
+<a name="wp1054609"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054610"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054611"> </a><div class="pSmartList1"><li>URL</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054613"> </a><div class="pCellBody">
+SLKStaticCursorLongColBuffLen
+</div>
+</td>
+    <td><a name="wp1054615"> </a><div class="pCellBody">
+The amount of data (in KB) that is buffered for SQL_LONGVARCHAR and SQL_LONGVARBINARY columns with an insensitive result set. 
+</div>
+<a name="wp1054616"> </a><div class="pCellBody">
+The initial default is 4.
+</div>
+<a name="wp1054617"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054618"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054619"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054620"> </a><div class="pSmartList1"><li>java.util.properties</li></div><a name="wp1054621"> </a><div class="pSmartList1"><li>server data source</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054623"> </a><div class="pCellBody">
+spyAttributes
+</div>
+</td>
+    <td><a name="wp1054625"> </a><div class="pCellBody">
+A property that enables DataDirect Spy, a tool that can be used to log detailed information about calls issued by a running application to the SequeLink for JDBC driver. The format for the value of this property is:
+</div>
+<a name="wp1054626"> </a><div class="pCellBody">
+<code class="cCode">(spy_attribute[;spy_attribute]...)</code> 
+</div>
+<a name="wp1054627"> </a><div class="pCellBody">
+where spy_attribute is any valid DataDirect Spy attribute. See <a  href="spy.html#wp68486">&quot;Tracking JDBC Calls&quot;</a> for a list of supported attributes.
+</div>
+<a name="wp1054632"> </a><div class="pCellBody">
+For example:
+</div>
+<a name="wp1054633"> </a><div class="pCellBody">
+<code class="cCode">SpyAttributes=(log=(file)/tmp/spy.log;linelimit=80)</code> 
+</div>
+<a name="wp1054634"> </a><div class="pCellBody">
+logs all JDBC activity to a file using a maximum of 80 characters for each line.
+</div>
+<a name="wp1054635"> </a><div class="pCellBody">
+NOTE: If coding a path on Windows to the log file in a Java string, the backslash character (\) must be preceded by the Java escape character, a backslash. For example:
+</div>
+<a name="wp1054636"> </a><div class="pCellBody">
+<code class="cCode">log=(file)C:\\temp\\spy.log</code>. 
+</div>
+<a name="wp1054637"> </a><div class="pCellBody">
+The initial default is DataDirect Spy is not enabled.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054639"> </a><div class="pCellBody">
+transliterationWorkaroundServer
+</div>
+</td>
+    <td><a name="wp1054641"> </a><div class="pCellBody">
+Turns on a workaround for multiple transliteration workarounds. Refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em> for more information about how SequeLink handles transliteration.
+</div>
+<a name="wp1054645"> </a><div class="pCellBody">
+When set to 0 (the initial default), the workaround is not enabled.
+</div>
+<a name="wp1054646"> </a><div class="pCellBody">
+When set to 1 or 2, this workaround resolves transliteration issues between Shift-JIS/Windows-31j and eucJP  by mapping &quot;look-alike&quot; characters.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1054648"> </a><div class="pCellBody">
+user
+</div>
+</td>
+    <td><a name="wp1054650"> </a><div class="pCellBody">
+The host or data store user name, which may be required depending on the server configuration.
+</div>
+<a name="wp1054651"> </a><div class="pCellBody">
+This property can be specified using:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1054652"> </a><div class="pSmartList1"><li>getConnection</li></div><a name="wp1054653"> </a><div class="pSmartList1"><li>JDBC data source</li></div><a name="wp1054654"> </a><div class="pSmartList1"><li>URL</li></div><a name="wp1054655"> </a><div class="pSmartList1"><li>java.util.properties</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

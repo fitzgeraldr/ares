@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:36" />
+  <title>Enabling DataDirect Spy</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp75480"> </a><h1 class="pNewHTMLPageNoNum">
+Enabling DataDirect Spy
+</h1>
+<hr /><a name="wp75481"> </a><p class="pBody">
+You can enable DataDirect Spy for a connection using any of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp75482"> </a><div class="pSmartList1"><li>Specifying the SpyAttributes connection property for connections using the JDBC Driver Manager. See <a  href="spy3.html#wp75501">&quot;Using the JDBC Driver Manager&quot;</a> for instructions.</li></div><a name="wp75487"> </a><div class="pSmartList1"><li>Specifying DataDirect Spy attributes using a JDBC data source. See <a  href="spy3.html#wp75531">&quot;Using JDBC Data Sources&quot;</a> for instructions.</li></div><a name="wp75491"> </a><div class="pSmartList1"><li>Specifying a DataDirect Spy-specific connection URL. See <a  href="spy3.html#wp75568">&quot;Using the DataDirect Spy URL&quot;</a> for instructions. If you use this method to enable DataDirect Spy, you first must register the DataDirect Spy driver. </li></div></ul></div>
+<a name="wp75495"> </a><p class="pBody">
+Using any of these methods, you can set one or multiple options to customize DataDirect Spy logging. See <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a> for a complete list of supported attributes.
+</p>
+<a name="wp75501"> </a><h3 class="pHeading2">
+Using the JDBC Driver Manager
+</h3>
+<a name="wp75503"> </a><p class="pBody">
+The SpyAttributes connection property allows you to specify a semi-colon separated list of DataDirect Spy attributes (see <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a>). The format for the value of the SpyAttributes property is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">(</code><code><em>spy_attribute</em></code><code class="cCode">[;</code><code><em>spy_attribute</em></code><code class="cCode">]...)</code><a name="wp75507"> </a>
+</pre></div>
+<a name="wp75508"> </a><p class="pBody">
+where <code><em>spy_attribute</em></code> is any valid DataDirect Spy attribute. See <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a> for a list of supported attributes.
+</p>
+<a name="wp75512"> </a><p class="pBodyBold">
+Example on Windows:
+</p>
+<a name="wp75514"> </a><p class="pBody">
+The following example uses the JDBC Driver Manager to connect to Oracle while enabling DataDirect Spy:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Class.forName(&quot;com.ddtek.jdbc.sequelink.SequeLinkDriver&quot;);<a name="wp75515"> </a>
+Connection conn = DriverManager.getConnection 
+(&quot;jdbc:sequelink://QANT:4003;user=TEST;password=secret;
+SpyAttributes=(log=(file)C:\\temp\\spy.log;
+      linelimit=80;logTName=yes;timestamp=yes)&quot;);<a name="wp75516"> </a>
+</pre></div>
+<a name="wp75519"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the SequeLink<font size="1"><em> for</em></font>&#160;<font size="1">JDBC</font> driver and log all JDBC activity to the spy.log file located in the C:\temp directory (<code class="cCode">log=(file)C:\temp\spy.log</code>). The spy.log file logs a maximum of 80 characters on each line (<code class="cCode">linelimit=80</code>) and includes the name of the current thread (<code class="cCode">logTName=yes</code>) and a timestamp on each line in the log (<code class="cCode">timestamp=yes</code>).
+</p>
+<a name="wp75520"> </a><p class="pBody">
+NOTE: If coding a path on Windows to the log file in a Java string, the backslash character (\) must be preceded by the Java escape character, a backslash. For example: log=(file)C:\\temp\\spy.log.
+</p>
+<a name="wp75521"> </a><p class="pBodyBold">
+Example on UNIX:
+</p>
+<a name="wp75523"> </a><p class="pBody">
+The following code example uses the JDBC Driver Manager to connect to DB2 while enabling DataDirect Spy:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Class.forName(&quot;com.ddtek.jdbc.sequelink.SequeLinkDriver&quot;);<a name="wp75524"> </a>
+Connection conn = DriverManager.getConnection<a name="wp75525"> </a>
+  (&quot;jdbc:sequelink://user=TEST;password=secret;
+SpyAttributes=(log=(file)C:\\temp\\spy.log;
+      linelimit=80;logTName=yes;timestamp=yes)&quot;);<a name="wp75526"> </a>
+</pre></div>
+<a name="wp75528"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the DataDirect SequeLink driver and log all JDBC activity to the spy.log file located in the /tmp directory (<code class="cCode">log=(file)/tmp/spy.log</code>). The spy.log file includes the name of the current thread (<code class="cCode">logTName=yes</code>) and a timestamp on each line in the log (<code class="cCode">timestamp=yes</code>).
+</p>
+<a name="wp75531"> </a><h3 class="pHeading2">
+Using JDBC Data Sources
+</h3>
+<a name="wp75532"> </a><p class="pBody">
+The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver implements the following JDBC features:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp75533"> </a><div class="pSmartList1"><li>JNDI for Naming Databases</li></div><a name="wp75534"> </a><div class="pSmartList1"><li>Connection Pooling</li></div><a name="wp75535"> </a><div class="pSmartList1"><li>JTA</li></div></ul></div>
+<a name="wp75536"> </a><p class="pBody">
+You can use DataDirect Spy to track JDBC calls made by a running application with any of these features. The com.ddtek.jdbcx.sequelink.datasource.SequeLinkDataSource class supports setting a semi-colon-separated list of DataDirect Spy attributes (see <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a>).
+</p>
+<a name="wp75543"> </a><p class="pBody">
+See <a  href="usejdbc5.html#wp1041551">&quot;Configuring JDBC Data Sources&quot;</a> for more information about configuring data sources.
+</p>
+<a name="wp75544"> </a><p class="pBodyBold">
+Example on Windows:
+</p>
+<a name="wp76120"> </a><p class="pBody">
+The following example creates a JDBC data source for the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver, which enables DataDirect Spy. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp76121"> </a>
+SequeLinkDataSource sds=new SequeLinkDataSource():<a name="wp76122"> </a>
+sds.setServerName(&quot;MyServer&quot;);<a name="wp76123"> </a>
+sds.setPortNumber(1234);<a name="wp76124"> </a>
+sds.setSpyAttributes(&quot;log=(file)C:\tmp\spy.log;logIS=yes;
+logTName=yes&quot;);<a name="wp76125"> </a>
+Connection conn=sds.getConnection(&quot;scott&quot;,&quot;tiger&quot;);<a name="wp76126"> </a>
+...<a name="wp76140"> </a>
+</pre></div>
+<a name="wp76141"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver and log all JDBC activity to the spy.log file located in the C:\temp directory (<code class="cCode">log=(file)C:\temp\spy.log</code>). In addition to regular JDBC activity, the spy.log file also logs activity on InputStream and Reader objects (<code class="cCode">logIS=yes</code>). It also includes the name of the current thread (<code class="cCode">logTName=yes</code>).
+</p>
+<a name="wp75554"> </a><p class="pBody">
+NOTE: If coding a path on Windows to the log file in a Java string, the backslash character (\) must be preceded by the Java escape character, a backslash. For example: &quot;log=(file)C:\\temp\\spy.log;logIS=yes;logTName=yes&quot;.
+</p>
+<a name="wp75555"> </a><p class="pBodyBold">
+Example on UNIX:
+</p>
+<a name="wp75556"> </a><p class="pBody">
+The following example creates a JDBC data source for the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver, which enables DataDirect&#160;Spy.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp76260"> </a>
+SequeLinkDataSource sds=new SequeLinkDataSource():<a name="wp76261"> </a>
+sds.setServerName(&quot;MyServer&quot;);<a name="wp76262"> </a>
+sds.setPortNumber(1234);<a name="wp76263"> </a>
+sds.setSpyAttributes(&quot;log=(file)C:\tmp\spy.log;logIS=yes;logTName=yes&quot;);<a name="wp76264"> </a>
+Connection conn=sds.getConnection(&quot;TEST&quot;,&quot;secret&quot;);<a name="wp76265"> </a>
+...<a name="wp76266"> </a>
+</pre></div>
+<a name="wp75565"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver and log all JDBC activity to the spy.log file located in the /tmp directory (<code class="cCode">log=(file)/tmp/spy.log</code>). The spy.log file includes the name of the current thread (<code class="cCode">logTName=yes</code>).
+</p>
+<a name="wp75568"> </a><h3 class="pHeading2">
+Using the DataDirect Spy URL
+</h3>
+<a name="wp75569"> </a><p class="pBody">
+If you enable DataDirect Spy using a DataDirect Spy URL, you first must register the DataDirect Spy driver with the JDBC Driver Manager. Registering a driver tells the Driver Manager which driver to load. The DataDirect Spy driver name is com.ddtek.jdbc.SpyDriver. 
+</p>
+<a name="wp75571"> </a><p class="pBody">
+For example, to load the DataDirect Spy driver using the standard Class.forName method, include the following code in your application or applet and call DriverManager.getConnection:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Class.forName(&quot;com.ddtek.jdbcspy.SpyDriver&quot;);<a name="wp75572"> </a>
+</pre></div>
+<a name="wp75573"> </a><p class="pBody">
+For complete information about registering drivers with the JDBC Driver Manager, see <a  href="usejdbc3.html#wp1041456">&quot;Registering the JDBC Driver&quot;</a>. 
+</p>
+<a name="wp75577"> </a><p class="pBody">
+You can enable DataDirect Spy using a DataDirect Spy-specific URL that has the following format:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:spy:{<em class="cEmphasis">original-url</em>};[<em class="cEmphasis">key</em><code><em>=</em></code><em class="cEmphasis">value</em>]...<a name="wp75578"> </a>
+</pre></div>
+<a name="wp75579"> </a><p class="pBody">
+where:
+</p>
+<a name="wp75580"> </a><p class="pBody">
+<em class="cEmphasis">original-url</em> is the connection URL of the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver. For example, the following connection URL uses the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:sequelink://QANT:4003;databaseName=Oracle;
+OSUser=qauser;OSPassword=null12<a name="wp75582"> </a>
+</pre></div>
+<a name="wp75583"> </a><p class="pBody">
+<em class="cEmphasis">key</em><code class="cCode">=</code><em class="cEmphasis">value</em> is a semi-colon separated list of DataDirect Spy attributes (see <a  href="spy4.html#wp68496">&quot;DataDirect Spy Attributes&quot;</a>).
+</p>
+<a name="wp75587"> </a><p class="pBodyBold">
+Example on Windows:
+</p>
+<a name="wp75588"> </a><p class="pBody">
+The following example uses a DataDirect Spy URL to enable DataDirect Spy:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:spy:{jdbc:sequelink://QANT:4003;databaseName=Oracle;
+OSUser=qauser;OSPassword=null12};log=System.out;
+linelimit=72<a name="wp75589"> </a>
+</pre></div>
+<a name="wp75867"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the JDBC driver and log all JDBC activity to the Java output standard file, System.out (<code class="cCode">log=System.out</code>). The spy.log file logs a maximum of 72 characters on each line (<code class="cCode">linelimit=72</code>).
+</p>
+<a name="wp75591"> </a><p class="pBodyBold">
+Example on UNIX:
+</p>
+<a name="wp75592"> </a><p class="pBody">
+The following example uses a DataDirect Spy URL to enable DataDirect Spy:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:spy:{jdbc:sequelink://QANT:4003;
+databaseName=Oracle;OSUser=qauser;OSPassword=null12};
+log=System.out;linelimit=72<a name="wp75593"> </a>
+</pre></div>
+<a name="wp75594"> </a><p class="pBody">
+Using this example, DataDirect Spy would load the JDBC driver and log all JDBC activity to the Java output standard file, System.out (<code class="cCode">log=System.out</code>). The spy.log file logs a maximum of 72 characters on each line (<code class="cCode">linelimit=72</code>).
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

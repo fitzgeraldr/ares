@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>Threading</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp525623"> </a><h1 class="pNewHTMLPageNoNum">
+Threading
+</h1>
+<hr /><a name="wp525627"> </a><div class="pCellBody">
+The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver is completely thread safe; that is, it will not fail when database requests are made on separate threads.
+</div>
+<a name="wp528345"> </a><h3 class="pHeading2">
+Threading Architecture
+</h3>
+<a name="wp525628"> </a><p class="pBody">
+A JDBC driver can be based on one of the following architectures:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp525629"> </a><div class="pSmartList1"><li><em class="cEmphasis">Thread impaired</em>. The JDBC driver serializes all JDBC calls. All requests are handled one by one, without concurrent processing.</li></div><a name="wp525630"> </a><div class="pSmartList1"><li><em class="cEmphasis">Thread per connection</em>. The JDBC driver processes requests concurrently with statements that do not share the same connection; however requests on the same connection are serialized. The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver uses this architecture.</li></div><a name="wp525631"> </a><div class="pSmartList1"><li><em class="cEmphasis">Fully threaded</em>. All requests use the threaded model. The JDBC driver processes all requests on multiple statements concurrently.</li></div></ul></div>
+<a name="wp528126"> </a><h3 class="pHeading2">
+Cancelling Functions in Multithreaded Applications
+</h3>
+<a name="wp528263"> </a><p class="pBody">
+In a multithreaded application, a thread can use the cancel method to cancel a statement that is being executed by another thread. Whether the cancel method actually cancels the statement depends on the data store being accessed as shown in <a  href="devjdbc6.html#wp528141">Table&#160;4-2</a>.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp528135"> </a><div class="pSmartList1"><li><em class="cEmphasis">OK</em> means that cancel can interrupt the running statement.</li></div><a name="wp528136"> </a><div class="pSmartList1"><li><em class="cEmphasis">Ignored</em> means that cancel will have no affect on the running statement. </li></div></ul></div>
+<a name="wp528137"> </a><p class="pBody">
+In both cases, the cancel method returns <code class="cCode">SQL_SUCCESS</code>. If the cancel method has been called from a different thread while a request is pending, the original statement will return <code class="cCode">SQL_ERROR</code> with the error message <code class="cCode">Operation cancelled</code>.
+</p>
+<a name="wp528204"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp528141"> </a><div class="pTableTitleBold">
+Table 4-2.  Using Cancel in Multithreaded JDBC Applications&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp528483"> </a><div class="pCellHeading">
+Data Store
+</div>
+</th>
+    <th><a name="wp528485"> </a><div class="pCellHeading">
+SQLCancel
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp528487"> </a><div class="pCellBody">
+DB2 UDB on z/OS
+</div>
+</td>
+    <td><a name="wp528489"> </a><div class="pCellBody">
+Ignored
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528491"> </a><div class="pCellBody">
+DB2 UDB on Windows
+</div>
+</td>
+    <td><a name="wp528493"> </a><div class="pCellBody">
+OK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp543061"> </a><div class="pCellBody">
+DB2 UDB on UNIX
+</div>
+</td>
+    <td><a name="wp543063"> </a><div class="pCellBody">
+Ignored
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528499"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp528501"> </a><div class="pCellBody">
+OK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528503"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp528505"> </a><div class="pCellBody">
+OK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528515"> </a><div class="pCellBody">
+Oracle on Windows 
+</div>
+</td>
+    <td><a name="wp528517"> </a><div class="pCellBody">
+Ignored
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528519"> </a><div class="pCellBody">
+Oracle on UNIX
+</div>
+</td>
+    <td><a name="wp528521"> </a><div class="pCellBody">
+OK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp528523"> </a><div class="pCellBody">
+Sybase 
+</div>
+</td>
+    <td><a name="wp528525"> </a><div class="pCellBody">
+OK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="2" rowspan="1"><a name="wp528527"> </a><div class="pCellBody">
+NOTE: Cancel functionality is not supported when the connection uses Secure Socket Layer (SSL) encryption.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

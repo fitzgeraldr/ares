@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>Parameter Metadata Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp552197"> </a><h1 class="pNewHTMLPageNoNum">
+Parameter Metadata Support
+</h1>
+<hr /><a name="wp552235"> </a><p class="pBody">
+The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver provides parameter metadata support for databases that provide native support for parameter metadata. For databases that do not provide native parameter metadata support, such as Oracle or Informix, the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver supports parameter metadata for valid ANSI SQL SELECT statements. 
+</p>
+<a name="wp555412"> </a><h3 class="pHeading2">
+INSERT and UPDATE Statements
+</h3>
+<a name="wp555434"> </a><p class="pBody">
+The JDBC driver supports returning parameter metadata for all types of SQL statements for databases that provide native support for parameter metadata. 
+</p>
+<a name="wp555437"> </a><p class="pBody">
+For databases that do not provide native parameter metadata support, the JDBC driver supports returning parameter metadata for the following forms of Insert and Update statements:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp552300"> </a><div class="pSmartList1"><li><code class="cCode">INSERT INTO foo VALUES (?, ?, ?)</code> </li></div><a name="wp552356"> </a><div class="pSmartList1"><li><code class="cCode">INSERT INTO foo (col1, col2, col3) VALUES (?, ?, ?)</code> </li></div><a name="wp552361"> </a><div class="pSmartList1"><li><code class="cCode">UPDATE foo SET col1=?, col2=?, col3=? WHERE col1 </code><em class="cEmphasis">operator</em><code class="cCode"> ? [{AND | OR} col2 </code><em class="cEmphasis">operator</em><code class="cCode"> ?]</code></li></div><a name="wp552366"> </a><p class="pBodyIndent12pxBeforeAfter">
+where <em class="cEmphasis">operator</em> is any of the following SQL operators: =, &lt;, &gt;, &lt;=, &gt;=, and &lt;&gt;.
+</p>
+</ul></div>
+<a name="wp555326"> </a><h3 class="pHeading2">
+Select Statements
+</h3>
+<a name="wp555327"> </a><p class="pBody">
+The JDBC driver supports returning parameter metadata for Select statements that contain parameters in ANSI SQL 92 entry-level predicates, for example, such as COMPARISON, BETWEEN, IN, LIKE, and EXISTS predicate constructs. Refer to the ANSI SQL reference for detailed syntax.
+</p>
+<a name="wp555332"> </a><p class="pBody">
+Parameter metadata can be returned for a Select statement if one of the following conditions is true:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp555333"> </a><div class="pSmartList1"><li>The statement contains a predicate value expression that can be targeted against the source tables in the associated FROM           clause. For example: </li></div><a name="wp555334"> </a><p class="pSyntaxEmbed">
+SELECT * FROM foo WHERE bar &gt; ?
+</p>
+<a name="wp555335"> </a><p class="pBodyIndent12pxBeforeAfter">
+In this case, the value expression &quot;bar&quot; can be targeted           against the table &quot;foo&quot; to determine the appropriate metadata for the parameter.
+</p>
+<a name="wp555336"> </a><div class="pSmartList1"><li>The statement contains a predicate value expression part that is a nested query. The nested query&#39;s metadata must describe a single column. For example: </li></div><a name="wp555337"> </a><p class="pSyntaxEmbed">
+SELECT * FROM foo WHERE (SELECT x FROM y <br />   WHERE z = 1) &lt; ?
+</p>
+</ul></div>
+<a name="wp555338"> </a><p class="pBody">
+The following Select statements show further examples for which parameter metadata can be returned:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT col1, col2 FROM foo WHERE col1 = ? and col2 &gt; ?<a name="wp555339"> </a>
+SELECT ... WHERE colname = (SELECT col2 FROM t2  
+   WHERE col3 = ?)<a name="wp555340"> </a>
+SELECT ... WHERE colname LIKE ?<a name="wp555341"> </a>
+SELECT ... WHERE colname BETWEEN ? and ?<a name="wp555342"> </a>
+SELECT ... WHERE colname IN (?, ?, ?)<a name="wp555343"> </a>
+SELECT ... WHERE EXISTS(SELECT ... FROM T2 WHERE col1 &lt; ?)<a name="wp555344"> </a>
+</pre></div>
+<a name="wp555345"> </a><p class="pBody">
+ANSI SQL 92 entry-level predicates in a WHERE clause containing GROUP BY, HAVING, or ORDER BY statements are supported. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM t1 WHERE col = ? ORDER BY 1<a name="wp555346"> </a>
+</pre></div>
+<a name="wp555347"> </a><p class="pBody">
+Joins are supported. For example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM t1,t2 WHERE t1.col1 = ?<a name="wp555348"> </a>
+</pre></div>
+<a name="wp555349"> </a><p class="pBody">
+Fully qualified names and aliases are supported. For example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT a, b, c, d FROM T1 AS A, T2 AS B WHERE A.a = ? 
+   and B.b = ?&quot;<a name="wp555350"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

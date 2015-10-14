@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Using the JDBC Client on a Java 2 Platform</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1042155"> </a><h1 class="pNewHTMLPageNoNum">
+Using the JDBC Client on a Java 2 Platform
+</h1>
+<hr /><a name="wp1042156"> </a><p class="pBody">
+When using the JDBC driver on a Java 2 Platform with the standard security manager enabled, you must give the driver some additional permissions. Refer to your Java 2 Platform documentation for more information about the Java 2 Platform security model and permissions.
+</p>
+<a name="wp1042157"> </a><p class="pBody">
+You can run an application on a Java 2 Platform with the standard security manager using:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&quot;java -Djava.security.manager <em class="cEmphasis">application_class_name</em>&quot;<a name="wp1042158"> </a>
+</pre></div>
+<a name="wp1042159"> </a><p class="pBody">
+where <code><em>application_class_name</em></code> is the class name of the application.
+</p>
+<a name="wp1042160"> </a><p class="pBody">
+Web browser applets running in the Java 2 plug-in are always running in a JVM with the standard security manager enabled. To enable the necessary permission, you must add them to the security policy file of the Java 2 Platform. This security policy file can be found in the jre\lib\security subdirectory of the Java 2 Platform installation directory.
+</p>
+<a name="wp1042161"> </a><p class="pBody">
+To use JDBC data sources, all code bases must have the following permissions: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// permissions granted to all domains<a name="wp1042162"> </a>
+grant {<a name="wp1042163"> </a>
+// DataSource access<a name="wp1042164"> </a>
+permission java.util.PropertyPermission &quot;java.naming.*&quot;, &quot;read,write&quot;;<a name="wp1042165"> </a>
+// Adjust the server host specification for your environment<a name="wp1042166"> </a>
+permission java.net.socketPermission &quot;*.ddtek.be:0-65535&quot;, &quot;connect&quot;;<a name="wp1042167"> </a>
+};<a name="wp1042168"> </a>
+</pre></div>
+<a name="wp1042171"> </a><p class="pBody">
+To use scroll-insensitive scrollable cursors, all code bases must have access to temporary files: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// permissions granted to all domains<a name="wp1042172"> </a>
+grant {<a name="wp1042173"> </a>
+// Permission to create and delete temporary files.<a name="wp1042174"> </a>
+// Adjust the temporary directory for your environment.<a name="wp1042175"> </a>
+permission java.io.FilePermission &quot;C:\\TEMP\\-&quot;, &quot;read,write,delete&quot;;<a name="wp1042176"> </a>
+};<a name="wp1042177"> </a>
+</pre></div>
+<a name="wp1042179"> </a><p class="pBody">
+To use SSL or other data privacy functionality, the following permissions are required for the JDBC Client code base only: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// permissions granted to the SequeLink JDBC Client code base only<a name="wp1042180"> </a>
+grant codeBase &quot;file:/slje/lib/-&quot; {<a name="wp1042181"> </a>
+// Security providers<a name="wp1042182"> </a>
+// Only needed when using SSL or other data privacy functionality<a name="wp1042183"> </a>
+// (e.g. fixed key DES/3DES)<a name="wp1042184"> </a>
+permission java.security.SecurityPermission &quot;putProviderProperty.IAIK&quot;;<a name="wp1042185"> </a>
+permission java.security.SecurityPermission &quot;insertProvider.IAIK&quot;;<a name="wp1042186"> </a>
+permission java.security.SecurityPermission &quot;putProviderProperty.SLJCE&quot;;<a name="wp1042187"> </a>
+permission java.security.SecurityPermission &quot;insertProvider.SLJCE&quot;;<a name="wp1042188"> </a>
+};<a name="wp1042189"> </a>
+</pre></div>
+<a name="wp1042190"> </a><p class="pBody">
+Applets that connect to another server other than the one they are downloaded from must have the following permission: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// permissions granted to the SequeLink JDBC Client code base only<a name="wp1042191"> </a>
+grant codeBase &quot;file:/slje/lib/-&quot; {<a name="wp1042192"> </a>
+// TCP/IP<a name="wp1042193"> </a>
+<a name="wp1042194"> </a>
+// Adjust the server host specification for your environment<a name="wp1042195"> </a>
+permission java.net.SocketPermission &quot;*.ddtek.be:0-65535&quot;, &quot;connect&quot;;<a name="wp1042196"> </a>
+};<a name="wp1042197"> </a>
+</pre></div>
+<a name="wp1042198"> </a><p class="pBody">
+NOTES:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1042199"> </a><div class="pSmartList1"><li>Make sure that you adjust the code base of the JDBC Client for your environment. For an applet, this will probably start with http:// or https://. </li></div><a name="wp1042451"> </a><div class="pSmartList1"><li>Make sure you adjust the server host specification and location of temporary files for your environment.</li></div></ul></div>
+<a name="wp1037609"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

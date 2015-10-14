@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:39" />
+  <title>SQL Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp525530"> </a><h1 class="pNewHTMLPageNoNum">
+SQL Support
+</h1>
+<hr /><a name="wp539744"> </a><p class="pBody">
+See <a  href="scalarfn.html#wp24852">&quot;SQL Escape Sequences&quot;</a> for information about the SQL escape sequences supported by the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver.
+</p>
+<a name="wp549369"> </a><h3 class="pHeading2">
+Binding SQL Statements
+</h3>
+<a name="wp549370"> </a><p class="pBody">
+A JDBC application can prepare a query that contains dynamic parameters. Each parameter in a SQL statement must be associated, or bound, to a variable in the application before the statement is executed. When the application binds a variable to a parameter, it describes that variable and that parameter to the driver. Therefore, the application must supply the following information: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp549371"> </a><div class="pSmartList1"><li>The data type of the variable that the application wishes to map to the dynamic parameter.</li></div><a name="wp549372"> </a><div class="pSmartList1"><li>The SQL data type of the dynamic parameter (the data type that the database system assigned to the parameter marker). </li></div></ul></div>
+<a name="wp550322"> </a><p class="pBody">
+The SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver relies on the binding of parameters to know how to send information to the database system in its native format. The host variable data type and SQL data type are assumed to be the same. For example, setInt() indicates to the driver that the data type of the host variable and the SQL type of the dynamic parameter are both Integer. If the host variable and SQL data type are not the same, the application should use setObject() to specify the application variable data type and the SQL data type. If an application furnishes incorrect parameter binding information to the JDBC driver, the results will be unpredictable. 
+</p>
+<a name="wp549376"> </a><p class="pBody">
+To ensure interoperability, the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver uses only the parameter binding information provided by the application. Although some DBMSs can publish dynamic parameter information back to a JDBC driver, others cannot. For example, both the SQL Server and Oracle query processors can determine that a parameter is an integer. However, the Oracle query processor cannot publish this information back to the SequeLink <font size="1"><em>for</em></font> <font size="1">JDBC</font> driver.
+</p>
+<a name="wp549377"> </a><p class="pBody">
+NOTES:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp549378"> </a><div class="pSmartList1"><li>The SQL data type is determined at prepare time by the database and does not change for the life of the statement. The SQL data type is <em style="font-style: normal" class="cEmphasis">not</em> dependent on the data being used by the application. For example, it is not valid to bind the SQL type to SQL_NUMERIC with a precision of 15 and a scale of 5, and then bind it on a later execution to a SQL type of SQL_NUMERIC with a precision of 13 and a scale of 3. </li></div><a name="wp550580"> </a><div class="pSmartList1"><li>You can implement ParameterMetaData only when a database system publishes parameter information after prepare time. The JDBC driver returns this information when the application requests it, but depending on the database, performance penalties can be incurred. You can tune this feature through the SequeLink data source service attribute DataSourceDescribeParam. Refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em> for information on service attributes.</li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

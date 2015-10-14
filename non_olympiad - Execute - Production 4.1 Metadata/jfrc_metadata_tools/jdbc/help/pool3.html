@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:14:07" />
+  <title>Connecting to a Data Source</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp73233"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source
+</h1>
+<hr /><a name="wp73234"> </a><p class="pBody">
+Whether connection pooling is used does not affect application code. It does not require any code changes to the application because the application performs a lookup on a JNDI name of a previously registered data source. If the data source specifies a connection pooling implementation during JNDI registration (as described in <a  href="pool2.html#wp73583">&quot;Creating a Data Source Using the DataDirect Connection Pool Manager&quot;</a>), the client application benefits from faster connections through connection pooling. 
+</p>
+<a name="wp73235"> </a><p class="pBody">
+The following example shows code that can be used to look up and use a JNDI-registered data source for connections. You specify the JNDI lookup name for the data source you created (as described in <a  href="pool2.html#wp73583">&quot;Creating a Data Source Using the DataDirect Connection Pool Manager&quot;</a>).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+//********************************************************************<a name="wp73237"> </a>
+// <a name="wp73238"> </a>
+// Test program to look up and use a JNDI-registered data source.<a name="wp73239"> </a>
+//<a name="wp73240"> </a>
+// To run the program, specify the JNDI lookup name for the <a name="wp73241"> </a>
+// command-line argument, for example:<a name="wp73242"> </a>
+//<a name="wp73243"> </a>
+//		java  TestDataSourceApp  <a name="wp73244"> </a>
+//<a name="wp73245"> </a>
+//********************************************************************<a name="wp73246"> </a>
+import javax.sql.*;<a name="wp73247"> </a>
+import java.sql.*;<a name="wp73248"> </a>
+import javax.naming.*;<a name="wp73249"> </a>
+import java.util.Hashtable;<a name="wp73250"> </a>
+<a name="wp73251"> </a>
+public class TestDataSourceApp<a name="wp73252"> </a>
+{<a name="wp73253"> </a>
+	public static void main(String argv[])<a name="wp73254"> </a>
+	{<a name="wp73255"> </a>
+		String str JNDILookupName = &quot;jdbc/SparkyOracle&quot;;<a name="wp73256"> </a>
+<a name="wp73257"> </a>
+		// Hard-code the JNDI entry, the application does not need to change<a name="wp73258"> </a>
+<a name="wp73268"> </a>
+		DataSource ds = null;<a name="wp73269"> </a>
+		Connection con = null;<a name="wp73270"> </a>
+		Context ctx = null;<a name="wp73271"> </a>
+		Hashtable env = null;<a name="wp73272"> </a>
+<a name="wp73273"> </a>
+		long nStartTime, nStopTime, nElapsedTime;<a name="wp73274"> </a>
+<a name="wp73275"> </a>
+		// Set up environment for creating InitialContext object<a name="wp73276"> </a>
+		env = new Hashtable();<a name="wp73277"> </a>
+		env.put(Context.INITIAL_CONTEXT_FACTORY,<a name="wp73278"> </a>
+			&quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<a name="wp73279"> </a>
+		env.put(Context.PROVIDER_URL, &quot;file:c:\\JDBCDataSource&quot;);<a name="wp73280"> </a>
+<a name="wp73281"> </a>
+		try {<a name="wp73282"> </a>
+			// Retrieve the DataSource object that bound to the logical<a name="wp73283"> </a>
+			// lookup JNDI name<a name="wp73284"> </a>
+			ctx = new InitialContext(env);<a name="wp73285"> </a>
+			ds = (DataSource) ctx.lookup(strJNDILookupName);<a name="wp73286"> </a>
+		} catch (NamingException eName) {<a name="wp73287"> </a>
+			System.out.println(&quot;Error looking up &quot; + <a name="wp73288"> </a>
+				strJNDILookupName + &quot;: &quot; +eName);<a name="wp73289"> </a>
+			System.exit(0);<a name="wp73290"> </a>
+		}<a name="wp73291"> </a>
+<a name="wp73292"> </a>
+		int numOfTest = 4;<a name="wp73293"> </a>
+		int [] nCount = {100, 100, 1000, 3000};<a name="wp73294"> </a>
+<a name="wp73295"> </a>
+		for (int i = 0; i &lt; numOfTest; i ++) {<a name="wp73296"> </a>
+			// Log the start time<a name="wp73297"> </a>
+			nStartTime = System.currentTimeMillis();<a name="wp73298"> </a>
+			for (int j = 1; j &lt;= nCount[i]; j++) {<a name="wp73299"> </a>
+				// Get Database Connection<a name="wp73300"> </a>
+				try {<a name="wp73301"> </a>
+					con = ds.getConnection(&quot;scott&quot;, &quot;tiger&quot;);<a name="wp73302"> </a>
+					// Do something with the connection<a name="wp73303"> </a>
+					// ...<a name="wp73304"> </a>
+<a name="wp73305"> </a>
+					// Close Database Connection<a name="wp73306"> </a>
+					if (con != null) con.close();<a name="wp73307"> </a>
+				} catch (SQLException eCon) {<a name="wp73308"> </a>
+					System.out.println(&quot;Error getting a connection: &quot; + eCon);<a name="wp73309"> </a>
+					System.exit(0);<a name="wp73310"> </a>
+				} // try getConnection<a name="wp73311"> </a>
+			} // for j loop<a name="wp73312"> </a>
+<a name="wp73313"> </a>
+			// Log the end time<a name="wp73314"> </a>
+			nStopTime = System.currentTimeMillis();<a name="wp73315"> </a>
+<a name="wp73316"> </a>
+			// Compute elapsed time<a name="wp73317"> </a>
+			nElapsedTime = nStopTime - nStartTime;<a name="wp73318"> </a>
+			System.out.println(&quot;Test number &quot; + i + &quot;: looping &quot; +<a name="wp73319"> </a>
+				nCount[i] + &quot; times&quot;);<a name="wp73320"> </a>
+			System.out.println(&quot;Elapsed Time: &quot; + nElapsedTime + &quot;\n&quot;);<a name="wp73321"> </a>
+		} // for i loop<a name="wp73322"> </a>
+<a name="wp73323"> </a>
+		// All done<a name="wp73324"> </a>
+		System.exit(0);<a name="wp73325"> </a>
+<a name="wp73326"> </a>
+	} // Main<a name="wp73327"> </a>
+} // TestDataSourceApp<a name="wp73328"> </a>
+</pre></div>
+<a name="wp74372"> </a><p class="pBody">
+NOTE: The JDBC DataSource object class implements the DataSource interface for non-pooling in addition to ConnectionPoolDataSource for pooling. To use non-pooled connections, modify the example in <a  href="pool2.html#wp73468">&quot;Creating a DataDirect SequeLink Data Source Object&quot;</a> so that it registers the SequeLink Data Source using the JNDI entry
+</p>
+<a name="wp74387"> </a><p class="pBody">
+ <code class="cCode">&lt;jdbc/SparkyOracle&gt;</code>
+</p>
+<a name="wp74395"> </a><p class="pBody">
+You can then run the TestDataSourceApp without any modification:
+</p>
+<a name="wp74393"> </a><p class="pBody">
+<code class="cCode">java TestDataSourceApp</code> 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

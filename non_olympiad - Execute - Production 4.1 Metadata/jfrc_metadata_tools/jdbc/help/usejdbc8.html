@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:13:28" />
+  <title>Specifying Connection Properties</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1041797"> </a><h1 class="pNewHTMLPageNoNum">
+Specifying Connection Properties
+</h1>
+<hr /><a name="wp1052609"> </a><p class="pBody">
+You can specify connection properties using a connection URL, the JDBC Driver Manager, or JDBC data sources. The properties you can specify depend on the connection method you choose. See <a  href="usejdbc9.html#wp1041841"><a  href="usejdbc9.html#wp1041841">&quot;JDBC Connection Properties&quot;</a></a> for a list of the connection properties.
+</p>
+<a name="wp1052615"> </a><h3 class="pHeading2">
+Using Connection URLs or the JDBC Driver Manager
+</h3>
+<a name="wp1052618"> </a><p class="pBody">
+In order of precedence, you can specify connection properties using:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1052619"> </a><div class="pSmartList1"><li>getConnection(<em class="cEmphasis">url</em>, <em class="cEmphasis">user</em>, <em class="cEmphasis">password</em>), where <em class="cEmphasis">user</em> and <em class="cEmphasis">password</em> are specified using the getConnection method defined in java.sql.DriverManager.</li></div><a name="wp1052620"> </a><div class="pSmartList1"><li>java.util.properties object. </li></div><a name="wp1052621"> </a><div class="pSmartList1"><li>Connection URL specified using the URL parameter of the getConnection method defined in java.sql.DriverManager.</li></div><a name="wp1052622"> </a><div class="pSmartList1"><li>Server data sources specified using the SequeLink Manager.</li></div><a name="wp1052623"> </a><p class="pBodyIndent12pxBeforeAfter">
+For more information about server data sources, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</p>
+</ul></div>
+<a name="wp1052632"> </a><h3 class="pHeading2">
+Using JDBC Data Sources
+</h3>
+<a name="wp1052633"> </a><p class="pBody">
+In order of precedence, you can specify connection properties using:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1052634"> </a><div class="pSmartList1"><li>getConnection(<em class="cEmphasis">user</em>, <em class="cEmphasis">password</em>), where <em class="cEmphasis">user</em> and <em class="cEmphasis">password</em> are specified using the getConnection method defined in javax.sql.DataSource</li></div><a name="wp1052635"> </a><p class="pBodyIndent12pxBeforeAfter">
+<code class="cCode">getConnection(&quot;scott&quot;, &quot;tiger&quot;)</code> 
+</p>
+<a name="wp1052636"> </a><div class="pSmartList1"><li>JDBC DataSource object</li></div><a name="wp1052637"> </a><div class="pSmartList1"><li>Server data sources specified using the SequeLink Manager</li></div><a name="wp1052638"> </a><p class="pBodyIndent12pxBeforeAfter">
+For more information about server data sources, refer to the <em class="cEmphasis">SequeLink Administrator&#8217;s Guide</em>.
+</p>
+</ul></div>
+<a name="wp1041833"> </a><p class="pBody">
+ 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:14:10" />
+  <title>Generating a DataDirect Spy Log </title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp616142"> </a><h1 class="pNewHTMLPageNoNum">
+Generating a DataDirect Spy Log 
+</h1>
+<hr /><a name="wp618491"> </a><p class="pBody">
+When you enable DataDirect Spy for a connection, you can customize DataDirect Spy logging for your needs by setting one or multiple options for DataDirect Spy. See <a  href="spy.html#wp68486">&quot;Tracking JDBC Calls&quot;</a> for information about using DataDirect Spy and instructions on enabling and customizing logging. 
+</p>
+<a name="wp615519"> </a><h3 class="pHeading2">
+Turning On and Off DataDirect Spy Logging
+</h3>
+<a name="wp615224"> </a><p class="pBody">
+Once DataDirect Spy logging is enabled for a connection, you can turn on and off the logging at runtime using the setEnableLogging method in the com.ddtek.jdbc.extensions.ExtLogControl interface. When DataDirect Spy logging is enabled, all Connection objects returned to an application provide an implementation of the ExtLogControl interface.
+</p>
+<a name="wp617198"> </a><p class="pBody">
+For example, the following code turns off logging using setEnableLogging(false):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import com.ddtek.jdbc.extensions.*<a name="wp616928"> </a>
+<a name="wp617193"> </a>
+// Get Database Connection<a name="wp616929"> </a>
+Connection con = DriverManager.getConnection
+   (&quot;jdbc:sequelink://QANT:4003;User=TEST;Password=secret;
+      SpyAttributes=(log=(file)/tmp/spy.log&quot;);<a name="wp616930"> </a>
+<a name="wp617142"> </a>
+((ExtLogControl) con).setEnableLogging(false);<a name="wp616931"> </a>
+...<a name="wp616934"> </a>
+</pre></div>
+<a name="wp616925"> </a><p class="pBody">
+The setEnableLogging method only turns on and off logging if DataDirect Spy logging has already been enabled for a connection; it does not set or change DataDirect Spy attributes. See <a  href="spy3.html#wp75480">&quot;Enabling DataDirect Spy&quot;</a> for information about enabling and customizing DataDirect Spy logging. 
+</p>
+<a name="wp616206"> </a><h3 class="pHeading2">
+ExtLogControl Class
+</h3>
+<a name="wp615228"> </a><p class="pBody">
+
+</p>
+<a name="wp615234"> </a><p class="pBody">
+
+</p>
+<a name="wp615903"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp615240"> </a><p class="pBody">
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">ExtLogControl Class</span>
+</p>
+<a name="wp615241"> </a><div class="pCellHeading">
+Methods
+</div>
+</th>
+    <th><a name="wp615243"> </a><div class="pCellHeading">
+&#160;
+</div>
+<a name="wp615244"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp615246"> </a><div class="pCellBody">
+void setEnableLogging (boolean)
+</div>
+</td>
+    <td><a name="wp615248"> </a><div class="pCellBody">
+If DataDirect Spy was enabled when the connection was created, you can turn on or off DataDirect Spy logging at runtime using this method. If true, logging is turned on. If false, logging is turned off. If DataDirect Spy logging was not enabled when the connection was created, calling this method has no effect.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp615253"> </a><div class="pCellBody">
+boolean getEnableLogging ()
+</div>
+</td>
+    <td><a name="wp615255"> </a><div class="pCellBody">
+Indicates whether DataDirect Spy logging was enabled when the connection was created and whether logging is turned on. If the returned value is true, logging is turned on. If the returned value is false, logging is turned off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp615908"> </a><h3 class="pHeading2">
+DataDirect Spy Log Example
+</h3>
+<a name="wp618582"> </a><p class="pBody">
+The following example shows a DataDirect Spy log. The numbers in bold superscript are note indicators that correspond to the notes following the example. They provide explanations for the referenced text to help you understand the content of your own DataDirect Spy logs.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+All rights reserved.1<a name="wp618666"> </a>
+registerDriver:driver[className=com.ddtek.jdbcspy.SpyDriver,
+context=null,com.ddtek.jdbcspy.SpyDriver@1ec49f]2<a name="wp618667"> </a>
+<a name="wp618668"> </a>
+*Driver.connect(jdbc:spy:{jdbc:sequelink://QANT:4003;databaseName=Oracle;})<a name="wp618669"> </a>
+    trying driver[className=com.ddtek.jdbcspy.SpyDriver,
+context=null,com.ddtek.jdbcspy.SpyDriver@1ec49f]3<a name="wp618670"> </a>
+<a name="wp618671"> </a>
+spy&gt;&gt; Driver.connect(String url, Properties info)<a name="wp618672"> </a>
+spy&gt;&gt; url = jdbc:spy:{jdbc:sequelink://QANT:4003;databaseName=Oracle;
+OSUser=qauser;OSPassword=null12}<a name="wp618673"> </a>
+spy&gt;&gt; info = {password=tiger, user=scott}<a name="wp618674"> </a>
+spy&gt;&gt; OK (Connection[1])4<a name="wp618675"> </a>
+getConnection returning driver[className=com.ddtek.jdbcspy.SpyDriver,
+context=null,com.ddtek.jdbcspy.SpyDriver@1ec49f]5<a name="wp618676"> </a>
+<a name="wp618677"> </a>
+spy&gt;&gt; Connection[1].getWarnings()<a name="wp618678"> </a>
+spy&gt;&gt; OK6<a name="wp618679"> </a>
+<a name="wp618680"> </a>
+spy&gt;&gt; Connection[1].createStatement<a name="wp618681"> </a>
+spy&gt;&gt; OK (Statement[1])7<a name="wp618682"> </a>
+<a name="wp618683"> </a>
+spy&gt;&gt; Statement[1].executeQuery(String sql)<a name="wp618684"> </a>
+spy&gt;&gt; sql = select empno,ename,job from emp where empno=7369<a name="wp618685"> </a>
+spy&gt;&gt; OK (ResultSet[1])8<a name="wp618686"> </a>
+<a name="wp618687"> </a>
+spy&gt;&gt; ResultSet[1].getMetaData()<a name="wp618688"> </a>
+spy&gt;&gt; OK (ResultSetMetaData[1])9<a name="wp618689"> </a>
+<a name="wp618690"> </a>
+spy&gt;&gt; ResultSetMetaData[1].getColumnCount()<a name="wp618691"> </a>
+spy&gt;&gt; OK (3)10<a name="wp618692"> </a>
+<a name="wp618693"> </a>
+spy&gt;&gt; ResultSetMetaData[1].getColumnLabel(int column)<a name="wp618694"> </a>
+spy&gt;&gt; column = 1<a name="wp618695"> </a>
+spy&gt;&gt; OK (EMPNO)11<a name="wp618696"> </a>
+<a name="wp618697"> </a>
+spy&gt;&gt; ResultSetMetaData[1].getColumnLabel(int column)<a name="wp618698"> </a>
+spy&gt;&gt; column = 2<a name="wp618699"> </a>
+spy&gt;&gt; OK (ENAME)12<a name="wp618700"> </a>
+<a name="wp618701"> </a>
+spy&gt;&gt; ResultSetMetaData[1].getColumnLabel(int column)<a name="wp618702"> </a>
+spy&gt;&gt; column = 3<a name="wp618703"> </a>
+spy&gt;&gt; OK (JOB)13<a name="wp618704"> </a>
+<a name="wp618705"> </a>
+spy&gt;&gt; ResultSet[1].next()<a name="wp618706"> </a>
+spy&gt;&gt; OK (true)14<a name="wp618707"> </a>
+<a name="wp618708"> </a>
+spy&gt;&gt; ResultSet[1].getString(int columnIndex)<a name="wp618709"> </a>
+spy&gt;&gt; columnIndex = 1<a name="wp618710"> </a>
+spy&gt;&gt; OK (7369)15<a name="wp618711"> </a>
+<a name="wp618712"> </a>
+spy&gt;&gt; ResultSet[1].getString(int columnIndex)<a name="wp618713"> </a>
+spy&gt;&gt; columnIndex = 2<a name="wp618714"> </a>
+spy&gt;&gt; OK (SMITH)16<a name="wp618715"> </a>
+<a name="wp618716"> </a>
+spy&gt;&gt; ResultSet[1].getString(int columnIndex)<a name="wp618717"> </a>
+spy&gt;&gt; columnIndex = 3<a name="wp618718"> </a>
+spy&gt;&gt; OK (CLERK)17<a name="wp618719"> </a>
+<a name="wp618720"> </a>
+spy&gt;&gt; ResultSet[1].next()<a name="wp618721"> </a>
+spy&gt;&gt; OK (false)18<a name="wp618722"> </a>
+<a name="wp618723"> </a>
+spy&gt;&gt; ResultSet[1].close()<a name="wp618724"> </a>
+spy&gt;&gt; OK19<a name="wp618725"> </a>
+<a name="wp618726"> </a>
+spy&gt;&gt; Connection[1].close()<a name="wp618727"> </a>
+spy&gt;&gt; OK20<a name="wp618728"> </a>
+</pre></div>
+<a name="wp618729"> </a><p class="pBody">
+NOTES:
+</p>
+<a name="wp618730"> </a><p class="pBody">
+<b class="cBold">1</b>: The Spy driver is registered. The spy&gt;&gt; prefix indicates that this line has been logged by Spy.
+</p>
+<a name="wp618731"> </a><p class="pBody">
+<b class="cBold">2</b>: The JDBC Driver Manager logs a message each time a JDBC driver is registered.
+</p>
+<a name="wp618732"> </a><p class="pBody">
+<b class="cBold">3</b>: This is the logging of the JDBC Driver Manager. It logs a message each time a JDBC application makes a connection.
+</p>
+<a name="wp618733"> </a><p class="pBody">
+<b class="cBold">4</b>: The application connects with the specified URL. The User Name and Password are specified using properties.
+</p>
+<a name="wp618734"> </a><p class="pBody">
+<b class="cBold">5</b>: This is the logging of the JDBC Driver Manager. It logs a message each time a successful connection is made.
+</p>
+<a name="wp618735"> </a><p class="pBody">
+<b class="cBold">6</b>: The application checks to see if there are any warnings. In this example, no warnings are present.
+</p>
+<a name="wp618736"> </a><p class="pBody">
+<b class="cBold">7 and 8</b>: The statement &#8220;select empno,ename,job from emp where empno=7369&#8221; is created.
+</p>
+<a name="wp618737"> </a><p class="pBody">
+<b class="cBold">9, 10, 11, 12, and 13</b>: Some metadata is requested.
+</p>
+<a name="wp618738"> </a><p class="pBody">
+<b class="cBold">14, 15, 16, and 17</b>: The first row is fetched.
+</p>
+<a name="wp618739"> </a><p class="pBody">
+<b class="cBold">18</b>: The application attempts to fetch the second row, but the database returned only one row for this query.
+</p>
+<a name="wp618740"> </a><p class="pBody">
+<b class="cBold">19</b>: After fetching all data, the result set is closed.
+</p>
+<a name="wp618741"> </a><p class="pBody">
+<b class="cBold">20</b>: The application finishes and disconnects.
+</p>
+<a name="wp611421"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

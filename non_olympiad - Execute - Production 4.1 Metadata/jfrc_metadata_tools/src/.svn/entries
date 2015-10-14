@@ -1,0 +1,58 @@
+10
+
+dir
+344
+https://subversion.int.janelia.org/flyolympiad/projects/box/Design%20Files/Trunk/Software/Execute%20-%20Production%204%20Metadata/jfrc_metadata_tools/src
+https://subversion.int.janelia.org/flyolympiad/projects/box
+
+
+
+2011-10-04T20:52:09.879256Z
+313
+rowellw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a72637b7-5780-4c0b-af22-8ef52476861a
+
+SAGE
+dir
+
+dialog
+dir
+
+interface
+dir
+
+data_cachers
+dir
+
+THSensor
+dir
+
+findjobj
+dir
+
+xml_io_tools
+dir
+
+validators
+dir
+
+xml_nodes
+dir
+
+property_grid
+dir
+

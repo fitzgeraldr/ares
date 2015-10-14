@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="06/03/05 15:17:35" />
+  <title>Oracle</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp800103"> </a><h2 class="pNewHTMLPage">
+
+</h2>
+<hr />
+<a name="wp784274"> </a><h3 class="pHeading2">
+Oracle
+</h3>
+<a name="wp1011832"> </a><p class="pBody">
+The following table lists the data types that the JDBC driver supports for Oracle:
+</p>
+<a name="wp1012034"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp1011839"> </a><div class="pTableTitleBold">
+Table A-5.  Mapping Oracle Data Types to JDBC Data Types &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1011847"> </a><div class="pCellHeading">
+Oracle8.1.7 Data Type
+</div>
+</th>
+    <th><a name="wp1011849"> </a><div class="pCellHeading">
+Oracle9i Data Type
+</div>
+</th>
+    <th><a name="wp1011851"> </a><div class="pCellHeading">
+Oracle10g Data Type
+</div>
+</th>
+    <th><a name="wp1011853"> </a><div class="pCellHeading">
+JDBC Data Type
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp1011855"> </a><div class="pCellBody">
+BFILE
+</div>
+</td>
+    <td><a name="wp1011857"> </a><div class="pCellBody">
+BFILE
+</div>
+</td>
+    <td><a name="wp1011859"> </a><div class="pCellBody">
+BFILE
+</div>
+</td>
+    <td><a name="wp1011861"> </a><div class="pCellBody">
+LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011863"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp1011865"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp1011867"> </a><div class="pCellBody">
+BINARY_FLOAT
+</div>
+</td>
+    <td><a name="wp1011869"> </a><div class="pCellBody">
+SQL_REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011871"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp1011873"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp1011875"> </a><div class="pCellBody">
+BINARYDOUBLE
+</div>
+</td>
+    <td><a name="wp1011877"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011879"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp1011881"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp1011883"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp1011885"> </a><div class="pCellBody">
+BLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1011886"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011888"> </a><div class="pCellBody">
+CHAR(size) 
+</div>
+</td>
+    <td><a name="wp1011890"> </a><div class="pCellBody">
+CHAR(size) 
+</div>
+</td>
+    <td><a name="wp1011892"> </a><div class="pCellBody">
+CHAR(size) 
+</div>
+</td>
+    <td><a name="wp1011894"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011896"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp1011898"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp1011900"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp1011902"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1011903"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011905"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1011907"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1011909"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp1011911"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011913"> </a><div class="pCellBody">
+LONG
+</div>
+</td>
+    <td><a name="wp1011915"> </a><div class="pCellBody">
+LONG
+</div>
+</td>
+    <td><a name="wp1011917"> </a><div class="pCellBody">
+LONG
+</div>
+</td>
+    <td><a name="wp1011919"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>1</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011921"> </a><div class="pCellBody">
+LONG RAW
+</div>
+</td>
+    <td><a name="wp1011923"> </a><div class="pCellBody">
+LONG RAW
+</div>
+</td>
+    <td><a name="wp1011925"> </a><div class="pCellBody">
+LONG RAW
+</div>
+</td>
+    <td><a name="wp1011927"> </a><div class="pCellBody">
+LONGVARBINARY<font size="1"><sup>1</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011929"> </a><div class="pCellBody">
+NCHAR(size)
+</div>
+</td>
+    <td><a name="wp1011931"> </a><div class="pCellBody">
+NCHAR(size)
+</div>
+</td>
+    <td><a name="wp1011933"> </a><div class="pCellBody">
+NCHAR(size)
+</div>
+</td>
+    <td><a name="wp1011935"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011937"> </a><div class="pCellBody">
+NCLOB
+</div>
+</td>
+    <td><a name="wp1011939"> </a><div class="pCellBody">
+NCLOB
+</div>
+</td>
+    <td><a name="wp1011941"> </a><div class="pCellBody">
+NCLOB
+</div>
+</td>
+    <td><a name="wp1011943"> </a><div class="pCellBody">
+CLOB<font size="1"><sup>1</sup></font>
+</div>
+<a name="wp1011944"> </a><div class="pCellBody">
+LONGVARCHAR<font size="1"><sup>2</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011946"> </a><div class="pCellBody">
+NUMBER
+</div>
+</td>
+    <td><a name="wp1011948"> </a><div class="pCellBody">
+NUMBER
+</div>
+</td>
+    <td><a name="wp1011950"> </a><div class="pCellBody">
+NUMBER
+</div>
+</td>
+    <td><a name="wp1011952"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011954"> </a><div class="pCellBody">
+NUMBER(p,s)
+</div>
+</td>
+    <td><a name="wp1011956"> </a><div class="pCellBody">
+NUMBER(p,s)
+</div>
+</td>
+    <td><a name="wp1011958"> </a><div class="pCellBody">
+NUMBER(p,s)
+</div>
+</td>
+    <td><a name="wp1011960"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011962"> </a><div class="pCellBody">
+NVARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011964"> </a><div class="pCellBody">
+NVARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011966"> </a><div class="pCellBody">
+NVARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011968"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011970"> </a><div class="pCellBody">
+RAW(size)
+</div>
+</td>
+    <td><a name="wp1011972"> </a><div class="pCellBody">
+RAW(size)
+</div>
+</td>
+    <td><a name="wp1011974"> </a><div class="pCellBody">
+RAW(size)
+</div>
+</td>
+    <td><a name="wp1011976"> </a><div class="pCellBody">
+VARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011978"> </a><div class="pCellBody">
+ROWID
+</div>
+</td>
+    <td><a name="wp1011980"> </a><div class="pCellBody">
+ROWID
+</div>
+</td>
+    <td><a name="wp1011982"> </a><div class="pCellBody">
+ROWID
+</div>
+</td>
+    <td><a name="wp1011984"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011986"> </a><div class="pCellBody">
+VARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011988"> </a><div class="pCellBody">
+VARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011990"> </a><div class="pCellBody">
+VARCHAR2(size)
+</div>
+</td>
+    <td><a name="wp1011992"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1011994"> </a><div class="pCellBody">
+--
+</div>
+</td>
+    <td><a name="wp1011996"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp1011998"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp1012000"> </a><div class="pCellBody">
+TIMESTAMP<font size="1"><sup>3</sup></font>
+</div>
+<a name="wp1012001"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1012003"> </a><div class="pCellBody">
+--
+</div>
+</td>
+    <td><a name="wp1012005"> </a><div class="pCellBody">
+TIMESTAMP WITH LOCAL TIME ZONE
+</div>
+</td>
+    <td><a name="wp1012007"> </a><div class="pCellBody">
+TIMESTAMP WITH LOCAL TIME ZONE
+</div>
+</td>
+    <td><a name="wp1012009"> </a><div class="pCellBody">
+TIMESTAMP<font size="1"><sup>3</sup></font>
+</div>
+<a name="wp1012010"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>4</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp1012012"> </a><div class="pCellBody">
+--
+</div>
+</td>
+    <td><a name="wp1012014"> </a><div class="pCellBody">
+TIMESTAMP WITH TIME ZONE
+</div>
+</td>
+    <td><a name="wp1012016"> </a><div class="pCellBody">
+TIMESTAMP WITH TIME ZONE
+</div>
+</td>
+    <td><a name="wp1012018"> </a><div class="pCellBody">
+TIMESTAMP<font size="1"><sup>3, 5, 6</sup></font>
+</div>
+<a name="wp1012019"> </a><div class="pCellBody">
+CHAR<font size="1"><sup>4, 5</sup></font>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="4" rowspan="1"><a name="wp1012021"> </a><div class="pCellBody">
+NOTES:
+</div>
+<a name="wp1012022"> </a><div class="pCellBody">
+1 Only present when DataSourceReportLobsAsLongvar=False
+</div>
+<a name="wp1012023"> </a><div class="pCellBody">
+2 Only present when DataSourceReportLobsAsLongvar=True
+</div>
+<a name="wp1012024"> </a><div class="pCellBody">
+3  Only present when DataSourceFetchTimestampAsString=False
+</div>
+<a name="wp1012025"> </a><div class="pCellBody">
+4 Only present when DataSourceFetchTimestampAsString=True 
+</div>
+<a name="wp1012026"> </a><div class="pCellBody">
+5 Only present when DataSourceORAMapTSWTZ=True
+</div>
+<a name="wp1012027"> </a><div class="pCellBody">
+6 The time zone value is not accessible or cannot be set. Instead, the client time zone is used to pass to Oracle or to convert from the stored time zone value.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>
