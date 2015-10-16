@@ -1,6 +1,6 @@
 function [obj_info] = main(outputDir_in, inputFile, ...
     frameIndices, bgFile, displayTracking_in, I_roi,...
-    tubeToProcess, max_obj_num_in, sbfmf_info)
+    tubeToProcess, max_obj_num_in, ufmf_info)
 
 global outputDir;
 global I_label;
@@ -32,6 +32,8 @@ global file_index; file_index = 0;
 global saveFrameNum; saveFrameNum = 500;
 global trackedFrames; trackedFrames = [];
 
+ufmf_info = ufmf_read_header(inputFile);
+
 max_obj_num = max_obj_num_in;
 displayTracking = displayTracking_in;
 outputDir = outputDir_in;
@@ -52,12 +54,12 @@ I_bg_bottom = imread(file_bottom);
 
 %%% set colors for display
 colors = colorcube(10000);
-
-if isempty(sbfmf_info)
-    % just a placehodler, do nothing...
-else
-    sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
-end
+% 
+% if isempty(sbfmf_info)
+%     % just a placehodler, do nothing...
+% else
+%     sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
+% end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,7 +117,7 @@ max_obj_ind = 0;
 %%% Now loop over all frames
 for f=1:numFrames,
     frame_index = frameIndices(f);
-    I_curr = load_image(inputFile, frame_index, sbfmf_info);
+    I_curr = ufmf_read_frame(ufmf_info, frame_index);
     obj_info = process_frame(obj_info,I_curr,frame_index);
     if mod(frame_index,100)==0
         fprintf(1,'Done tracking frame %d\n',frame_index);
@@ -141,12 +143,12 @@ end
 
 obj_info = obj_info_load(obj_info,numFrames,outputDir,file_index,saveFrameNum);
 
-if isempty(sbfmf_info)
-    % just a placehodler, do nothing...
-else % if necessary, close the movie file
-   fclose(sbfmf_info.fid);
-   sbfmf_info.fid = [];
-end
+% if isempty(sbfmf_info)
+%     % just a placehodler, do nothing...
+% else % if necessary, close the movie file
+%    fclose(sbfmf_info.fid);
+%    sbfmf_info.fid = [];
+% end
 
 if( displayTracking )
     close(333);

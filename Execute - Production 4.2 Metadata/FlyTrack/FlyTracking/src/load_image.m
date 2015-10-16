@@ -1,12 +1,17 @@
-function  I = load_image(inputFile, index, sbfmf_info)
+function  I = load_image(ufmf_info, index,varargin)
 
 %% read an image either from an avi file or using the given format
 % if (mod(index, 10) == 0)
 %     disp(['loading image ' num2str(index)]);
 % end
+if exists(varargin{1})
+    inputFile = varargin{1};
+else
+    inputFile = '';
+end
 
-if ~isempty(sbfmf_info)
-    [I,stamp] = sbfmfreadframe(index,sbfmf_info.fid,sbfmf_info.frame2file,sbfmf_info.bgcenter);    
+if ~isempty(ufmf_info)
+    I = ufmf_read_frame(ufmf_info,index);    
 elseif( isavi(inputFile) )
     if( ispc )
         try 

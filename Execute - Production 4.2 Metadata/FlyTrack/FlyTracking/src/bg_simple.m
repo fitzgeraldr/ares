@@ -47,11 +47,12 @@ if ~isempty(ufmf_info) % then compute a new bg image
     
 %     Ibg = mat2gray(Ibg);
 else
-    ufmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
-    Ibg = ufmf_info.bgcenter'; % need transpose on bg stored in sbfmf
+%     ufmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
+%     Ibg = ufmf_info.bgcenter'; % need transpose on bg stored in sbfmf
+    Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTrack\FlyTracking\src\roi.bmp');
 end
 
-imwrite(int8(Ibg),outputFile);
+imwrite(mat2gray(uint8(Ibg)),outputFile);
 
 Ibg_top = round(Ibg + bgThresh);
 Ibg_top(Ibg_top > 255) = 255;
