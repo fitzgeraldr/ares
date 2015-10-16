@@ -98,9 +98,9 @@ end
                         
 params.bgFile = [params.outputDir filesep params.bgFile];
  
-if( params.roiFile ~= -1 )
-    params.roiFile = [params.outputDir filesep params.roiFile];
-end
+% if( params.roiFile ~= -1 )
+%     params.roiFile = [params.outputDir filesep params.roiFile];
+% end
 
 %%% if the end frame is not given
 %%% and the input is an avi file, read the number of frames from the avi

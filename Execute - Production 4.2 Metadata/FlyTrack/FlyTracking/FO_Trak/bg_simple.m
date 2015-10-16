@@ -1,13 +1,14 @@
 
-function [Ibg,Shist] = bg_simple(inputFile,frameIndices,histScale,outputFile, bgThresh, sbfmf_info)
+function [Ibg,Shist] = bg_simple(inputFile,frameIndices,histScale,outputFile, bgThresh, ufmf_info)
 % updated by MBR to include waitbars
 % supports sbfmf files, and bg_sub is made simpler
 
 numFrames = length(frameIndices);
 
-if isempty(sbfmf_info) % then compute a new bg image
+if ~isempty(ufmf_info) % then compute a new bg image
 
-    image = load_image(inputFile, frameIndices(1), sbfmf_info); 
+%     image = load_image(inputFile, frameIndices(1), ufmf_info); 
+    image = ufmf_read_frame(ufmf_info,frameIndices(1));
     [rows,cols] = size((image));
 
     %%% if there are lots of frames, use only first 10000 frames 
@@ -27,7 +28,8 @@ if isempty(sbfmf_info) % then compute a new bg image
     h1 = waitbar(0,'Computing background image');
 
     for f=1:length(imIndices),
-        image = load_image(inputFile, imIndices(f), sbfmf_info); 
+%         image = load_image(inputFile, imIndices(f), ufmf_info); 
+        image = ufmf_read_frame(ufmf_info,imIndices(f));
         image = floor(double((image))/histScale)+1;
         %%% output to a cxx (tried with sub2ind and it was slower)
         for r=1:rows,
@@ -43,11 +45,11 @@ if isempty(sbfmf_info) % then compute a new bg image
     [max_val,max_ind] = max(Shist,[],3);
     Ibg = max_ind*histScale;
 else
-    sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
-    Ibg = sbfmf_info.bgcenter'; % need transpose on bg stored in sbfmf
+%     ufmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
+%     Ibg = ufmf_info.bgcenter'; % need transpose on bg stored in sbfmf
 end
 
-imwrite(uint8(Ibg),outputFile);
+imwrite(mat2gray(uint8(Ibg)),outputFile);
 
 Ibg_top = round(Ibg + bgThresh);
 Ibg_top(Ibg_top > 255) = 255;
@@ -61,10 +63,10 @@ imwrite(uint8(Ibg_top) , [outputFile(1:end-4) '_top.bmp']);
 imwrite(uint8(Ibg_bottom) , [outputFile(1:end-4) '_bottom.bmp']);         
 
 
-if isempty(sbfmf_info)
+if isempty(ufmf_info)
     % just a placehodler, do nothing...
 else % if necessary, close the movie file
-   fclose(sbfmf_info.fid);
-   sbfmf_info.fid = [];
+   fclose(ufmf_info.fid);
+   ufmf_info.fid = [];
 end
 

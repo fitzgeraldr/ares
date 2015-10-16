@@ -16,7 +16,7 @@ if( nargin==0 )
         return
     else
         disp('Not deployed');
-        paramFile = 'params.txt';
+        paramFile = 'params_Olympiad.txt';
     end
 end
 [params] = read_params_olympiad(paramFile, inputFile, outputDir);
@@ -28,12 +28,18 @@ else
     sbfmf_info = [];
 end
 
+if isufmf(params.inputFile)
+    ufmf_info = ufmf_read_header(params.inputFile);
+else
+    ufmf_info = [];
+end
+
 %% Initialize background
 if( params.updateBg | ~exist(params.bgFile))
     disp('Estimating background image');
     histScale = 4;
     %I_bg = bg(params.inputFile,params.frameIndices,histScale,params.bgFile, sbfmf_info);
-    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, sbfmf_info);
+    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, ufmf_info);
 end
 
 %% select region of interest
@@ -45,10 +51,12 @@ else
         I_roi = set_ROI_to_all(params, I_bg);
     %else   % update w. ROI info from txt file
         %I_roi %= 
+        
+        % save roi image
+        imwrite(uint8(I_roi),params.roiFile);
     end
 end
-% save roi image
-imwrite(uint8(I_roi),params.roiFile);
+
 
 
 %% track
@@ -59,9 +67,9 @@ try
     else 
         I_roi_bw = I_roi;
     end
-    obj_info = main( params.outputDir, params.inputFile, ...
+    obj_info = main(params.outputDir, params.inputFile, ...
         params.frameIndices, params.bgFile, params.displayTracking,...
-        I_roi_bw, params.tubeToProcess, params.maxObjNum, sbfmf_info);
+        I_roi_bw, params.tubeToProcess, params.maxObjNum, ufmf_info);
 catch
     Trak_success.success = 0; 
     Trak_success.error = lasterror;    

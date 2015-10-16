@@ -1,7 +1,7 @@
 
 function [obj_info] = main(outputDir_in, inputFile, ...
     frameIndices, bgFile, displayTracking_in, I_roi,...
-    tubeToProcess, max_obj_num_in, sbfmf_info);
+    tubeToProcess, max_obj_num_in, ufmf_info);
 
 
 global outputDir;
@@ -53,11 +53,11 @@ I_bg_bottom = imread(file_bottom);
 %%% set colors for display
 colors = colorcube(10000);
 
-if isempty(sbfmf_info)
-    % just a placehodler, do nothing...
-else
-    sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
-end
+% if isempty(sbfmf_info)
+%     % just a placehodler, do nothing...
+% else
+%     sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
+% end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,7 +140,9 @@ end
 
 for f=1:numFrames,
     frame_index = frameIndices(f);
-    I_curr = load_image(inputFile, frame_index, sbfmf_info);
+%     I_curr = ufmf_read_frame(ufmf_info, frame_index); % can't get fid
+%     from header? crashes
+    I_curr = ufmf_read_frame(ufmf_info, frame_index);
     process_frame(I_curr,frame_index);
 end
 
@@ -205,12 +207,12 @@ obj_info.data = data;
 obj_info.x = x;
 obj_info.y = y;
 
-if isempty(sbfmf_info)
-    % just a placehodler, do nothing...
-else % if necessary, close the movie file
-   fclose(sbfmf_info.fid);
-   sbfmf_info.fid = [];
-end
+% if isempty(sbfmf_info)
+%     % just a placehodler, do nothing...
+% else % if necessary, close the movie file
+%    fclose(sbfmf_info.fid);
+%    sbfmf_info.fid = [];
+% end
 
 
 

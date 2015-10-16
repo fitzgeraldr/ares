@@ -2,7 +2,7 @@ function masktubes_fleacam(filename)
 
 dims = cell(6,1);
 for i = 1:6
-    dims{i} = [170 1165 83+(150*(i-1)) 196+(150*(i-1))];
+    dims{i} = [175 1178 60+(150*(i-1)) 189+(150*(i-1))];
 end
 
 header = ufmf_read_header(filename);

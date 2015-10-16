@@ -24,7 +24,7 @@ if( nargin==0 )
         return
     else
         disp('Not deployed');
-        paramFile = 'params.txt';
+        paramFile = 'params_Olympiad.txt';
     end
 end
 [params] = read_params_olympiad(paramFile, inputFile, outputDir);
