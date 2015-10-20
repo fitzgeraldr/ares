@@ -5,10 +5,11 @@ function [Ibg,Shist] = bg_simple(inputFile,frameIndices,histScale,outputFile, bg
 
 numFrames = length(frameIndices);
 
+ufmf = 0;
+
 if isempty(sbfmf_info) % then compute a new bg image
 	if isempty(ufmf_info) %non-fmf file
-		ufmf = 0;
-		image = load_image(inputFile, frameIndices(1), sbfmf_info); 
+		image = load_image(inputFile, frameIndices(1), sbfmf_info,ufmf_info); 
 		
 	elseif ~isempty(ufmf_info) % ufmf file
 		ufmf = 1;
@@ -35,7 +36,7 @@ if isempty(sbfmf_info) % then compute a new bg image
 
     for f=1:length(imIndices),
 		if ~ufmf
-			image = load_image(inputFile, imIndices(f), sbfmf_info); 
+			image = load_image(inputFile, imIndices(f), sbfmf_info,ufmf_info); 
 		elseif ufmf
 			image = ufmf_read_frame(ufmf_info,1);
 		end

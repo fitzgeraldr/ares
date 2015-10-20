@@ -35,13 +35,18 @@ if issbfmf(params.inputFile)
 else
     sbfmf_info = [];
 end
+if isufmf(params.inputFile)
+    ufmf_info = ufmf_read_header(params.inputFile);
+else
+    ufmf_info = [];
+end
 
 %% Initialize background
 if( params.updateBg | ~exist(params.bgFile))
     disp('Estimating background image');
     histScale = 4;
     %I_bg = bg(params.inputFile,params.frameIndices,histScale,params.bgFile, sbfmf_info);
-    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, sbfmf_info);
+    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, sbfmf_info,ufmf_info);
 end
 
 %% select region of interest
@@ -69,7 +74,7 @@ try
     end
     obj_info = main( params.outputDir, params.inputFile, ...
         params.frameIndices, params.bgFile, params.displayTracking,...
-        I_roi_bw, params.tubeToProcess, params.maxObjNum, sbfmf_info);
+        I_roi_bw, params.tubeToProcess, params.maxObjNum, sbfmf_info,ufmf_info);
 catch
     Trak_success.success = 0; 
     Trak_success.error = lasterror;    

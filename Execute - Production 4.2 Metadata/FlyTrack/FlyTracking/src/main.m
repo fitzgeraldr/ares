@@ -32,8 +32,6 @@ global file_index; file_index = 0;
 global saveFrameNum; saveFrameNum = 500;
 global trackedFrames; trackedFrames = [];
 
-ufmf_info = ufmf_read_header(inputFile);
-
 max_obj_num = max_obj_num_in;
 displayTracking = displayTracking_in;
 outputDir = outputDir_in;
@@ -131,7 +129,8 @@ elseif ~isempty(ufmf_info)
 		obj_info = process_frame(obj_info,I_curr,frame_index);
 		if mod(frame_index,100)==0
 			fprintf(1,'Done tracking frame %d\n',frame_index);
-		end
+        end
+    end
 end
 	
 num_obj = obj_info.obj_num;

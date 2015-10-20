@@ -12,8 +12,10 @@ elseif ~isempty(ufmf_info)
 elseif( isavi(inputFile) )
     if( ispc )
         try 
-            frame = aviread(inputFile,index);
-            I = frame2im(frame);            
+%             frame = aviread(inputFile,index);
+            vid = VideoReader(inputFile);
+            I = read(vid,index);
+%             I = frame2im(frame);            
         catch
             disp(['error trapped, frame opened with aviread']);
         end
