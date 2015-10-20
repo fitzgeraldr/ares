@@ -98,9 +98,9 @@ end
                         
 params.bgFile = [params.outputDir filesep params.bgFile];
  
-% if( params.roiFile ~= -1 )
-%     params.roiFile = [params.outputDir filesep params.roiFile];
-% end
+if( params.roiFile ~= -1 )
+    params.roiFile = [params.outputDir filesep params.roiFile];
+end
 
 %%% if the end frame is not given
 %%% and the input is an avi file, read the number of frames from the avi
@@ -108,7 +108,6 @@ params.bgFile = [params.outputDir filesep params.bgFile];
 if(params.endFrame<0)
     if( isavi(params.inputFile) ),
         info = aviinfo(params.inputFile);
-%         info = VideoReader(params.inputFile);
         params.endFrame = info.NumFrames;
     elseif(issbfmf(params.inputFile))
         sbfmf_info = sbfmf_read_header(params.inputFile);

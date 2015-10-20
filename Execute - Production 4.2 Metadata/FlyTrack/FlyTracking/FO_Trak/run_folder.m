@@ -1,6 +1,6 @@
 function Trak_success = run_folder(workDir, outDir)
 
-paramFile = 'C:\Users\labadmin\Desktop\box_experiment_scripts\Execute - Production 4.2 Metadata\FlyTrack\FlyTracking\FO_Trak\params_olympiad.txt';
+paramFile = 'C:\Users\labadmin\Desktop\box_experiment_scripts\Execute - Production 4.2 Metadata\FlyTrack\FlyTracking\src\params_Olympiad.txt';
 retrack = 0; %keep data if there...
 
 % track all of the sbfmf files in one folder 

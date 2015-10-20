@@ -1,6 +1,6 @@
 function [obj_info] = main(outputDir_in, inputFile, ...
     frameIndices, bgFile, displayTracking_in, I_roi,...
-    tubeToProcess, max_obj_num_in, ufmf_info)
+    tubeToProcess, max_obj_num_in, sbfmf_info,ufmf_info)
 
 global outputDir;
 global I_label;
@@ -54,12 +54,12 @@ I_bg_bottom = imread(file_bottom);
 
 %%% set colors for display
 colors = colorcube(10000);
-% 
-% if isempty(sbfmf_info)
-%     % just a placehodler, do nothing...
-% else
-%     sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
-% end
+
+if isempty(sbfmf_info)
+    % just a placehodler, do nothing...
+else
+    sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
+end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,15 +115,25 @@ obj_info = obj_info_construct(total_obj,partial_numFrames,start_frame);
 max_obj_ind = 0;
 
 %%% Now loop over all frames
-for f=1:numFrames,
-    frame_index = frameIndices(f);
-    I_curr = ufmf_read_frame(ufmf_info, frame_index);
-    obj_info = process_frame(obj_info,I_curr,frame_index);
-    if mod(frame_index,100)==0
-        fprintf(1,'Done tracking frame %d\n',frame_index);
-    end
+if ~isempty(sbfmf_info)
+	for f=1:numFrames,
+		frame_index = frameIndices(f);
+		I_curr = load_image(inputFile, frame_index, sbfmf_info);
+		obj_info = process_frame(obj_info,I_curr,frame_index);
+		if mod(frame_index,100)==0
+			fprintf(1,'Done tracking frame %d\n',frame_index);
+		end
+	end
+elseif ~isempty(ufmf_info)
+	for f=1:numFrames,
+		frame_index = frameIndices(f);
+	    I_curr = ufmf_read_frame(ufmf_info, frame_index);
+		obj_info = process_frame(obj_info,I_curr,frame_index);
+		if mod(frame_index,100)==0
+			fprintf(1,'Done tracking frame %d\n',frame_index);
+		end
 end
-
+	
 num_obj = obj_info.obj_num;
 if num_obj == 0
     % kick out with a warning
@@ -143,12 +153,12 @@ end
 
 obj_info = obj_info_load(obj_info,numFrames,outputDir,file_index,saveFrameNum);
 
-% if isempty(sbfmf_info)
-%     % just a placehodler, do nothing...
-% else % if necessary, close the movie file
-%    fclose(sbfmf_info.fid);
-%    sbfmf_info.fid = [];
-% end
+if isempty(sbfmf_info)
+    % just a placehodler, do nothing...
+else % if necessary, close the movie file
+   fclose(sbfmf_info.fid);
+   sbfmf_info.fid = [];
+end
 
 if( displayTracking )
     close(333);

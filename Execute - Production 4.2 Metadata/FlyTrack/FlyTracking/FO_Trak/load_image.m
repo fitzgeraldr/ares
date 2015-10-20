@@ -11,7 +11,6 @@ elseif( isavi(inputFile) )
     if( ispc )
         try 
             frame = aviread(inputFile,index);
-%             frame = VideoReader(inputFile,index);
             I = frame2im(frame);            
         catch
             disp(['error trapped, frame opened with aviread']);

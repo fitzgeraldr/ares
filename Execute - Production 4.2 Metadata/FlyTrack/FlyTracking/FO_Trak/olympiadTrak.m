@@ -3,7 +3,6 @@ function [Trak_success] = olympiadTrak(paramFile, inputFile, outputDir)
 %% this is simply an updated version of FlyTracker
 % in this version the paramFile does not specify the movie location to
 % simplify the batch processing
-
 close all;
 Trak_success.success = 1; 
 Trak_success.error = []; % do something fancier...
@@ -16,7 +15,7 @@ if( nargin==0 )
         return
     else
         disp('Not deployed');
-        paramFile = 'params_Olympiad.txt';
+        paramFile = 'params.txt';
     end
 end
 [params] = read_params_olympiad(paramFile, inputFile, outputDir);
@@ -28,18 +27,12 @@ else
     sbfmf_info = [];
 end
 
-if isufmf(params.inputFile)
-    ufmf_info = ufmf_read_header(params.inputFile);
-else
-    ufmf_info = [];
-end
-
 %% Initialize background
 if( params.updateBg | ~exist(params.bgFile))
     disp('Estimating background image');
     histScale = 4;
     %I_bg = bg(params.inputFile,params.frameIndices,histScale,params.bgFile, sbfmf_info);
-    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, ufmf_info);
+    I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, sbfmf_info);
 end
 
 %% select region of interest
@@ -51,12 +44,10 @@ else
         I_roi = set_ROI_to_all(params, I_bg);
     %else   % update w. ROI info from txt file
         %I_roi %= 
-        
-        % save roi image
-        imwrite(uint8(I_roi),params.roiFile);
     end
 end
-
+% save roi image
+imwrite(uint8(I_roi),params.roiFile);
 
 
 %% track
@@ -67,9 +58,9 @@ try
     else 
         I_roi_bw = I_roi;
     end
-    obj_info = main(params.outputDir, params.inputFile, ...
+    obj_info = main( params.outputDir, params.inputFile, ...
         params.frameIndices, params.bgFile, params.displayTracking,...
-        I_roi_bw, params.tubeToProcess, params.maxObjNum, ufmf_info);
+        I_roi_bw, params.tubeToProcess, params.maxObjNum, sbfmf_info);
 catch
     Trak_success.success = 0; 
     Trak_success.error = lasterror;    
@@ -85,7 +76,7 @@ if (Trak_success.success)
             [analysis_info,analysis_info_tube] = track_analysis_params(params);
         else % no flies detected, save simple, output file
             analysis_info.max_tracked_num = 0;
-            str = sprintf('%s%sanalysis_info',params.outputDir,filesep);
+            str = sprintf('%s%sanalysis_info',params.outputDir,fileSep);
             save(str,'analysis_info');
         end
         % clean up all temp files...
@@ -115,6 +106,8 @@ end
 fclose(fid);
 
 save trak_success Trak_success
+
+
 
 %% generate video output --skip this for now...
 %if( params.genVideoOutput )
