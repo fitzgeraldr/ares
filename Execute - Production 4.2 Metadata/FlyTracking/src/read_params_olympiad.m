@@ -116,6 +116,9 @@ if(params.endFrame<0)
     elseif(issbfmf(params.inputFile))
         sbfmf_info = sbfmf_read_header(params.inputFile);
         params.endFrame = sbfmf_info.nframes;
+    elseif (isufmf(inputFile))
+        ufmf_info = ufmf_read_header(inputFile);
+        params.endFrame = ufmf_info.nframes;
     else
         params.endFrame = params.startFrame + 2;
     end

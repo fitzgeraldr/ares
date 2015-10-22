@@ -8,10 +8,10 @@ numFrames = length(frameIndices);
 ufmf = 0;
 
 if isempty(sbfmf_info) % then compute a new bg image
-	if isempty(ufmf_info) %non-fmf file
+	if ~isufmf(inputFile) %non-fmf file
 		image = load_image(inputFile, frameIndices(1), sbfmf_info,ufmf_info); 
 		
-	elseif ~isempty(ufmf_info) % ufmf file
+	elseif isufmf(inputFile) % ufmf file
 		ufmf = 1;
 		image = ufmf_read_frame(ufmf_info,1);
 		
