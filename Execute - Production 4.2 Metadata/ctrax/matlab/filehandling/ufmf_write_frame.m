@@ -4,8 +4,8 @@ structtype.s = 'char';
 structtype.I = 'uint32';
 structtype.d = 'double';
 structtype.Q = '??';
-structtype.H = '??';
-structtype.B = '??';
+structtype.H = 'uint16';
+structtype.B = 'uchar';
 
 %CHUNKID = '<B', # 0 = keyframe, 1 = points
 %KEYFRAME2 = '<cHHd', # (dtype, width,height,timestamp)
@@ -20,4 +20,4 @@ fwrite(fp,stamp,structtype.d);
 % write point position
 fwrite(fp,[x0,y0,w,h],structtype.H);
 % write the region intensities
-fwrite(fp,val(:),'uint8');
+fwrite(fp,val{:},'uint8');
