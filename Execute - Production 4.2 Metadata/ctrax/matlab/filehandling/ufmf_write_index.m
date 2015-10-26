@@ -11,6 +11,7 @@ fwrite(fp,DICT_START_CHAR,'char');
 % write the number of key frames
 fwrite(fp,numel(keylocs),'uchar');
 
+%% keyframe writing
 for j = 1:numel(keylocs),
   
   % write the length of the key name: 2
@@ -19,17 +20,49 @@ for j = 1:numel(keylocs),
   key = fwrite(fp,'keyframe','*char');
   % write the next letter to tell if it is an array or another dictionary
   chunktype = fwrite(fp,'d','*char');
-  if chunktype == DICT_START_CHAR,
-    % if it's a 'd', then step back one char and read in the dictionary
-    % recursively
-    fseek(fp,-1,'cof');
-    index.(key) = read_dict(fp);
-  elseif chunktype == ARRAY_START_CHAR,
-    % array
-    
-    % read in the data type
-    dtypechar = fread(fp,1,'*char');
+
+    % write in the data type
     [matlabclass,bytes_per_element] = dtypechar2matlabclass(dtypechar);
+    dtypechar = fwrite(fp,1,'*char');
+    
+    % write in number of bytes
+    l = fwrite(fp,1,'ulong');
+    n = l / bytes_per_element;
+    if n ~= round(n),
+        error('Length in bytes %d is not divisible by bytes per element %d',l,bytes_per_element);
+    end
+
+    % write in the index array
+    [index.(key),ntrue] = fwrite(fp,n,['*',matlabclass]);
+
+
+end
+
+%% frame writing
+for j = 1:numel(framelocs),
+  
+  % write the length of the key name: 2
+  l = fwrite(fp,1,'ushort');
+  % write the key name: l
+  key = fwrite(fp,'frame','*char');
+  % write the next letter to tell if it is an array or another dictionary
+  chunktype = fwrite(fp,'d','*char');
+
+  % write number of keys = 2
+  fwrite(fp,2,'ushort');
+  
+  % write length of key
+  fwrite(fp,length('loc'),'ushort');
+  % write key
+  fwrite(fp,'loc','*char');
+  
+ % write dtype
+ fwrite(fp,'q','*char');
+ 
+ % write number of bytes
+ fwrite(fp,8,'ulong'); % 8*indexsize
+
+ 
     
     % read in number of bytes
     l = fread(fp,1,'ulong');
@@ -52,8 +85,6 @@ for j = 1:numel(keylocs),
   end
 
 end
-
-
 
 % write 0 for now
 fwrite(fp,0,'uint64'); 
