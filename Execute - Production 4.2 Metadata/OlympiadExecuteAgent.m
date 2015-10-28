@@ -1249,36 +1249,33 @@ switch scode(1)
             case 0 % end video file
                 disp('% end video file')
                 set(gui.vidMode,'string','Previewing','backgroundcolor','r')
-                set(gui.vidFile,'string','')
-                set(gui.vidFrameRate,'string','')
-                targetFrames=scode(3)*256*256+scode(4)*256+scode(5);
-                str=['Video Acquisition Completed - ',num2str(targetFrames),' frames clocked by MCU '] ;
                 
                 fleacam.stopCapture(); %fleacam
                 fleacam.disableLogging();
                 fleacam.startCapture();
                 
-%                 fleacam=datestr(now,30);
-%                 get(gui.ExpName,'string')
-%                 fleacam.setVideoFile(['fleacam_',get(gui.ExpName,'string'),'_',fleatime]);
-%                 disp('filename set')
-%                 fleacam.startCapture();
-%                 disp('agent line 1254')
+                set(gui.vidFile,'string','')
+                set(gui.vidFrameRate,'string','')
+                targetFrames=scode(3)*256*256+scode(4)*256+scode(5);
+                str=['Video Acquisition Completed - ',num2str(targetFrames),' frames clocked by MCU '] ;
+                
 
                 disp(str)
             otherwise %start video file
-                str=[num2str(1000/scode(2)),'fps'];
-                set(gui.vidMode,'string','Recording','backgroundcolor','g')
-                set(gui.vidFile,'string',seq.fnames{seq.i})
-                set(gui.vidFrameRate,'string',str)
-                
                 fleatime=datestr(now,30); %fleacam
                 fleacam.setVideoFile(['fleacam_',get(gui.ExpName,'string'),'_',fleatime]);
                 fleacam.getVideoFile
-
+                
+                str=[num2str(1000/scode(2)),'fps'];
+                set(gui.vidMode,'string','Recording','backgroundcolor','g')
+                
                 fleacam.stopCapture();
                 fleacam.enableLogging();
                 fleacam.startCapture(); 
+                
+                set(gui.vidFile,'string',seq.fnames{seq.i})
+                set(gui.vidFrameRate,'string',str)
+                
 
         end
     case 1

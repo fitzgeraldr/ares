@@ -188,8 +188,6 @@ switch get(gui.ExperimentGo,'value') %bascam
         set(timerfind('tag','OlympiadAgent'),'userdata',expstate)
         disp('Experiment Halted Manually')
         stop(gui.vi);
-        fleacam.stopCapture();
-        fleacam.disableLogging();
         flushdata(gui.vi);
         logger = get(gui.vi,'userdata');
         if ~isempty(logger)
@@ -200,12 +198,16 @@ switch get(gui.ExperimentGo,'value') %bascam
             end
         end
         set(gui.vidMode,'string','Previewing','backgroundcolor','r') %bascam
+        
+        fleacam.stopCapture();
+        fleacam.disableLogging();
+        fleacam.startCapture();
+        
         set(gui.vidFile,'string','')
         set(gui.vidFrameRate,'string','')
         set(gui.ExperimentGo,'backgroundcolor',[.9 .2 .2])
         set([gui.openExp gui.SetDir gui.ExpName gui.TemperatureTarget],'enable','on')
         
-        fleacam.startCapture();
         
         if strcmpi(gui.vi.Running,'on')
             stop(gui.vi)

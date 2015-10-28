@@ -11,11 +11,6 @@ if isempty(sbfmf_info) % then compute a new bg image
 	if ~isufmf(inputFile) %non-fmf file
 		image = load_image(inputFile, frameIndices(1), sbfmf_info,ufmf_info); 
 		
-	elseif isufmf(inputFile) % ufmf file
-		ufmf = 1;
-		image = ufmf_read_frame(ufmf_info,1);
-		
-	end
 		[rows,cols] = size((image));
 
 		%%% if there are lots of frames, use only first 10000 frames 
@@ -37,8 +32,8 @@ if isempty(sbfmf_info) % then compute a new bg image
     for f=1:length(imIndices),
 		if ~ufmf
 			image = load_image(inputFile, imIndices(f), sbfmf_info,ufmf_info); 
-		elseif ufmf
-			image = ufmf_read_frame(ufmf_info,1);
+% 		elseif ufmf
+% 			image = ufmf_read_frame(ufmf_info,1);
 		end
         
 		image = floor(double((image))/histScale)+1;
@@ -55,20 +50,25 @@ if isempty(sbfmf_info) % then compute a new bg image
     %%% background gets the value with highest probability
     [max_val,max_ind] = max(Shist,[],3);
     Ibg = max_ind*histScale;
+    
+    elseif isufmf(inputFile) % ufmf file
+		Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTracking\src\testout\ufmf_bg.bmp');
+    end
 else
 	if ~ufmf
 		sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
 		Ibg = sbfmf_info.bgcenter'; % need transpose on bg stored in sbfmf
-	elseif ufmf
-		Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTrack\FlyTracking\src\roi.bmp');
+% 	elseif ufmf
+% 		Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTrack\FlyTracking\src\roi.bmp');
 	end
 end
 
 if ~ufmf
 	imwrite(uint8(Ibg),outputFile);
-elseif ufmf
-	imwrite(mat2gray(uint8(Ibg)),outputFile);
+% elseif ufmf
+% 	imwrite(mat2gray(uint8(Ibg)),outputFile);
 end
+
 
 Ibg_top = round(Ibg + bgThresh);
 Ibg_top(Ibg_top > 255) = 255;
@@ -91,7 +91,7 @@ end
 
 if ~ufmf
 
-elseif ufmf
-   fclose(ufmf_info.fid);
-   ufmf_info.fid = [];
+% elseif ufmf
+%    fclose(ufmf_info.fid);
+%    ufmf_info.fid = [];
 end
