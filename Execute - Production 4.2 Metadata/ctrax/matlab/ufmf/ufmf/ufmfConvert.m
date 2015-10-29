@@ -208,14 +208,7 @@ isuint8 = isa(im,'uint8');
 % create output file
 outfid = fopen(outfile,'wb');
 indexlocloc = writeUFMFHeader(outfid,nr,nc);
-index = struct;
-index.frame = struct;
-index.frame.loc = [];
-index.frame.timestamp = [];
-index.keyframe = struct;
-index.keyframe.mean = struct;
-index.keyframe.mean.loc = [];
-index.keyframe.mean.timestamp = [];
+
 
 % initialize background
 keyi = 1;
