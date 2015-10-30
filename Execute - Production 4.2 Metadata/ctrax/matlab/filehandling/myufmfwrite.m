@@ -1,58 +1,118 @@
+fclose all;
+clear;clc
+load('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTracking\src\ROI_coords.mat');
+
 % Set framerate so we know when 100 seconds have passed in movie
 framerate = 25;
 params = ReadParams('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\ctrax\matlab\ufmf\ufmf\ufmfCompressionParamsRoian20141204.txt','=');
-% tubestruct.keylocs = []; tubestruct.framelocs = []; % Calc final size and preallocate?
-
-%%
-% index = struct;
-% index.frame = struct;
-% index.frame.loc = [];
-% index.frame.timestamp = [];
-% index.keyframe = struct;
-% index.keyframe.mean = struct;
-% index.keyframe.mean.loc = [];
-% index.keyframe.mean.timestamp = [];
 
 %% Preallocate array of tubes
 load('ROI_coords.mat');
-t = zeros(tubestruct.height,tubestruct.width,6);
-mu = zeros(tubestruct.height,tubestruct.width);
+tube_holder = zeros(tubestruct.height,tubestruct.width,6);
+% mu = zeros(tubestruct.height,tubestruct.width);
 
 % Open input video (header)
-headerin = ufmf_read_header(ufmfin);
+% headerin = ufmf_read_header(ufmfin);
 
+[readframe,nframes,infid] = get_readframe_fcn(ufmfin);
+[frame,t] = readframe(1);
+[nr,nc,~] = size(frame);
+
+%% Initialize index struct of index structs
+for tube_index = 1:6
+    indexes.(['tube', num2str(tube_index)]).frame = struct;
+    indexes.(['tube', num2str(tube_index)]).frame.loc = [];
+    indexes.(['tube', num2str(tube_index)]).frame.timestamp = [];
+    indexes.(['tube', num2str(tube_index)]).keyframe = struct;
+    indexes.(['tube', num2str(tube_index)]).keyframe.mean = struct;
+    indexes.(['tube', num2str(tube_index)]).keyframe.mean.loc = [];
+    indexes.(['tube', num2str(tube_index)]).keyframe.mean.timestamp = [];
+end
+
+fprintf('Initialization completed\n');
 %% Open 6 .ufmf files for tube movies
 tubestruct.fids = zeros(6,1); tubestruct.indexloclocs = zeros(6,1);
 for a = 1:length(tubestruct.fids)
     tubestruct.fids(a) = fopen(strcat('tube',num2str(a),'.ufmf'),'w');
     % Write template header in each
-    tubestruct.indexloclocs(a) = writeUFMFHeader(tubestruct.fids(a),headerin.nr,headerin.nc);
+    tubestruct.indexloclocs(a) = writeUFMFHeader(tubestruct.fids(a),tubestruct.width,tubestruct.height);
 end
 
+% initialize background
+bghist = zeros([tubestruct.height,tubestruct.width,256],'single');
+[xgrid,ygrid] = meshgrid(1:tubestruct.width,1:tubestruct.height);
 
+params.UFMFBGKeyFramePeriods = [params.UFMFBGKeyFramePeriodInit,params.UFMFBGKeyFramePeriod];
+endframe = min(inf,nframes);
+
+fprintf('Movie files created\nLoading frames\n');
 %% Loop through frames of input movie
-for i = 1:headerin.nframes
+for i = 1:50%nframes
 % Load frame
-    frame = ufmf_read_frame(headerin,i);
-    tubestruct.numFrames = tubestruct.numFrames + 1;
+  [frame,t] = readframe(i);
+
 % Break into 6 tubes by cropping frame
     for tube = 1:6
-        t(:,:,tube) = imcrop(frame,[xmin ymins(tube) tubestruct.width-1 tubestruct.height-1]);
+        tube_holder(:,:,tube) = imcrop(frame,[xmin ymins(tube) tubestruct.width-1 tubestruct.height-1]);
+        
         if (mod(i,100/(1/framerate))==0) || i == 1  % Write "frame" as keyframe
-            tubestruct.numKeys = tubestruct.numKeys +1;
-            mu = t(:,:,tube); % Set as current keyframe
-            tubestruct.keylocs(tube,end+1) = writeUFMFKeyFrame(tubestruct.fids...
-                (tube),mu,headerin.timestamps(i));
+            if tube==1
+                k_row = length(indexes.(['tube',num2str(tube)]).keyframe.mean.loc)+1;
+            end
+            % update background?
+                idx = sub2ind([tubestruct.height,tubestruct.width,256],ygrid(:),xgrid(:),double(tube_holder(:))+1);
+                bghist(idx) = bghist(idx) + 1;
+                
+                mu = zeros([tubestruct.height,tubestruct.width],'uint8');
+                z = zeros([tubestruct.height,tubestruct.width],'double');
+                thresh = nbgupdates/2;
+                isdone = false([tubestruct.height,tubestruct.width]);
+                for g = 1:256,
+                    z = z + bghist(:,:,g);
+                    idx = ~isdone & z >= thresh;
+                    mu(idx) = g-1;
+                    isdone(idx) = true;
+                    if all(isdone(:)),
+                        break;
+                    end
+                indexes.(['tube',num2str(tube)]).keyframe.mean.timestamp(k_row) = t; 
+                indexes.(['tube',num2str(tube)]).keyframe.mean.loc(k_row) = writeUFMFKeyFrame(tubestruct.fids(tube),mu,t);
+
+            end
+        
+%         if (mod(i,100/(1/framerate))==0) || i == 1  % Write "frame" as keyframe
+%             if tube==1
+%                 k_row = length(indexes.(['tube',num2str(tube)]).keyframe.mean.loc)+1;
+%             end
+%             indexes.(['tube',num2str(tube)]).keyframe.mean.timestamp(k_row) = t; 
+%             mu = t(:,:,tube); % Set as current keyframe
+%             indexes.(['tube',num2str(tube)]).keyframe.mean.loc(k_row) = writeUFMFKeyFrame...
+%                 (tubestruct.fids(tube),mu,t);
         else  % Write as normal frame
-            tubestruct.framelocs(tube,end+1) = writeUFMFFrame(tubestruct.fids...
-                (tube),t(:,:,tube),headerin.timestamps(i),mu,params);
+            if tube==1
+                f_row = length(indexes.(['tube',num2str(tube)]).frame.loc)+1;
+            end
+            indexes.(['tube',num2str(tube)]).frame.loc(f_row) = writeUFMFFrame(tubestruct.fids...
+                (tube),tube_holder(:,:,tube),t,mu,params);
+            indexes.(['tube',num2str(tube)]).frame.timestamp(f_row) = t;
         end
     end
     if (mod(i,50)==0)
-        fprintf('Completed frame %.f/%.f\n',i,headerin.nframes)
+        fprintf('Completed frame %.f/%.f\n',i,nframes)
     end
 end
 
-% Write index to file
+%% Split index into separate structs to pass into wrapup futubestruct.widthtion
+% for tube = 1:6
+%     indexes.(['tube',num2str(tube)]).frame.loc = indexes.frame.loc(:,tube);
+%     indexes.(['tube',num2str(tube)]).frame.timestamp = indexes.frame.timestamp(:,tube);
+%     indexes.(['tube',num2str(tube)]).keyframe.mean.loc = indexes.keyframe.mean.loc(:,tube);
+%     indexes.(['tube',num2str(tube)]).keyframe.mean.timestamp = indexes.keyframe.mean.timestamp(:,tube);
+% end
 
-% Rewrite header
+%%
+% Write index to file
+for file = 1:6
+    wrapupUFMF(tubestruct.fids(file),indexes.(['tube',num2str(file)]),tubestruct.indexloclocs(file));
+    fclose(tubestruct.fids(file));
+end
