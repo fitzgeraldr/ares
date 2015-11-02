@@ -48,7 +48,7 @@ endframe = min(inf,nframes);
 
 fprintf('Movie files created\nLoading frames\n');
 %% Loop through frames of input movie
-for i = 1:nframes
+for i = 1:50%nframes
 % Load frame
 	[frame,t] = readframe(i);
 
@@ -102,7 +102,7 @@ for i = 1:nframes
                 f_row = length(indexes.(['tube',num2str(tube)]).frame.loc)+1;
             end
             indexes.(['tube',num2str(tube)]).frame.loc(f_row) = writeUFMFFrame(tubestruct.fids...
-                (tube),uint8(tube_holder(:,:,tube)),t,mu,params);
+                (tube),tube_holder(:,:,tube),t,mu,params);
             indexes.(['tube',num2str(tube)]).frame.timestamp(f_row) = t;
         end
     end
