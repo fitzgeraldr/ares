@@ -1,5 +1,7 @@
+addpath('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\');
+
 fclose all;
-clear;clc
+clear; clc
 load('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTracking\src\ROI_coords.mat');
 
 % Set framerate so we know when 100 seconds have passed in movie
@@ -50,12 +52,12 @@ fprintf('Movie files created\nLoading frames\n');
 %% Loop through frames of input movie
 for i = 1:nframes
 % Load frame
-	[frame,t] = readframe(i);
+    [frame,t] = readframe(i);
 
 % Break into 6 tubes by cropping frame
     for tube = 1:6
         tube_holder(:,:,tube) = imcrop(frame,[xmin ymins(tube) tubestruct.width-1 tubestruct.height-1]);
-        
+
         if (mod(i,100/(1/framerate))==0) || i == 1  % Write "frame" as keyframe
             if tube==1
                 k_row = length(indexes.(['tube',num2str(tube)]).keyframe.mean.loc)+1;
@@ -64,7 +66,7 @@ for i = 1:nframes
                 idx = sub2ind([tubestruct.height,tubestruct.width,256],ygrid(:),xgrid(:),reshape(tube_holder(:,:,1),size(ygrid(:),1),1));
                 bghist(idx) = bghist(idx) + 1;
                 nbgupdates = nbgupdates+1;
-                
+
                 mu = zeros([tubestruct.height,tubestruct.width],'uint8');
                 z = zeros([tubestruct.height,tubestruct.width],'double');
                 thresh = nbgupdates/2;
@@ -87,8 +89,8 @@ for i = 1:nframes
                   bghist(:) = 0;
                   nbgupdates = 0;
                 end
-            
-        
+
+
 %         if (mod(i,100/(1/framerate))==0) || i == 1  % Write "frame" as keyframe
 %             if tube==1
 %                 k_row = length(indexes.(['tube',num2str(tube)]).keyframe.mean.loc)+1;
@@ -125,3 +127,5 @@ for file = 1:6
     wrapupUFMF(tubestruct.fids(file),indexes.(['tube',num2str(file)]),tubestruct.indexloclocs(file));
     fclose(tubestruct.fids(file));
 end
+
+fprintf('\nMovie completed\n');
