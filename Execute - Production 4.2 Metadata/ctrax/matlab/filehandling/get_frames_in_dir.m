@@ -49,16 +49,16 @@ end
 frame_diff_mat = cell2mat(frame_diff);
 
 %% get inter-frame interval (IFI)
-% figure;
-% for p = 1:length(ufmfmovies) % for each movie
-%     temp = [];
-%     temp_header = ufmf_read_header(ufmfmovies(p).name);
-%     for f = 2:frames_per_movie{p+1,4} % for each frame in the movie
-%         temp(f,1) = abs(temp_header.timestamps(f)-temp_header.timestamps(f-1));
-%     end
-%     subplot(numel(ufmfmovies),1,p); plot(1:frames_per_movie{p+1,4},temp);
-%     axis([-inf inf 0.0398 0.04011])
-% end
+figure;
+for p = 1:length(ufmfmovies) % for each movie
+    temp = [];
+    temp_header = ufmf_read_header(ufmfmovies(p).name);
+    for f = 2:frames_per_movie{p+1,4} % for each frame in the movie
+        temp(f,1) = abs(temp_header.timestamps(f)-temp_header.timestamps(f-1));
+    end
+    subplot(numel(ufmfmovies),1,p); plot(1:frames_per_movie{p+1,4},temp);
+    axis([-inf inf 0.0398 0.04011])
+end
 % subplot(p,1,1);title('day1test1')
 
 %% frames_per_movie = [{avimovienames;aviframes};{ufmfmovienames;ufmfframes}];
