@@ -1263,7 +1263,8 @@ switch scode(1)
                 disp(str)
             otherwise %start video file
                 fleatime=datestr(now,30); %fleacam
-                fleacam.setVideoFile(['fleacam_',get(gui.ExpName,'string'),'_',fleatime]);
+%                 fleacam.setVideoFile(['fleacam_',get(gui.ExpName,'string'),'_',fleatime]);
+                fleacam.setVideoFile(['fleacam_','_',fleatime]);
                 fleacam.getVideoFile
                 
                 str=[num2str(1000/scode(2)),'fps'];

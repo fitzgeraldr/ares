@@ -1418,8 +1418,8 @@ set(gui.Gain,'string',get(getselectedsource(gui.vi),'Gain'),'enable','on')
 set(gui.Shutter,'string',get(getselectedsource(gui.vi),'Shutter'),'enable','on')
 
 % fleacam.initializeCamera(50,'ufmf',[0,0,1280,1024],'Internal');
-% fleacam.loadConfiguration('bias_config.json');
-fleacam.initializeCamera();
+fleacam.loadConfiguration('flea3cam_config.json');
+% fleacam.initializeCamera(50,'ufmf',[0,0,1280,1024],'External');
 fleacam.startCapture();
 
 

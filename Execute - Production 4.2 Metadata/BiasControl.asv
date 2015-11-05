@@ -138,7 +138,7 @@ classdef BiasControl < handle
                 case 0
                     frameRate = 25;
                     movieFormat = 'ufmf';
-                    ROI = [0,0,1280,1024];
+                    ROI = varargin{3};
                     triggerMode = 'External';
                 case 1
                     frameRate = varargin{1};
@@ -177,8 +177,6 @@ classdef BiasControl < handle
             config.camera.properties.frameRate.autoActive = 0;
             config.camera.properties.frameRate.absoluteValue = frameRate;
             
-            config.display.rotation = 180;
-            
             %set shutter speed 
             shutterSpeed = 0.49823522567749023438;  %ms
             config.camera.properties.shutter.absoluteControl = 1;            
@@ -210,8 +208,9 @@ classdef BiasControl < handle
                 bgThreshold = 15;
                 config.logging.settings.ufmf.backgroundThreshold = bgThreshold;
                 config.logging.settings.ufmf.dilate.on = false;
-                config.logging.settings.ufmf.dilate.windowSize = 2;
-                config.logging.settings.ufmf.boxLength = 15;
+                    config.logging.settings.ufmf.dilate.on = false;
+                config.logging.settings.ufmf.dilate.on = false;
+
             end
             
             % Set ROI in configuration

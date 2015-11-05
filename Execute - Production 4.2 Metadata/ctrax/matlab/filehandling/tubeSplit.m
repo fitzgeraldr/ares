@@ -1,11 +1,18 @@
 function tubeSplit(movieDir)
+profile on
+if nargin < 1
+    movieDir = uigetdir('C:\Users\labadmin\Documents\bias_fc2_win64-v0.54','Select directory for .ufmf movies');
+end
 
 clc
 
-addpath('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\');
+addpath(genpath('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\'));
 cd(movieDir); movieList = dir('*.ufmf');
+%% Check if dir contains .ufmf movies
 
-for movie = 1:size(movieList,1)
+
+%%
+for movie = 1:1%size(movieList,1)
     fprintf('\nBeginning movie %d\n',movie);
     cd(movieDir); % Return to main directory
     fclose all; % Ensure previous files are closed
@@ -99,15 +106,6 @@ for movie = 1:size(movieList,1)
                       nbgupdates = 0;
                     end
 
-
-    %         if (mod(i,100/(1/framerate))==0) || i == 1  % Write "frame" as keyframe
-    %             if tube==1
-    %                 k_row = length(indexes.(['tube',num2str(tube)]).keyframe.mean.loc)+1;
-    %             end
-    %             indexes.(['tube',num2str(tube)]).keyframe.mean.timestamp(k_row) = t; 
-    %             mu = t(:,:,tube); % Set as current keyframe
-    %             indexes.(['tube',num2str(tube)]).keyframe.mean.loc(k_row) = writeUFMFKeyFrame...
-    %                 (tubestruct.fids(tube),mu,t);
             else  % Write as normal frame
                 if tube==1
                     f_row = length(indexes.(['tube',num2str(tube)]).frame.loc)+1;
@@ -130,3 +128,5 @@ for movie = 1:size(movieList,1)
 
     fprintf('\nMovie %d completed\n',movie);
 end
+profile off
+profile viewer

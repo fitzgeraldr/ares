@@ -16,16 +16,16 @@
         "properties" : {
             "autoExposure" : {
                 "absoluteControl" : false,
-                "absoluteValue" : 1.32196044921875,
+                "absoluteValue" : 1.9168701171875,
                 "autoActive" : false,
-                "on" : true,
+                "on" : false,
                 "onePush" : false,
                 "present" : true,
-                "value" : 480 
+                "value" : 725 
             },
             "brightness" : {
                 "absoluteControl" : false,
-                "absoluteValue" : 0.0,
+                "absoluteValue" : 1.5625,
                 "autoActive" : false,
                 "on" : true,
                 "onePush" : false,
@@ -42,22 +42,22 @@
                 "value" : 0 
             },
             "frameRate" : {
-                "absoluteControl" : false,
-                "absoluteValue" : 150.0,
-                "autoActive" : true,
-                "on" : true,
-                "onePush" : false,
-                "present" : true,
-                "value" : 480 
-            },
-            "gain" : {
-                "absoluteControl" : false,
-                "absoluteValue" : 13.243548393249511719,
+                "absoluteControl" : true,
+                "absoluteValue" : 50.0,
                 "autoActive" : false,
                 "on" : true,
                 "onePush" : false,
                 "present" : true,
-                "value" : 206 
+                "value" : 1624 
+            },
+            "gain" : {
+                "absoluteControl" : false,
+                "absoluteValue" : 0.0,
+                "autoActive" : false,
+                "on" : true,
+                "onePush" : false,
+                "present" : true,
+                "value" : 0 
             },
             "gamma" : {
                 "absoluteControl" : false,
@@ -114,22 +114,22 @@
                 "value" : 1024 
             },
             "shutter" : {
-                "absoluteControl" : false,
-                "absoluteValue" : 6.656646728515625,
-                "autoActive" : true,
+                "absoluteControl" : true,
+                "absoluteValue" : 0.49823522567749023438,
+                "autoActive" : false,
                 "on" : true,
                 "onePush" : false,
                 "present" : true,
-                "value" : 1042 
+                "value" : 78 
             },
             "temperature" : {
                 "absoluteControl" : false,
-                "absoluteValue" : 3.0553500652313232422,
+                "absoluteValue" : 3.0815999507904052734,
                 "autoActive" : false,
                 "on" : false,
                 "onePush" : false,
                 "present" : true,
-                "value" : 3055 
+                "value" : 3082 
             },
             "tilt" : {
                 "absoluteControl" : false,
@@ -178,7 +178,7 @@
                 "value" : 0 
             }
         },
-        "triggerType" : "Internal",
+        "triggerType" : "External",
         "vendor" : "Point Grey Research",
         "videoMode" : "Format7" 
     },
@@ -192,15 +192,15 @@
             "flipHorizontal" : false,
             "flipVertical" : false 
         },
-        "rotation" : 0,
+        "rotation" : 180,
         "updateFrequency" : 15.0 
     },
     "logging" : {
         "autoNamingOptions" : {
             "cameraIdentifier" : "CameraNumber",
-            "includeCameraIdentifier" : true,
-            "includeTimeAndDate" : true,
-            "includeVersionNumber" : true,
+            "includeCameraIdentifier" : false,
+            "includeTimeAndDate" : false,
+            "includeVersionNumber" : false,
             "timeAndDateFormat" : "'date'_yyyy_MM_dd_'time'_hh_mm_ss" 
         },
         "directory" : "C:/Users/labadmin/Videos",
@@ -219,12 +219,12 @@
                 "frameSkip" : 1 
             },
             "ufmf" : {
-                "backgroundThreshold" : 40,
-                "boxLength" : 30,
+                "backgroundThreshold" : 15,
+                "boxLength" : 15,
                 "compressionThreads" : 15,
                 "dilate" : {
-                    "on" : true,
-                    "windowSize" : 1 
+                    "on" : false,
+                    "windowSize" : 2 
                 },
                 "frameSkip" : 1,
                 "medianUpdateCount" : 100,
@@ -239,7 +239,7 @@
     "timer" : {
         "enabled" : false,
         "settings" : {
-            "duration" : 30 
+            "duration" : 300
         }
     }
 }

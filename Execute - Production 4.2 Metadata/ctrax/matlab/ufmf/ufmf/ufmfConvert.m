@@ -18,7 +18,7 @@
 % startframe, endframe: Limits on the frames to compress. Defaults: 1, inf.
 
 function [infiles,outfiles,paramsfile] = ufmfConvert(infiles,outfiles,paramsfile,varargin)
-
+profile on
 [DEBUG,hfig,~] = myparse_nocheck(varargin,'debug',1,'hfig',[]);
 
 if nargin < 1,
@@ -208,7 +208,14 @@ isuint8 = isa(im,'uint8');
 % create output file
 outfid = fopen(outfile,'wb');
 indexlocloc = writeUFMFHeader(outfid,nr,nc);
-
+index = struct;
+index.frame = struct;
+index.frame.loc = [];
+index.frame.timestamp = [];
+index.keyframe = struct;
+index.keyframe.mean = struct;
+index.keyframe.mean.loc = [];
+index.keyframe.mean.timestamp = [];
 
 % initialize background
 keyi = 1;
@@ -339,3 +346,5 @@ end
 if infid > 0 && ~isempty(fopen(infid)),
   fclose(infid);
 end
+profile off
+profile viewer
