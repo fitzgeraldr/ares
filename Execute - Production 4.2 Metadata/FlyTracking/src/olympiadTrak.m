@@ -46,19 +46,20 @@ if( params.updateBg | ~exist(params.bgFile))
     histScale = 4;
     %I_bg = bg(params.inputFile,params.frameIndices,histScale,params.bgFile, sbfmf_info);
     I_bg = bg_simple(params.inputFile,params.frameIndices,histScale,params.bgFile, params.bgThresh, sbfmf_info,ufmf_info);
+%     params.bgfile = I_bg;
 end
 
 %% select region of interest
-I_bg = imread(params.bgFile);
-if( params.updateRoi == 0 & exist(params.roiFile))
-    I_roi = imread(params.roiFile);
-else
-    if( params.updateRoi == 0) %then use whole image as ROI
+% I_bg = imread(params.bgFile);
+% if( params.updateRoi == 0 & exist(params.roiFile))
+%     I_roi = imread(params.roiFile);
+% else
+%     if( params.updateRoi == 0) %then use whole image as ROI
         I_roi = set_ROI_to_all(params, I_bg);
     %else   % update w. ROI info from txt file
         %I_roi %= 
-    end
-end
+%     end
+% end
 % save roi image
 imwrite(uint8(I_roi),params.roiFile);
 

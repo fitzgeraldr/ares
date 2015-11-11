@@ -5,10 +5,14 @@ function [Ibg,Shist] = bg_simple(inputFile,frameIndices,histScale,outputFile, bg
 
 numFrames = length(frameIndices);
 
-ufmf = 0;
+if isempty(ufmf_info)
+    ufmf = 0;
+else
+    ufmf = 1;
+end
 
 if isempty(sbfmf_info) % then compute a new bg image
-	if ~isufmf(inputFile) %non-fmf file
+% 	if ~ufmf %non-fmf file
 		image = load_image(inputFile, frameIndices(1), sbfmf_info,ufmf_info); 
 		
 		[rows,cols] = size((image));
@@ -28,14 +32,19 @@ if isempty(sbfmf_info) % then compute a new bg image
 		binNumber = 256/histScale;
 		Shist = uint8(zeros(rows,cols,binNumber));
 		h1 = waitbar(0,'Computing background image');
-
+        
     for f=1:length(imIndices),
-		if ~ufmf
-			image = load_image(inputFile, imIndices(f), sbfmf_info,ufmf_info); 
+% 		if ~ufmf
+% 			image = load_image(inputFile, imIndices(f), sbfmf_info,ufmf_info); 
 % 		elseif ufmf
 % 			image = ufmf_read_frame(ufmf_info,1);
-		end
+%         end
         
+        image = load_image(inputFile, imIndices(f), sbfmf_info,ufmf_info); 
+        %% debug
+%         imshow(image);
+%         pause(3)
+%%
 		image = floor(double((image))/histScale)+1;
         %%% output to a cxx (tried with sub2ind and it was slower)
         for r=1:rows,
@@ -51,9 +60,9 @@ if isempty(sbfmf_info) % then compute a new bg image
     [max_val,max_ind] = max(Shist,[],3);
     Ibg = max_ind*histScale;
     
-    elseif isufmf(inputFile) % ufmf file
-		Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTracking\src\testout\ufmf_bg.bmp');
-    end
+%     elseif isufmf(inputFile) % ufmf file
+% 		Ibg = imread('C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\FlyTracking\src\testout\ufmf_bg.bmp');
+%     end
 else
 	if ~ufmf
 		sbfmf_info.fid = fopen(inputFile, 'r' ); %this is where we put in handle to sbfmf
@@ -65,8 +74,8 @@ end
 
 if ~ufmf
 	imwrite(uint8(Ibg),outputFile);
-% elseif ufmf
-% 	imwrite(mat2gray(uint8(Ibg)),outputFile);
+elseif ufmf
+	imwrite(uint8(Ibg),outputFile);
 end
 
 

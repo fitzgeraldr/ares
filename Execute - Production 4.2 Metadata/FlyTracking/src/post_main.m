@@ -13,7 +13,8 @@ I_bg = imread(bgFile);
 % again - 
 %[I_roi] = find_roi(I_bg);
 
-temp_roi_file_name = [outputDir filesep 'roi.bmp'];
+% temp_roi_file_name = [outputDir filesep 'roi.bmp'];
+temp_roi_file_name = 'roi.bmp';
 I_roi = imread(temp_roi_file_name);   %$ put a try, catch here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

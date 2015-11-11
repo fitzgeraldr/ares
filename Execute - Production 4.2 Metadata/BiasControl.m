@@ -136,14 +136,14 @@ classdef BiasControl < handle
             
             switch nVarargs
                 case 0
-                    frameRate = 25;
+                    frameRate = 50;
                     movieFormat = 'ufmf';
                     ROI = [0,0,1280,1024];
                     triggerMode = 'External';
                 case 1
                     frameRate = varargin{1};
                     movieFormat = 'ufmf';
-                    ROI = varargin{3};
+                    ROI = [0,0,1280,1024];
                     triggerMode = 'Internal';
                 case 2
                     frameRate = varargin{1};

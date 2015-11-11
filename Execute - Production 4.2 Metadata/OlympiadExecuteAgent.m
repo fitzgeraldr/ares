@@ -959,7 +959,7 @@ else
                 seq.frates{i}=num2str(1000/action(seq.vidinds(i)).command(2));
                 
                 ff=fullfile(seq.dir,fname)
-                logger(i).aviobj=avifile(ff);
+                logger(i).aviobj=avifile(ff);              
                 logger(i).aviobj.Fps=1000/action(seq.vidinds(i)).command(2);
                 logger(i).aviobj.Compression='none';
                 logger(i).aviobj.Colormap=gray(256);
@@ -1263,9 +1263,8 @@ switch scode(1)
                 disp(str)
             otherwise %start video file
                 fleatime=datestr(now,30); %fleacam
-%                 fleacam.setVideoFile(['fleacam_',get(gui.ExpName,'string'),'_',fleatime]);
-                fleacam.setVideoFile(['fleacam_','_',fleatime]);
-                fleacam.getVideoFile
+                fleacam.setVideoFile(['fleacam_','_',seq.fnames{seq.i}]);
+%                 fleacam.getVideoFile
                 
                 str=[num2str(1000/scode(2)),'fps'];
                 set(gui.vidMode,'string','Recording','backgroundcolor','g')
