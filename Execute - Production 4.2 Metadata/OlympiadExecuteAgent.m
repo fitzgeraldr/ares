@@ -117,6 +117,7 @@ try
                         avifname=initTvidFile(expstate,experiment,gui);
                         disp('%setup logging for seek to target value-------')
                         start(gui.vi);
+
                         set(gui.vidMode,'string','Recording','backgroundcolor','g')
                         set(gui.vidFile,'string',[avifname,'.avi'])
                         set(gui.vidFrameRate,'string','25 Hz')
@@ -1098,6 +1099,7 @@ set(gui.MCU,'userdata',seq)
 if seq.i>length(seq.vidinds); stop(gui.vi); return; end
 
 if (seq.startTimes(seq.i)-3)<=get(gui.SeqTime,'userdata')
+
     set(gui.vidMode,'string','Recording','backgroundcolor','g')
     disp('In prepvid-------------------')
     %leave vi running
@@ -1224,7 +1226,7 @@ switch scode(1)
 %                     disp('agent line 1224')
 
                     %open video file
-                    fleacam.stopCapture()
+%                     fleacam.stopCapture()
                     
                 end
             end
@@ -1249,30 +1251,33 @@ switch scode(1)
             case 0 % end video file
                 disp('% end video file')
                 set(gui.vidMode,'string','Previewing','backgroundcolor','r')
+
                 
-                fleacam.stopCapture(); %fleacam
-                fleacam.disableLogging();
-                fleacam.startCapture();
                 
                 set(gui.vidFile,'string','')
                 set(gui.vidFrameRate,'string','')
                 targetFrames=scode(3)*256*256+scode(4)*256+scode(5);
                 str=['Video Acquisition Completed - ',num2str(targetFrames),' frames clocked by MCU '] ;
-                
+                 
+%                 pause(5)
+                fleacam.stopCapture(); %fleacam
+                fleacam.disableLogging();
+%                 fleacam.startCapture();
 
                 disp(str)
             otherwise %start video file
                 fleatime=datestr(now,30); %fleacam
                 fleacam.setVideoFile(['fleacam_','_',seq.fnames{seq.i}]);
-%                 fleacam.getVideoFile
-                
-                str=[num2str(1000/scode(2)),'fps'];
-                set(gui.vidMode,'string','Recording','backgroundcolor','g')
-                
+
                 fleacam.stopCapture();
                 fleacam.enableLogging();
                 fleacam.startCapture(); 
                 
+%                 pause(10)
+                str=[num2str(1000/scode(2)),'fps'];
+
+                set(gui.vidMode,'string','Recording','backgroundcolor','g')
+
                 set(gui.vidFile,'string',seq.fnames{seq.i})
                 set(gui.vidFrameRate,'string',str)
                 

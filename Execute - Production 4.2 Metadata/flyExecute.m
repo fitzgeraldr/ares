@@ -234,10 +234,10 @@ end
 logger=get(obj,'disklogger');
 if ~isempty(logger)
     logger=close(logger);
-    
-fleacam.stopCapture();
-fleacam.disableLogging();
-fleacam.disconnect(); %fleacam
+%     
+% fleacam.stopCapture();
+% fleacam.disableLogging();
+% fleacam.disconnect(); %fleacam
 end
 
 function TEMP_SAF(obj,event,fig)
@@ -1075,7 +1075,7 @@ gTEMP=imaqhwinfo('dcam'); %bascam
 for i=1:length(gTEMP.DeviceInfo)
     if strcmpi(gTEMP.DeviceInfo(i).DeviceName,'A602f')
         %% Open Point Grey Flea3 camera for control with BIAS 
-        !bias_gui_v0p54.lnk &
+        !bias_gui_v0p55.lnk &
         fleacam = BiasControl('127.0.0.1',5010); %fleacam
         pause(5)
         fleacam.connect();
@@ -1089,7 +1089,7 @@ for i=1:length(gTEMP.DeviceInfo)
 
 %         fleacam.stopCapture();
 %         fleacam.enableLogging();
-        fleacam.startCapture();
+%         fleacam.startCapture();
         
         break;
     end
@@ -1420,7 +1420,7 @@ set(gui.Shutter,'string',get(getselectedsource(gui.vi),'Shutter'),'enable','on')
 % fleacam.initializeCamera(50,'ufmf',[0,0,1280,1024],'Internal');
 % fleacam.loadConfiguration('bias_config.json');
 fleacam.initializeCamera();
-fleacam.startCapture();
+% fleacam.startCapture();
 
 
 %Set Presets
