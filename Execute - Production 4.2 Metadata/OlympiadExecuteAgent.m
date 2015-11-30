@@ -36,6 +36,7 @@ experiment=get(gui.SequenceOrder,'userdata');
 seq=get(gui.MCU,'userdata');
 expstate.dbstate = 0;
 
+
 %which sequence is running? (expstate.i)
 %are we in initialization? (expstate.sv==0)
 %are we in temp seeking?  (expstate.sv==1)
@@ -101,6 +102,9 @@ try
                         disp('Olympiad MCU Reset ERROR');
                     end
                     
+                    fleacam.initializeCamera();
+                    fleacam.enableLogging();
+                    
                     expstate.dbstate = 2;
                     
                     %Seek TEMPERATURE
@@ -116,8 +120,6 @@ try
                         %setup logging for seek to target value
                         avifname=initTvidFile(expstate,experiment,gui);
                         disp('%setup logging for seek to target value-------')
-                        %target 1
-%                         start(gui.vi);
 
                         set(gui.vidMode,'string','Recording','backgroundcolor','g')
                         set(gui.vidFile,'string',[avifname,'.avi'])
@@ -285,8 +287,21 @@ try
                     expstate.seqComplete=0;
                     gui.vi.tag='0';
                     expstate.BAFtime = 0;
+
+%                     fleaStatusFile = fopen('fleaStatus.txt','w');
+%                     fleatime=datestr(now,30); %fleacam
+%                     fleacam.setVideoFile(['fleacam_','_',seq.fnames{seq.i}]);
+                    fleaCheck = fleacam.getStatus();
+                    if (fleaCheck{1}.value.capturing || ~fleaCheck{1}.value.logging)
+                        fleacam.stopCapture();
+                        fleacam.enableLogging();
+                    end
+                    
+                    fleacam.startCapture();
+                    
                     set(obj,'userdata',expstate);
                     disp('Activating MCU')
+                                       
                     fwrite(gui.MCU,255); %clock start
                     %set(gui.MCU.Source,'WriteBuffer',255)
                     expstate.dbstate = 13;
@@ -295,6 +310,7 @@ try
                     disp('done loading and executing');
                     
                 case 1 %wait for experiment to complete, when complete, iterate expstate.i and goto case 1 or case 3, change active check block in experiment uitable
+
                     if expstate.seqComplete==1
                         %close video files
                         logger = get(gui.vi,'userdata');
@@ -346,7 +362,6 @@ try
                         expstate.tr=0;
                     end
                     
-                    
             end
         case 3
             %Cleanup entire experiment, save global data, notes, etc, return to
@@ -356,9 +371,23 @@ try
             disp('EXPERIMENT COMPLETED')
             set(gui.ExperimentGo,'backgroundcolor',[.9 .2 .2],'value',0)
             
+            %stop when experiment finished
+            fleacam.stopCapture();
+            fleacam.disableLogging();
+%             fleacam.disconnect();
+%             fleacam.connect();
+
+            % Save debugging data
+            % Move to ufmf movie location
+            expectedFrames_complete = seq.expectedFrames;
+            save([seq.dir filesep 'expectedFrames'],'expectedFrames_complete');
+            fleaStatus_complete = seq.fleaStatus;
+            save([seq.dir filesep 'fleaStatus'],'fleaStatus_complete');
             
             if strcmpi(gui.vi.Running,'on')
                 stop(gui.vi)
+                fleacam.stopCapture();
+                fleacam.disableLogging();
             end
             expstate.dbstate = 19;
             gui.MCU.bytesavailablefcn='';
@@ -927,6 +956,8 @@ action=experiment.actionlist(expstate.i).action;
 seq.vidTimes=[];
 seq.stopTimes=[];
 seq.vidinds=[];
+seq.expectedFrames = [];
+seq.fleaStatus = {};
 for i=1:length(action)
     if action(i).command(1)==3&&action(i).command(2)~=0
         seq.vidTimes=[seq.vidTimes,action(i).time];
@@ -960,12 +991,15 @@ else
                 seq.fnames{i}=fname;
                 seq.frates{i}=num2str(1000/action(seq.vidinds(i)).command(2));
                 
-                ff=fullfile(seq.dir,fname)
+                ff=fullfile(seq.dir,fname);
                 logger(i).aviobj=avifile(ff);              
                 logger(i).aviobj.Fps=1000/action(seq.vidinds(i)).command(2);
                 logger(i).aviobj.Compression='none';
                 logger(i).aviobj.Colormap=gray(256);
                 logger(i).targetFrames=seq.vidlength(i)/action(seq.vidinds(i)).command(2);
+                
+                seq.expectedFrames(end+1) = logger(i).targetFrames;
+                
                 if logger(i).targetFrames==round(logger(i).targetFrames)
                     logger(i).targetFrames=logger(i).targetFrames+1;
                 else
@@ -1010,8 +1044,8 @@ else
     
     %if first initialization is at t<=3 seconds, start video object in trigger mode
     if seq.startTimes(1)<=3
-        fleacam.stopCapture()
-        fleacam.enableLogging();
+%         fleacam.stopCapture()
+%         fleacam.enableLogging();
         fleacam.startCapture();
 
         %start location
@@ -1223,15 +1257,21 @@ switch scode(1)
         set(agent,'userdata',expstate)
         
         shifttime(gui,rawsec);
-        
+        seq.fleaStatus{end+1} = fleacam.getStatus;
         %Check to see if a video "start" is required
         try
             if length(seq.startTimes)>=(seq.i)
+%                 fleaCheck = fleacam.getStatus();
+                %force-start location
+                
                 if (seq.startTimes(seq.i)<=rawsec)&strcmpi(get(gui.vi,'running'),'off')
-                    %force-start location
 
-                    start(gui.vi)    
+                    start(gui.vi)
                 end
+%                 if (~fleaCheck{1}.value.capturing || ~fleaCheck{1}.value.logging)
+%                     fleacam.enableLogging;
+%                     fleacam.startCapture;
+%                 end
             end
         end
     case 0 %end sequence
@@ -1261,17 +1301,22 @@ switch scode(1)
                 set(gui.vidFrameRate,'string','')
                 targetFrames=scode(3)*256*256+scode(4)*256+scode(5);
                 str=['Video Acquisition Completed - ',num2str(targetFrames),' frames clocked by MCU '] ;
-                 
-%                 pause(5)
                 fleacam.stopCapture(); %fleacam
-                fleacam.disableLogging();
-%                 fleacam.startCapture();
-
+                % if last movie, disable logging before restarting
+%                 if seq.i~=length(seq.vidinds)
+%                     fleacam.startCapture();
+%                 end
+                fleacam.startCapture;
+                
                 disp(str)
             otherwise %start video file
-                fleatime=datestr(now,30); %fleacam
-                fleacam.setVideoFile(['fleacam_','_',seq.fnames{seq.i}]);
+%                 fleatime=datestr(now,30); %fleacam
+%                 fleacam.setVideoFile(['fleacam_','_',seq.fnames{seq.i}]);
 
+%                 fleacam.stopCapture(); %fleacam
+%                 fleacam.enableLogging();
+%                 fleacam.startCapture();
+                
                 str=[num2str(1000/scode(2)),'fps'];
 
                 set(gui.vidMode,'string','Recording','backgroundcolor','g')

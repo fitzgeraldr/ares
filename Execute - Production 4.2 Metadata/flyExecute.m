@@ -200,8 +200,6 @@ switch get(gui.ExperimentGo,'value') %bascam
         set(gui.vidMode,'string','Previewing','backgroundcolor','r') %bascam
         
         fleacam.stopCapture();
-        fleacam.disableLogging();
-        fleacam.startCapture();
         
         set(gui.vidFile,'string','')
         set(gui.vidFrameRate,'string','')
@@ -1079,17 +1077,13 @@ for i=1:length(gTEMP.DeviceInfo)
         fleacam = BiasControl('127.0.0.1',5010); %fleacam
         pause(5)
         fleacam.connect();
-
+        
         %Videoinput for clocked frames from MCU
         gui.vi=videoinput('dcam',gTEMP.DeviceInfo(i).DeviceID,'F7_Y8_656x491');
         gui.vi.framespertrigger=1;
         gui.vi.triggerrepeat=inf;
         triggerconfig(gui.vi,'hardware','risingEdge','externalTrigger')
         gui.vi.startfcn='disp(''Video System Started'')';
-
-%         fleacam.stopCapture();
-%         fleacam.enableLogging();
-%         fleacam.startCapture();
         
         break;
     end
@@ -1419,7 +1413,6 @@ set(gui.Shutter,'string',get(getselectedsource(gui.vi),'Shutter'),'enable','on')
 
 % fleacam.initializeCamera(50,'ufmf',[0,0,1280,1024],'Internal');
 % fleacam.loadConfiguration('bias_config.json');
-fleacam.initializeCamera();
 % fleacam.startCapture();
 
 

@@ -9,7 +9,7 @@
     <exp_datetime appear_advanced="true" appear_basic="true"
         datatype="datetime" default=""
         description="Date and time the assay was run." entry="manual"
-        last="20151109T114012" range_advanced="" range_basic=""
+        last="20151125T082855" range_advanced="" range_basic=""
         required="true" units=""/>
     <experimenter appear_advanced="true" appear_basic="true"
         datatype="string" default="$LAST"
@@ -105,7 +105,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -116,7 +116,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
@@ -241,7 +241,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -252,7 +252,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
@@ -377,7 +377,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -388,7 +388,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
@@ -513,7 +513,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -524,7 +524,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
@@ -649,7 +649,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -660,7 +660,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
@@ -785,7 +785,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -796,7 +796,7 @@
             <flip_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was flipped to generate this set of flies."
-                entry="manual" last="20151010T000000"
+                entry="manual" last="20151107T000000"
                 range_advanced="[now-30,now-5], days"
                 range_basic="[now-30,now-5], days" required="true" units=""/>
             <num_flies appear_advanced="true" appear_basic="true"
