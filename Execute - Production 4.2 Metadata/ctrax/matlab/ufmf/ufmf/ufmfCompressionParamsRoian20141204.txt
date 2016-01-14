@@ -19,9 +19,9 @@ UFMFBGUpdatePeriod = 1
 # number of seconds between spitting out a new background model
 UFMFBGKeyFramePeriod = 100
 # max length of box stored during compression
-UFMFMaxBoxLength = 5
+UFMFMaxBoxLength = 15
 # threshold for background subtraction
-UFMFBackSubThresh = 25
+UFMFBackSubThresh = 15
 # low threshold for dilation + background subtraction
 UFMFBackSubThreshLow = 5
 # first nFramesInit we always update the background model
@@ -29,8 +29,8 @@ UFMFNFramesInit = 100
 # while ramping up the background model, use the following keyframe periods
 UFMFBGKeyFramePeriodInit = 1,10,25,50,75
 # number of threads
-UFMFNThreads = 6
+UFMFNThreads = 15
 # radius for dilation of background
-UFMFDilateRadius = 5
+UFMFDilateRadius = 2
 # minimum connected component size
 UFMFMinConnCompSize = 50

@@ -46,7 +46,8 @@ for iter = 1:niters,
   
   for ii = 1:bgnframes,
     tt = framessample(ii);
-    im1 = double(rgb2gray(readframe(tt)));
+%     im1 = double(rgb2gray(readframe(tt)));
+    im1 = double(readframe(tt));
     imbuf(:,1:nccurr,ii) = im1(roi(3):roi(4),coff+c0:coff+c1);
   end
   

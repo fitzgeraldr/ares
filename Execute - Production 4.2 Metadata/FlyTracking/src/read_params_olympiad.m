@@ -150,7 +150,7 @@ switch numel(dRunData)
         fprintf(1,'Found multiple RunData files. Using default parameters in ''%s''.\n',paramFile);
 end
 
-    
+fprintf('\ncurrent pixtomm ratio is %f\n',params.pixToMm)
 %%%% prepare output dir
 if( ~exist(params.outputDir) )
     error('The output folder does not exist and should')

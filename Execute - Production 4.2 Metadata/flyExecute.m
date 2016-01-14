@@ -1073,7 +1073,7 @@ gTEMP=imaqhwinfo('dcam'); %bascam
 for i=1:length(gTEMP.DeviceInfo)
     if strcmpi(gTEMP.DeviceInfo(i).DeviceName,'A602f')
         %% Open Point Grey Flea3 camera for control with BIAS 
-        !bias_gui_v0p55.lnk &
+        !bias_gui_v0p57.lnk &
         fleacam = BiasControl('127.0.0.1',5010); %fleacam
         pause(5)
         fleacam.connect();

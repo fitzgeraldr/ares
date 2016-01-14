@@ -1261,17 +1261,11 @@ switch scode(1)
         %Check to see if a video "start" is required
         try
             if length(seq.startTimes)>=(seq.i)
-%                 fleaCheck = fleacam.getStatus();
                 %force-start location
-                
                 if (seq.startTimes(seq.i)<=rawsec)&strcmpi(get(gui.vi,'running'),'off')
 
                     start(gui.vi)
                 end
-%                 if (~fleaCheck{1}.value.capturing || ~fleaCheck{1}.value.logging)
-%                     fleacam.enableLogging;
-%                     fleacam.startCapture;
-%                 end
             end
         end
     case 0 %end sequence

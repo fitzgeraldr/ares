@@ -1,2 +1,2 @@
 Success 1 
-Median number flies tracked 11 
+Median number flies tracked 4 

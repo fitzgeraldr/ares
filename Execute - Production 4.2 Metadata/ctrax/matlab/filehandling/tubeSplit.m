@@ -1,5 +1,5 @@
 function tubeSplit(movieDir,paramFile)
-profile on
+% profile on
 
 clc
 if nargin < 2 % change to uigetdir?
@@ -28,7 +28,7 @@ end
 tube_holder = zeros(tubestruct.height,tubestruct.width,6);
 
 % Initialize index struct of index structs
-for tube_index = 1:6
+for tube_index = 1%1:6
     indexes.(['tube', num2str(tube_index)]).frame = struct;
     indexes.(['tube', num2str(tube_index)]).frame.loc = [];
     indexes.(['tube', num2str(tube_index)]).frame.timestamp = [];
@@ -42,7 +42,7 @@ end
 tubestruct.fids = zeros(6,1); tubestruct.indexloclocs = zeros(6,1);
 
 %% Processing
-for movie = 1:size(movieList,1)
+for movie = 3%1:size(movieList,1)
     fprintf('\nBeginning movie %d\n',movie);
     cd(movieDir); % Return to main directory
     fclose all; % Ensure previous files are closed
@@ -137,8 +137,15 @@ for movie = 1:size(movieList,1)
         wrapupUFMF(tubestruct.fids(file),indexes.(['tube',num2str(file)]),tubestruct.indexloclocs(file));
         fclose(tubestruct.fids(file));
     end
-
+    
     fprintf('\nMovie %d completed\n',movie);
 end
-profile off
-profile viewer
+
+fprintf('\nCompressing movies\n',movie)
+infiles = {[curr_dir filesep 'tube1.ufmf'],[curr_dir filesep 'tube2.ufmf'],[curr_dir filesep 'tube3.ufmf'] ...
+    [curr_dir filesep 'tube4.ufmf'],[curr_dir filesep 'tube5.ufmf'],[curr_dir filesep 'tube6.ufmf']};
+outfiles = {[curr_dir filesep 'tube1c.ufmf'],[curr_dir filesep 'tube2c.ufmf'],[curr_dir filesep 'tube3c.ufmf'] ...
+    [curr_dir filesep 'tube4c.ufmf'],[curr_dir filesep 'tube5c.ufmf'],[curr_dir filesep 'tube6c.ufmf']};
+ufmfConvert(infiles,outfiles,'C:\Users\labadmin\Desktop\ares\Execute - Production 4.2 Metadata\ctrax\matlab\ufmf\ufmf\ufmfCompressionParamsRoian20141204.txt')
+% profile off
+% profile viewer

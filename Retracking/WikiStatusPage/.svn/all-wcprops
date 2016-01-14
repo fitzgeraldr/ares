@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage
+END
+myglob.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage/myglob.py
+END
+wikiconfig.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage/wikiconfig.py
+END
+wikilib.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage/wikilib.py
+END
+status.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage/status.py
+END
+update_status.sh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/flyolympiad/projects/box/!svn/ver/17/Pipeline/Trunk/WikiStatusPage/update_status.sh
+END

@@ -207,7 +207,7 @@ classdef BiasControl < handle
                 config.logging.settings.avi.frameSkip = 1;
                 config.logging.settings.avi.codec = 'NONE';
             elseif strcmp(movieFormat, 'ufmf')
-                bgThreshold = 15;
+                bgThreshold = 40;
                 config.logging.settings.ufmf.backgroundThreshold = bgThreshold;
                 config.logging.settings.ufmf.dilate.on = false;
                 config.logging.settings.ufmf.dilate.windowSize = 2;

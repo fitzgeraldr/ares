@@ -46,7 +46,7 @@ updateBg         1
 updateRoi	0	
 displayTracking   0
 tubeToProcess     -1
-pixToMm      8.387
+pixToMm      0.1234
 frameRate   25
 moveThresh  1
 maxObjNum   15
